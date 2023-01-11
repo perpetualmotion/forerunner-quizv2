@@ -109,6 +109,8 @@ $(
     if ($(this.attr("hide-question-710") == true)) {
       document.getElementById("j7").hide();
       document.getElementById("j10").hide();
+    } else {
+      //nothing
     }
   })
 );
@@ -118,6 +120,8 @@ $(
     if ($(this.attr("hide-question-89") == true)) {
       document.getElementById("j8").hide();
       document.getElementById("j9").hide();
+    } else {
+      //nothing
     }
   })
 );
