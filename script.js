@@ -107,9 +107,10 @@ $(
     }
   })
 );
+
 //Hide j7 + 710
 $(
-  "[data-type='checkbox']".on("click", function () {
+  "[type='checkbox']".on("click", function () {
     if ($(this).find("input").prop("checked") == true) {
       if ($(this).attr("hide-question-710")) {
         document.getElementById("j7").hide();
@@ -123,7 +124,7 @@ $(
 
 //Hide j8 + j9
 $(
-  "[data-type='checkbox']".on("click", function () {
+  "[type='checkbox']".on("click", function () {
     if ($(this).find("input").prop("checked") == true) {
       if ($(this).attr("hide-question-89")) {
         document.getElementById("j8").hide();
@@ -137,7 +138,7 @@ $(
 
 //Hide Page 3 + 4 if answer to j3 == j3.6 or j3.7
 $(
-  "[data-type='checkbox']".on("click", function () {
+  "[type='checkbox']".on("click", function () {
     if ($(this).find("input").prop("checked") == true) {
       if ($(this).val() == "j3-6" || "j3-7") {
         document.getElementById("page-3").hide();
