@@ -109,7 +109,7 @@ $("[type='checkbox']").on("click", function () {
 //Hide j7 + 710
 $("[type='checkbox']").on("click", function () {
   if ($(this).find("input").prop("checked") == true) {
-    if ($(this).attr("hide-question-710")) {
+    if ($(this).attr("hide-question-710") == "1") {
       document.getElementById("j7").hide();
       document.getElementById("j10").hide();
     } else {
