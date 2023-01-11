@@ -97,11 +97,13 @@ $("[data-clear-target]").on("click", function () {
 $(
   "[type='checkbox']".on("click", function () {
     if ($(this).find("input").prop("checked") == true) {
-      if ($(this).attr("hide-question-6")) {
-        document.getElementById("j6").hide();
-      } else {
-        console.log("Error hiding question 6");
-      }
+      if ($(this).attr("hide-question-6"))
+        if (document.getElementById("j3-1")) {
+          document.getElementById("j6").hide();
+          console.log("Question 6 has been hidden!");
+        } else {
+          console.log("Error hiding question 6");
+        }
     }
   })
 );
