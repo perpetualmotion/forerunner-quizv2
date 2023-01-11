@@ -96,7 +96,7 @@ $("[data-clear-target]").on("click", function () {
 //Hide j6
 $(
   "[hide-question-6]".on("click", function () {
-    if ($(this).attr("hide-question-6") == true) {
+    if ($(this).attr("hide-question-6")) {
       document.getElementById("j6").hide();
     } else {
       //nothing
@@ -106,32 +106,23 @@ $(
 //Hide j7 + 710
 $(
   "[data-type='checkbox']".on("click", function () {
-    if ($(this).attr("hide-question-710") == true) {
+    if ($(this).attr("hide-question-710")) {
       document.getElementById("j7").hide();
       document.getElementById("j10").hide();
-    } else {
-      //nothing
-    }
-  })
-);
-//Hide j8 + j9
-$(
-  "[data-type='checkbox']".on("click", function () {
-    if ($(this).attr("hide-question-89") == true) {
-      document.getElementById("j8").hide();
-      document.getElementById("j9").hide();
     } else {
       //nothing
     }
   })
 );
 
-//Hide j7
+//Hide j8 + j9
 $(
   "[data-type='checkbox']".on("click", function () {
-    if ($(this).val() !== "j3-4") {
-      document.getElementById("j7").hide();
-      document.getElementById("j10").hide();
+    if ($(this).attr("hide-question-89")) {
+      document.getElementById("j8").hide();
+      document.getElementById("j9").hide();
+    } else {
+      //nothing
     }
   })
 );
@@ -161,65 +152,14 @@ $(
   })
 );
 
-//Select up to 5 option
-
-//j6 is hidden if j5 answer is j5.1 or j5.8
-//does j5 need a value of data-question for this logic to work?
-// $("[data-question]").on("click", function () {
-//   if ($(this).attr("data-question") === "q30") {
-//     if ($(this).attr("data-answer") === "j5-1" || "j5-8") {
-//       document.getElementById("j6").style.visibility = "hidden";
-//     }
-//   }
-// });
-
-// //j7 is hidden if j3 is not j3.4 OR if j3 is j3.6 or j3.7
-// $("[data-question]").on("click", function () {
-//   if ($(this).attr("data-question") === "q12") {
-//     if ($(this).attr("data-answer") !== "j3-4") {
-//       $("[label=3 of 8]").hide();
-//     }
-//     if ($(this).attr("data-answer") === "j3-6" || "j3-7") {
-//       $("[label=3 of 8]").hide();
-//     }
-//   }
-// });
-
-// //j8 is hidden if j3 is not 3.1, 3.2, 3.3 or 3.5
-// $("[data-question]").on("click", function () {
-//   if ($(this).attr("data-question") === "q12") {
-//     if ($(this).attr("data-answer") !== "j3-1" || "j3-2" || "j3-3" || "j3-5") {
-//       document.getElementById("j8").style.visibility = "hidden";
-//     }
-//   }
-// });
-
-// //j9 is hidden if j3 is not 3.1, 3.2, 3.3, or 3.5
-// $("[data-question]").on("click", function () {
-//   if ($(this).attr("data-question") === "q12") {
-//     if ($(this).attr("data-answer") !== "j3-1" || "j3-2" || "j3-3" || "j3-5") {
-//       document.getElementById("j9").style.visibility = "hidden";
-//     }
-//   }
-// });
-
-// //j10 is hidden if j3 is not j3.4
-// $("[data-question]").on("click", function () {
-//   if ($(this).attr("data-question") === "q12") {
-//     if ($(this).attr("data-answer") !== "j3-4") {
-//       document.getElementById("j10").style.visibility = "hidden";
-//     }
-//   }
-// });
-
-// //Page 4 is hidden if j3 answer is j3.6 or j3.7
-// //Can't hide questions individually need to hide the full page
+//Hide j7 + j10 unsure about this
 // $(
-//   "[data-question]".on("click", function () {
-//     if ($(this).attr("data-question") === "q12") {
-//       if ($(this).attr("data-answer") === "j3.6" || "j3.7") {
-//         $("[label=4 of 8]").hide();
+//     "[data-type='checkbox']".on("click", function () {
+//       if ($(this).val() !== "j3-4") {
+//         document.getElementById("j7").hide();
+//         document.getElementById("j10").hide();
 //       }
-//     }
-//   })
+//     })
 // );
+
+//Select up to 5 option
