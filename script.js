@@ -99,7 +99,7 @@ $(
     if ($(this).attr("hide-question-6")) {
       document.getElementById("j6").hide();
     } else {
-      //nothing
+      console.log("Error hiding question 6");
     }
   })
 );
@@ -110,7 +110,7 @@ $(
       document.getElementById("j7").hide();
       document.getElementById("j10").hide();
     } else {
-      //nothing
+      console.log("Error hiding questions 7 & 10");
     }
   })
 );
@@ -122,7 +122,7 @@ $(
       document.getElementById("j8").hide();
       document.getElementById("j9").hide();
     } else {
-      //nothing
+      console.log("Error hiding questions 8 & 9");
     }
   })
 );
@@ -133,6 +133,8 @@ $(
     if ($(this).val() == "j3-6" || "j3-7") {
       document.getElementById("page-3").hide();
       document.getElementById("page-4").hide();
+    } else {
+      console.log("Error hiding Pages 3 & 4");
     }
   })
 );
@@ -144,8 +146,10 @@ $(
     //validate if regex attr is true or not
     if ($(this).val().match($(this).attr("pattern"))) {
       document.getElementsByClassName("quiz-error-message").hide();
+      console.log("Error for Input field set to hidden");
     } else {
       document.getElementsByClassName("quiz-error-message").show();
+      console.log("Error for Input field set to display");
       //disable next button
       $(".next-button-quiz").prop("disabled", true);
     }
