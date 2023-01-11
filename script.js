@@ -105,8 +105,8 @@ $(
 );
 //Hide j7 + 710
 $(
-  "[hide-question-710]".on("click", function () {
-    if ($(this.attr("hide-question-710") == true)) {
+  "[data-type='checkbox']".on("click", function () {
+    if ($(this).attr("hide-question-710") == true) {
       document.getElementById("j7").hide();
       document.getElementById("j10").hide();
     } else {
@@ -116,8 +116,8 @@ $(
 );
 //Hide j8 + j9
 $(
-  "[hide-question-89]".on("click", function () {
-    if ($(this.attr("hide-question-89") == true)) {
+  "[data-type='checkbox']".on("click", function () {
+    if ($(this).attr("hide-question-89") == true) {
       document.getElementById("j8").hide();
       document.getElementById("j9").hide();
     } else {
@@ -126,13 +126,38 @@ $(
   })
 );
 
-//Input type questions have characters between 0-24
-//^(0?[0-9]|1[0-9]|2[0-4])$
+//Hide j7
 $(
-  "[data-type=input]".on("onfocusout", function () {
-    //validate if regex is true or not
-    //toggle webflow error field attr
-    //cannot navigate to next page
+  "[data-type='checkbox']".on("click", function () {
+    if ($(this).val() !== "j3-4") {
+      document.getElementById("j7").hide();
+      document.getElementById("j10").hide();
+    }
+  })
+);
+
+//Hide Page 3 + 4 if answer to j3 == j3.6 or j3.7
+$(
+  "[data-type='checkbox']".on("click", function () {
+    if ($(this).val() == "j3-6" || "j3-7") {
+      document.getElementById("page-3").hide();
+      document.getElementById("page-4").hide();
+    }
+  })
+);
+
+//Input type questions have characters between 0-24
+//regex ^(0?[0-9]|1[0-9]|2[0-4])$
+$(
+  "[data-type='input']".on("onfocusout", function () {
+    //validate if regex attr is true or not
+    if ($(this).val().match($(this).attr("pattern"))) {
+      document.getElementsByClassName("quiz-error-message").hide();
+    } else {
+      document.getElementsByClassName("quiz-error-message").show();
+      //disable next button
+      $(".next-button-quiz").prop("disabled", true);
+    }
   })
 );
 
