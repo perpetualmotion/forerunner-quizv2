@@ -94,80 +94,70 @@ $("[data-clear-target]").on("click", function () {
 //Branching Logic //
 
 //Hide j6
-$(
-  "[type='checkbox']".on("click", function () {
-    if ($(this).find("input").prop("checked") == true) {
-      if ($(this).attr("hide-question-6"))
-        if (document.getElementById("j3-1")) {
-          document.getElementById("j6").hide();
-          console.log("Question 6 has been hidden!");
-        } else {
-          console.log("Error hiding question 6");
-        }
-    }
-  })
-);
+$("[type='checkbox']").on("click", function () {
+  if ($(this).find("input").prop("checked") == true) {
+    if ($(this).attr("hide-question-6"))
+      if (document.getElementById("j3-1")) {
+        document.getElementById("j6").hide();
+        console.log("Question 6 has been hidden!");
+      } else {
+        console.log("Error hiding question 6");
+      }
+  }
+});
 
 //Hide j7 + 710
-$(
-  "[type='checkbox']".on("click", function () {
-    if ($(this).find("input").prop("checked") == true) {
-      if ($(this).attr("hide-question-710")) {
-        document.getElementById("j7").hide();
-        document.getElementById("j10").hide();
-      } else {
-        console.log("Error hiding questions 7 & 10");
-      }
+$("[type='checkbox']").on("click", function () {
+  if ($(this).find("input").prop("checked") == true) {
+    if ($(this).attr("hide-question-710")) {
+      document.getElementById("j7").hide();
+      document.getElementById("j10").hide();
+    } else {
+      console.log("Error hiding questions 7 & 10");
     }
-  })
-);
+  }
+});
 
 //Hide j8 + j9
-$(
-  "[type='checkbox']".on("click", function () {
-    if ($(this).find("input").prop("checked") == true) {
-      if ($(this).attr("hide-question-89")) {
-        document.getElementById("j8").hide();
-        document.getElementById("j9").hide();
-      } else {
-        console.log("Error hiding questions 8 & 9");
-      }
+$("[type='checkbox']").on("click", function () {
+  if ($(this).find("input").prop("checked") == true) {
+    if ($(this).attr("hide-question-89")) {
+      document.getElementById("j8").hide();
+      document.getElementById("j9").hide();
+    } else {
+      console.log("Error hiding questions 8 & 9");
     }
-  })
-);
+  }
+});
 
 //Hide Page 3 + 4 if answer to j3 == j3.6 or j3.7
-$(
-  "[type='checkbox']".on("click", function () {
-    if ($(this).find("input").prop("checked") == true) {
-      if ($(this).val() == "j3-6" || "j3-7") {
-        document.getElementById("page-3").hide();
-        document.getElementById("page-4").hide();
-      } else {
-        console.log("Error hiding Pages 3 & 4");
-      }
+$("[type='checkbox']").on("click", function () {
+  if ($(this).find("input").prop("checked") == true) {
+    if ($(this).val() == "j3-6" || "j3-7") {
+      document.getElementById("page-3").hide();
+      document.getElementById("page-4").hide();
+    } else {
+      console.log("Error hiding Pages 3 & 4");
     }
-  })
-);
+  }
+});
 
 //Input type questions have characters between 0-24
 //regex ^(0?[0-9]|1[0-9]|2[0-4])$
-$(
-  "[data-type='input']".on("onfocusout", function () {
-    //validate if regex attr is true or not
-    if ($(this).val().match($(this).attr("pattern"))) {
-      document.getElementsByClassName("quiz-error-message").hide();
-      console.log("Error for Input field set to hidden");
-    } else {
-      document.getElementsByClassName("quiz-error-message").show();
-      console.log("Error for Input field set to display");
-      //disable next button
-      $(".next-button-quiz").prop("disabled", true);
-    }
-  })
-);
+$("[data-type='input']").on("onfocusout", function () {
+  //validate if regex attr is true or not
+  if ($(this).val().match($(this).attr("pattern"))) {
+    document.getElementsByClassName("quiz-error-message").hide();
+    console.log("Error for Input field set to hidden");
+  } else {
+    document.getElementsByClassName("quiz-error-message").show();
+    console.log("Error for Input field set to display");
+    //disable next button
+    $(".next-button-quiz").prop("disabled", true);
+  }
+});
 
-console.log("Script is working!")
+console.log("Script is working!");
 
 //Branching Logic //
 
