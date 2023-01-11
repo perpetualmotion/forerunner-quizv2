@@ -91,7 +91,7 @@ $("[data-clear-target]").on("click", function () {
   });
 });
 
-//Branching Logic ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Branching Logic //
 
 //Hide j6
 $(
@@ -155,6 +155,8 @@ $(
     }
   })
 );
+
+//Branching Logic //
 
 //Disable back button
 
