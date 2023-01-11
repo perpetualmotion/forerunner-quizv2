@@ -94,7 +94,7 @@ $("[data-clear-target]").on("click", function () {
 //Branching Logic //
 
 //Hide j6
-$("[type='checkbox']").on("click", function () {
+$("[data-type='checkbox']").on("click", function () {
   if ($(this).find("input").prop("checked") == true) {
     if ($(this).attr("hide-question-6"))
       if (document.getElementById("j3-1")) {
@@ -107,7 +107,7 @@ $("[type='checkbox']").on("click", function () {
 });
 
 //Hide j7 + 710
-$("[type='checkbox']").on("click", function () {
+$("[data-type='checkbox']").on("click", function () {
   if ($(this).find("input").prop("checked") == true) {
     if ($(this).attr("hide-question-710") == "1") {
       document.getElementById("j7").hide();
@@ -119,7 +119,7 @@ $("[type='checkbox']").on("click", function () {
 });
 
 //Hide j8 + j9
-$("[type='checkbox']").on("click", function () {
+$("[data-type='checkbox']").on("click", function () {
   if ($(this).find("input").prop("checked") == true) {
     if ($(this).attr("hide-question-89")) {
       document.getElementById("j8").hide();
@@ -131,7 +131,7 @@ $("[type='checkbox']").on("click", function () {
 });
 
 //Hide Page 3 + 4 if answer to j3 == j3.6 or j3.7
-$("[type='checkbox']").on("click", function () {
+$("[data-type='checkbox']").on("click", function () {
   if ($(this).find("input").prop("checked") == true) {
     if ($(this).val() == "j3-6" || "j3-7") {
       document.getElementById("page-3").hide();
@@ -157,7 +157,7 @@ $("[data-type='input']").on("onfocusout", function () {
   }
 });
 
-console.log("Script is working!");
+console.log("SCRIPT IS WORKING!");
 
 //Branching Logic //
 
