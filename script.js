@@ -95,7 +95,7 @@ $("[data-clear-target]").on("click", function () {
 
 //Hide j6
 $(
-  "[hide-question-6]".on("click", function () {
+  "[data-type='checkbox']".on("click", function () {
     if ($(this).attr("hide-question-6")) {
       document.getElementById("j6").hide();
     } else {
