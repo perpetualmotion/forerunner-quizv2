@@ -95,22 +95,26 @@ $("[data-clear-target]").on("click", function () {
 
 //Hide j6
 $(
-  "[data-type='checkbox']".on("click", function () {
-    if ($(this).attr("hide-question-6")) {
-      document.getElementById("j6").hide();
-    } else {
-      console.log("Error hiding question 6");
+  "[type='checkbox']".on("click", function () {
+    if ($(this).find("input").prop("checked") == true) {
+      if ($(this).attr("hide-question-6")) {
+        document.getElementById("j6").hide();
+      } else {
+        console.log("Error hiding question 6");
+      }
     }
   })
 );
 //Hide j7 + 710
 $(
   "[data-type='checkbox']".on("click", function () {
-    if ($(this).attr("hide-question-710")) {
-      document.getElementById("j7").hide();
-      document.getElementById("j10").hide();
-    } else {
-      console.log("Error hiding questions 7 & 10");
+    if ($(this).find("input").prop("checked") == true) {
+      if ($(this).attr("hide-question-710")) {
+        document.getElementById("j7").hide();
+        document.getElementById("j10").hide();
+      } else {
+        console.log("Error hiding questions 7 & 10");
+      }
     }
   })
 );
@@ -118,11 +122,13 @@ $(
 //Hide j8 + j9
 $(
   "[data-type='checkbox']".on("click", function () {
-    if ($(this).attr("hide-question-89")) {
-      document.getElementById("j8").hide();
-      document.getElementById("j9").hide();
-    } else {
-      console.log("Error hiding questions 8 & 9");
+    if ($(this).find("input").prop("checked") == true) {
+      if ($(this).attr("hide-question-89")) {
+        document.getElementById("j8").hide();
+        document.getElementById("j9").hide();
+      } else {
+        console.log("Error hiding questions 8 & 9");
+      }
     }
   })
 );
@@ -130,11 +136,13 @@ $(
 //Hide Page 3 + 4 if answer to j3 == j3.6 or j3.7
 $(
   "[data-type='checkbox']".on("click", function () {
-    if ($(this).val() == "j3-6" || "j3-7") {
-      document.getElementById("page-3").hide();
-      document.getElementById("page-4").hide();
-    } else {
-      console.log("Error hiding Pages 3 & 4");
+    if ($(this).find("input").prop("checked") == true) {
+      if ($(this).val() == "j3-6" || "j3-7") {
+        document.getElementById("page-3").hide();
+        document.getElementById("page-4").hide();
+      } else {
+        console.log("Error hiding Pages 3 & 4");
+      }
     }
   })
 );
