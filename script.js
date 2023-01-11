@@ -156,14 +156,6 @@ $(
   })
 );
 
-//Hide j7 + j10 unsure about this
-// $(
-//     "[data-type='checkbox']".on("click", function () {
-//       if ($(this).val() !== "j3-4") {
-//         document.getElementById("j7").hide();
-//         document.getElementById("j10").hide();
-//       }
-//     })
-// );
+//Disable back button
 
 //Select up to 5 option
