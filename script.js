@@ -167,6 +167,8 @@ $(
   })
 );
 
+console.log("Script is working!")
+
 //Branching Logic //
 
 //Disable back button
