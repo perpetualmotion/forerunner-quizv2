@@ -157,7 +157,7 @@ $("[data-type='input']").on("onfocusout", function () {
   }
 });
 
-console.log("SCRIPT IS WORKING!");
+console.log("Script is working... I think!");
 
 //Branching Logic //
 
