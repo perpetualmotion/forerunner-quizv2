@@ -94,51 +94,63 @@ $("[data-clear-target]").on("click", function () {
 //Branching Logic //
 
 //Hide j6
+// $("[data-type='checkbox']").on("click", function () {
+//   if ($(this).find("input").prop("checked") == true) {
+//     if ($(this).attr("hide-question-6"))
+//       if (document.getElementById("j5-1")) {
+//         document.getElementById("j6").hide();
+//         console.log("Question 6 has been hidden!");
+//       } else {
+//         console.log("Error hiding question 6");
+//       }
+//   } else {
+//     console.log("Error checking j6!");
+//   }
+// });
+//Hide j6
 $("[data-type='checkbox']").on("click", function () {
   if ($(this).find("input").prop("checked") == true) {
-    if ($(this).attr("hide-question-6"))
-      if (document.getElementById("j3-1")) {
-        document.getElementById("j6").hide();
-        console.log("Question 6 has been hidden!");
-      } else {
-        console.log("Error hiding question 6");
-      }
+    if (document.getElementById("j5-1")) {
+      $("#j6").hide();
+      console.log("Question 6 has been hidden!");
+    } else {
+      console.log("Error hiding question 6");
+    }
+  } else {
+    console.log("Error checking j6!");
   }
 });
 
-function Hide6() {}
-
-const j1One =
-  //Hide j7 + 710
-  $("[data-type='checkbox']").on("click", function () {
-    if ($(this).find("input").prop("checked") == true) {
-      if ($(this).attr("hide-question-710") == "1") {
-        document.getElementById("j7").hide();
-        document.getElementById("j10").hide();
-      } else {
-        console.log("Error hiding questions 7 & 10");
-      }
-    }
-  });
+//Hide j7 + 710
+// $("[data-type='checkbox']").on("click", function () {
+//   if ($(this).find("input").prop("checked") == true) {
+//     if ($(this).attr("hide-question-710") == "1") {
+//       document.getElementById("j7").hide();
+//       document.getElementById("j10").hide();
+//     } else {
+//       console.log("Error hiding questions 7 & 10");
+//     }
+//   }
+// });
 
 //Hide j8 + j9
-$("[data-type='checkbox']").on("click", function () {
-  if ($(this).find("input").prop("checked") == true) {
-    if ($(this).attr("hide-question-89")) {
-      document.getElementById("j8").hide();
-      document.getElementById("j9").hide();
-    } else {
-      console.log("Error hiding questions 8 & 9");
-    }
-  }
-});
+// $("[data-type='checkbox']").on("click", function () {
+//   if ($(this).find("input").prop("checked") == true) {
+//     if ($(this).attr("hide-question-89")) {
+//       document.getElementById("j8").hide();
+//       document.getElementById("j9").hide();
+//     } else {
+//       console.log("Error hiding questions 8 & 9");
+//     }
+//   }
+// });
 
 //Hide Page 3 + 4 if answer to j3 == j3.6 or j3.7
 $("[data-type='checkbox']").on("click", function () {
   if ($(this).find("input").prop("checked") == true) {
     if ($(this).val() == "j3-6" || "j3-7") {
-      document.getElementById("page-3").hide();
-      document.getElementById("page-4").hide();
+      //   document.getElementById("page-3").hide();
+      //   document.getElementById("page-4").hide();
     } else {
       console.log("Error hiding Pages 3 & 4");
     }
