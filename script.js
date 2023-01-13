@@ -160,6 +160,12 @@ $("[data-type='input']").on("onfocusout", function () {
   }
 });
 
+//Branching Logic //
+
+//Disable back button
+
+//Select up to 5 option
+
 console.log("LOCALHOST LIVE SERVER IS RUNNING!");
 
 //Get my archetype stop submit for testing
@@ -167,9 +173,3 @@ $("#wf-form-Quiz").submit(function () {
   console.log("THE SUBMIT BUTTON IS LOCKED FOR TESTING!");
   return false;
 });
-
-//Branching Logic //
-
-//Disable back button
-
-//Select up to 5 option
