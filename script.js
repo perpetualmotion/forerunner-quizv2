@@ -154,6 +154,8 @@ $("[hide-question-page-3='1']").on("click", ".w-slide", function () {
 
 //Hide Page 3 + 4 if answer to j3 == j3.6 or j3.7
 
+//Branching Logic //
+
 //Input type questions have characters between 0-24
 //regex ^(0?[0-9]|1[0-9]|2[0-4])$
 $("[data-type='input']").on("onfocusout", function () {
@@ -168,12 +170,6 @@ $("[data-type='input']").on("onfocusout", function () {
     $(".next-button-quiz").prop("disabled", true);
   }
 });
-
-//Branching Logic //
-
-//Disable back button
-
-//Select up to 5 option
 
 console.log("LOCALHOST LIVE SERVER IS RUNNING!");
 
