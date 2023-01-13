@@ -94,8 +94,6 @@ $("[data-clear-target]").on("click", function () {
 //Branching Logic //
 
 //Hide j6
-//Only 3.3 and 3.4 have 'checked' prop
-//would adding it to other values mess w/ quiz?
 $("[data-type='checkbox']").on("click", function () {
   if ($("#j5-3")) {
     if ($(this).find("input").prop("checked") == true) {
@@ -127,31 +125,6 @@ $("[hide-question-89='1']").on("click", function () {
   console.log("Hiding j8 + j9");
 });
 
-//Hide j7 + 710
-//do these elements not have a 'checked' prop? how do we specify values without 'checked' prop
-// $("[data-type='checkbox']").on("click", function () {
-//   if ($("#j3-1")) {
-//     if ($(this).find("input").prop("checked") == true) {
-//       $("#page-3").hide();
-//       $("#j10").hide();
-//     } else {
-//       console.log("Error hiding questions 7 & 10");
-//     }
-//   }
-// });
-
-//Hide j8 + j9
-// $("[data-type='checkbox']").on("click", function () {
-//   if ($(this).find("input").prop("checked") == true) {
-//     if ($(this).attr("hide-question-89")) {
-//       document.getElementById("j8").hide();
-//       document.getElementById("j9").hide();
-//     } else {
-//       console.log("Error hiding questions 8 & 9");
-//     }
-//   }
-// });
-
 //Hide Page 3 + 4 if answer to j3 == j3.6 or j3.7
 // $("[data-type='checkbox']").on("click", function () {
 //   if ($(this).find("input").prop("checked") == true) {
@@ -164,20 +137,37 @@ $("[hide-question-89='1']").on("click", function () {
 //   }
 // });
 
+//Shreyansh slider logic
+//prop needs to be added to every answer that hides pages 3 + 4
+//j3-6, j3-7,
+// When a question is clicked, update target slider
+$("[hide-question-page-3='1']").on("click", ".w-slide", function () {
+  // Find target slider, if not found exit
+  var target = $(
+    $(this).parents(".w-slider").attr("[hide-question-page-3='1']")
+  );
+  if (target.length == 0) return;
+
+  // Update target slider by triggering a "tap" event on the targetNav corresponding slide button
+  target.find(".w-slider-nav").children().eq($(this).index()).trigger("tap");
+});
+
+//Hide Page 3 + 4 if answer to j3 == j3.6 or j3.7
+
 //Input type questions have characters between 0-24
 //regex ^(0?[0-9]|1[0-9]|2[0-4])$
-// $("[data-type='input']").on("onfocusout", function () {
-//   //validate if regex attr is true or not
-//   if ($(this).val().match($(this).attr("pattern"))) {
-//     document.getElementsByClassName("quiz-error-message").hide();
-//     console.log("Error for Input field set to hidden");
-//   } else {
-//     document.getElementsByClassName("quiz-error-message").show();
-//     console.log("Error for Input field set to display");
-//     //disable next button
-//     $(".next-button-quiz").prop("disabled", true);
-//   }
-// });
+$("[data-type='input']").on("onfocusout", function () {
+  //validate if regex attr is true or not
+  if ($(this).val().match($(this).attr("pattern"))) {
+    $(".quiz-error-message").hide();
+    console.log("Error for Input field set to hidden");
+  } else {
+    $(".quiz-error-message").show();
+    console.log("Error for Input field set to display");
+    //disable next button return false
+    $(".next-button-quiz").prop("disabled", true);
+  }
+});
 
 //Branching Logic //
 
