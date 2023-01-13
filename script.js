@@ -164,6 +164,7 @@ console.log("LOCALHOST LIVE SERVER IS RUNNING!");
 
 //Get my archetype stop submit for testing
 $("#wf-form-Quiz").submit(function () {
+  console.log("THE SUBMIT BUTTON IS LOCKED FOR TESTING!");
   return false;
 });
 
