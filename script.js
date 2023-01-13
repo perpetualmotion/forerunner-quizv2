@@ -106,17 +106,20 @@ $("[data-type='checkbox']").on("click", function () {
   }
 });
 
-//Hide j7 + 710
-$("[data-type='checkbox']").on("click", function () {
-  if ($(this).find("input").prop("checked") == true) {
-    if ($(this).attr("hide-question-710") == "1") {
-      document.getElementById("j7").hide();
-      document.getElementById("j10").hide();
-    } else {
-      console.log("Error hiding questions 7 & 10");
+function Hide6() {}
+
+const j1One =
+  //Hide j7 + 710
+  $("[data-type='checkbox']").on("click", function () {
+    if ($(this).find("input").prop("checked") == true) {
+      if ($(this).attr("hide-question-710") == "1") {
+        document.getElementById("j7").hide();
+        document.getElementById("j10").hide();
+      } else {
+        console.log("Error hiding questions 7 & 10");
+      }
     }
-  }
-});
+  });
 
 //Hide j8 + j9
 $("[data-type='checkbox']").on("click", function () {
@@ -157,7 +160,12 @@ $("[data-type='input']").on("onfocusout", function () {
   }
 });
 
-console.log("Script is working... I think!");
+console.log("LOCALHOST LIVE SERVER IS RUNNING!");
+
+//Get my archetype stop submit for testing
+$("#wf-form-Quiz").submit(function () {
+  return false;
+});
 
 //Branching Logic //
 
