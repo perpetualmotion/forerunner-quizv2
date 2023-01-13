@@ -94,8 +94,10 @@ $("[data-clear-target]").on("click", function () {
 //Branching Logic //
 
 //Hide j6
+//Only 3.3 and 3.4 have 'checked' prop
+//would adding it to other values mess w/ quiz?
 $("[data-type='checkbox']").on("click", function () {
-  if ($("#j5-3") || $("#j5-4")) {
+  if ($("#j5-3")) {
     if ($(this).find("input").prop("checked") == true) {
       $("#j6").hide();
       console.log("Question 6 has been hidden!");
@@ -107,17 +109,37 @@ $("[data-type='checkbox']").on("click", function () {
   }
 });
 
-//Hide j7 + 710
-$("[data-type='checkbox']").on("click", function () {
-  if ($("#j3-1")) {
-    if ($(this).find("input").prop("checked") == true) {
-      $("#page-3").hide();
-      $("#j10").hide();
-    } else {
-      console.log("Error hiding questions 7 & 10");
-    }
+//Hide j7 + j10
+//skip page-3 for j7
+$("[hide-question-710='1']").on("click", function () {
+  console.log("clicking on j3 answer");
+  if ($("j3-1")) {
+    $("#j7").hide();
+    $("#j10").hide();
   }
 });
+
+//Hide j7
+$("[hide-question-710='1']").on("click", function () {
+  console.log("clicking on j3 answer");
+  if ($("j3-1")) {
+    $("#j7").hide();
+    $("#j10").hide();
+  }
+});
+
+//Hide j7 + 710
+//do these elements not have a 'checked' prop? how do we specify values without 'checked' prop
+// $("[data-type='checkbox']").on("click", function () {
+//   if ($("#j3-1")) {
+//     if ($(this).find("input").prop("checked") == true) {
+//       $("#page-3").hide();
+//       $("#j10").hide();
+//     } else {
+//       console.log("Error hiding questions 7 & 10");
+//     }
+//   }
+// });
 
 //Hide j8 + j9
 // $("[data-type='checkbox']").on("click", function () {
@@ -145,18 +167,18 @@ $("[data-type='checkbox']").on("click", function () {
 
 //Input type questions have characters between 0-24
 //regex ^(0?[0-9]|1[0-9]|2[0-4])$
-$("[data-type='input']").on("onfocusout", function () {
-  //validate if regex attr is true or not
-  if ($(this).val().match($(this).attr("pattern"))) {
-    document.getElementsByClassName("quiz-error-message").hide();
-    console.log("Error for Input field set to hidden");
-  } else {
-    document.getElementsByClassName("quiz-error-message").show();
-    console.log("Error for Input field set to display");
-    //disable next button
-    $(".next-button-quiz").prop("disabled", true);
-  }
-});
+// $("[data-type='input']").on("onfocusout", function () {
+//   //validate if regex attr is true or not
+//   if ($(this).val().match($(this).attr("pattern"))) {
+//     document.getElementsByClassName("quiz-error-message").hide();
+//     console.log("Error for Input field set to hidden");
+//   } else {
+//     document.getElementsByClassName("quiz-error-message").show();
+//     console.log("Error for Input field set to display");
+//     //disable next button
+//     $(".next-button-quiz").prop("disabled", true);
+//   }
+// });
 
 //Branching Logic //
 
