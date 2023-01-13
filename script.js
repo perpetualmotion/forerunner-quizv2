@@ -113,19 +113,18 @@ $("[data-type='checkbox']").on("click", function () {
 //skip page-3 for j7
 $("[hide-question-710='1']").on("click", function () {
   console.log("clicking on j3 answer");
-  if ($("j3-1")) {
-    $("#j7").hide();
-    $("#j10").hide();
-  }
+  //need to skip page-3 instead of hiding j7
+  // $("#j7").hide();
+  $("#j10").hide();
+  console.log("Hiding j10 - awaiting j7 page logic");
 });
 
-//Hide j7
-$("[hide-question-710='1']").on("click", function () {
+//Hide j8 + j9
+$("[hide-question-89='1']").on("click", function () {
   console.log("clicking on j3 answer");
-  if ($("j3-1")) {
-    $("#j7").hide();
-    $("#j10").hide();
-  }
+  $("#j8").hide();
+  $("#j9").hide();
+  console.log("Hiding j8 + j9");
 });
 
 //Hide j7 + 710
