@@ -94,44 +94,30 @@ $("[data-clear-target]").on("click", function () {
 //Branching Logic //
 
 //Hide j6
-// $("[data-type='checkbox']").on("click", function () {
-//   if ($(this).find("input").prop("checked") == true) {
-//     if ($(this).attr("hide-question-6"))
-//       if (document.getElementById("j5-1")) {
-//         document.getElementById("j6").hide();
-//         console.log("Question 6 has been hidden!");
-//       } else {
-//         console.log("Error hiding question 6");
-//       }
-//   } else {
-//     console.log("Error checking j6!");
-//   }
-// });
-//Hide j6
 $("[data-type='checkbox']").on("click", function () {
-  if ($(this).find("input").prop("checked") == true) {
-    if (document.getElementById("j5-1")) {
+  if ($("#j5-3") || $("#j5-4")) {
+    if ($(this).find("input").prop("checked") == true) {
       $("#j6").hide();
       console.log("Question 6 has been hidden!");
     } else {
-      console.log("Error hiding question 6");
+      console.log("Error hiding question 6!");
     }
   } else {
-    console.log("Error checking j6!");
+    console.log("Error checking j6 selector!");
   }
 });
 
 //Hide j7 + 710
-// $("[data-type='checkbox']").on("click", function () {
-//   if ($(this).find("input").prop("checked") == true) {
-//     if ($(this).attr("hide-question-710") == "1") {
-//       document.getElementById("j7").hide();
-//       document.getElementById("j10").hide();
-//     } else {
-//       console.log("Error hiding questions 7 & 10");
-//     }
-//   }
-// });
+$("[data-type='checkbox']").on("click", function () {
+  if ($("#j3-1")) {
+    if ($(this).find("input").prop("checked") == true) {
+      $("#page-3").hide();
+      $("#j10").hide();
+    } else {
+      console.log("Error hiding questions 7 & 10");
+    }
+  }
+});
 
 //Hide j8 + j9
 // $("[data-type='checkbox']").on("click", function () {
@@ -146,16 +132,16 @@ $("[data-type='checkbox']").on("click", function () {
 // });
 
 //Hide Page 3 + 4 if answer to j3 == j3.6 or j3.7
-$("[data-type='checkbox']").on("click", function () {
-  if ($(this).find("input").prop("checked") == true) {
-    if ($(this).val() == "j3-6" || "j3-7") {
-      //   document.getElementById("page-3").hide();
-      //   document.getElementById("page-4").hide();
-    } else {
-      console.log("Error hiding Pages 3 & 4");
-    }
-  }
-});
+// $("[data-type='checkbox']").on("click", function () {
+//   if ($(this).find("input").prop("checked") == true) {
+//     if ($(this).val() == "j3-6" || "j3-7") {
+//       //   document.getElementById("page-3").hide();
+//       //   document.getElementById("page-4").hide();
+//     } else {
+//       console.log("Error hiding Pages 3 & 4");
+//     }
+//   }
+// });
 
 //Input type questions have characters between 0-24
 //regex ^(0?[0-9]|1[0-9]|2[0-4])$
