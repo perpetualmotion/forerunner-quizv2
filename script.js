@@ -93,25 +93,10 @@ $("[data-clear-target]").on("click", function () {
 
 //Branching Logic //
 
-//Hide j6
-$("[data-type='checkbox']").on("click", function () {
-  if ($("#j5-3")) {
-    if ($(this).find("input").prop("checked") == true) {
-      $("#j6").hide();
-      console.log("Question 6 has been hidden!");
-    } else {
-      console.log("Error hiding question 6!");
-    }
-  } else {
-    console.log("Error checking j6 selector!");
-  }
-});
-
 //Hide j7 + j10
 //skip page-3 for j7
 $("[hide-question-710='1']").on("click", function () {
   //need to skip page-3 instead of hiding j7
-  //   $("#j7").hide();
   $("#j10").hide();
   console.log("Hiding j10");
 });
@@ -127,6 +112,9 @@ $("[hide-page-3='true']").on("click", function () {
   console.log("CLICKING HIDE PAGE 3 ANSWER");
 });
 
+//Hide Page-2 / j6
+$("[hide-page-2='true]").on("click", function () {});
+
 //Shreyansh slider logic
 //prop needs to be added to every answer that hides pages 3 + 4
 
@@ -139,6 +127,9 @@ $("[hide-page-3='true']").on("click", ".w-slide", function () {
   // Update target slider by triggering a "tap" event on the targetNav corresponding slide button
   target.find(".w-slider-nav").children().eq($(this).index()).trigger("tap");
 });
+
+//Hide Page-4 / j8-10
+$("[hidepage-4='true']").on("click", function () {});
 
 //Branching Logic //
 
@@ -164,6 +155,22 @@ $("#wf-form-Quiz").submit(function () {
   console.log("THE SUBMIT BUTTON IS LOCKED FOR TESTING!");
   return false;
 });
+
+//Hide j6
+$("[data-type='checkbox']").on("click", function () {
+  if ($("#j5-3")) {
+    if ($(this).find("input").prop("checked") == true) {
+      $("#j6").hide();
+      console.log("Question 6 has been hidden!");
+    } else {
+      console.log("Error hiding question 6!");
+    }
+  } else {
+    console.log("Error checking j6 selector!");
+  }
+});
+
+//Older code
 
 //Hide Page 3 + 4 if answer to j3 == j3.6 or j3.7
 // $("[data-type='checkbox']").on("click", function () {
