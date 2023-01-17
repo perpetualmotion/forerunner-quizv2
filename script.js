@@ -122,14 +122,21 @@ $("[hide-page-3='true']").on("click", ".w-slide", function () {
 $("[hide-page-2='true']").on("click", function () {
   console.log("Hide P2 answer clicked");
   //Add while page-1 is active and nest below code
-  if (
+  if ($("#page-3").prop("aria-hidden") == "true") {
+    $(".next-button-quiz").on("click", function () {
+      //normal slider functionality +1
+      console.log("Page-3 ARIA-HIDDEN!");
+    });
+  } else if (
     $(".next-button-quiz").on("click", function () {
       $(".w-slider-dot")[1].click();
+      console.log("Skipping Page-2 Forward!");
     })
   )
     if (
       $(".back-button-quiz").on("click", function () {
         $(".w-slider-dot")[1].click();
+        console.log("Returning to Page 1, skipping Page-2");
       })
     ) {
       //nothing
@@ -137,20 +144,20 @@ $("[hide-page-2='true']").on("click", function () {
 });
 
 //Skip Page-3 // j7
-$("[hide-page-3='true']").on("click", function () {
-  //Add while page-2 is active / not hidden and nest code below
-  if ($("#page-2:visible")) {
-    console.log("page2 is visible!");
-    if (
-      $(".next-button-quiz").on("click", function () {
-        console.log("page-3 is being skipped");
-        $(".w-slider-dot")[1].click();
-      })
-    ) {
-      //nothing
-    }
-  }
-});
+// $("[hide-page-3='true']").on("click", function () {
+//   //Add while page-2 is active / not hidden and nest code below
+//   if ($("#page-2:visible")) {
+//     console.log("page2 is visible!");
+//     if (
+//       $(".next-button-quiz").on("click", function () {
+//         console.log("page-3 is being skipped");
+//         $(".w-slider-dot")[1].click();
+//       })
+//     ) {
+//       //nothing
+//     }
+//   }
+// });
 
 //Skip Page-4 / j8-10
 $("[hidepage-4='true']").on("click", function () {
