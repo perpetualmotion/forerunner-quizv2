@@ -107,10 +107,6 @@ $("[hide-question-89='1']").on("click", function () {
   console.log("Hiding j8 + j9");
 });
 
-$("[hide-page-3='true']").on("click", function () {
-  console.log("CLICKING HIDE PAGE 3 ANSWER");
-});
-
 //Shreyansh slider logic
 // When an answer is clicked, update target slider
 $("[hide-page-3='true']").on("click", ".w-slide", function () {
@@ -123,7 +119,38 @@ $("[hide-page-3='true']").on("click", ".w-slide", function () {
 });
 
 //Skip Page-2 / j6
-$("[hide-page-2='true]").on("click", function () {});
+$("[hide-page-2='true']").on("click", function () {
+  console.log("Hide P2 answer clicked");
+  //Add while page-1 is active and nest below code
+  if (
+    $(".next-button-quiz").on("click", function () {
+      $(".w-slider-dot")[1].click();
+    })
+  )
+    if (
+      $(".back-button-quiz").on("click", function () {
+        $(".w-slider-dot")[1].click();
+      })
+    ) {
+      //nothing
+    }
+});
+
+//Skip Page-3 // j7
+$("[hide-page-3='true']").on("click", function () {
+  if ($()) {
+    //page-2 is active / not hidden
+    if ($("#page-2").css("display") == "visible") {
+      if (
+        $(".next-button-quiz").on("click", function () {
+          $(".w-slider-dot")[2].click();
+        })
+      ) {
+        //nothing
+      }
+    }
+  }
+});
 
 //Skip Page-4 / j8-10
 $("[hidepage-4='true']").on("click", function () {});
@@ -131,7 +158,6 @@ $("[hidepage-4='true']").on("click", function () {});
 //BRACHING LOGIC //
 
 //Char. between 0-24 for Input Type qs
-//regex ^(0?[0-9]|1[0-9]|2[0-4])$
 $("[data-type='input']").on("onfocusout", function () {
   //validate if regex attr is true or not
   if ($(this).val().match($(this).attr("pattern"))) {
@@ -147,7 +173,7 @@ $("[data-type='input']").on("onfocusout", function () {
 
 console.log("LOCALHOST LIVE SERVER IS RUNNING!");
 
-//Get my archetype stop submit for testing
+//'Get my archetype' stop submit for testing
 $("#wf-form-Quiz").submit(function () {
   console.log("THE SUBMIT BUTTON IS LOCKED FOR TESTING!");
   return false;
@@ -156,15 +182,15 @@ $("#wf-form-Quiz").submit(function () {
 //Older code
 
 //Hide j6
-$("[data-type='checkbox']").on("click", function () {
-  if ($("#j5-3")) {
-    if ($(this).find("input").prop("checked") == true) {
-      $("#j6").hide();
-      console.log("Question 6 has been hidden!");
-    } else {
-      console.log("Error hiding question 6!");
-    }
-  } else {
-    console.log("Error checking j6 selector!");
-  }
-});
+// $("[data-type='checkbox']").on("click", function () {
+//   if ($("#j5-3")) {
+//     if ($(this).find("input").prop("checked") == true) {
+//       $("#j6").hide();
+//       console.log("Question 6 has been hidden!");
+//     } else {
+//       console.log("Error hiding question 6!");
+//     }
+//   } else {
+//     console.log("Error checking j6 selector!");
+//   }
+// });
