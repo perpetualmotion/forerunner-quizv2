@@ -108,7 +108,26 @@ $("[hide-question-89='1']").on("click", function () {
 });
 
 //When slides are initialized, add prev + next slide attribute to each slide, check prev + next slide attribute, then when next button is clicked check the desired attribute for where to send slider
-window.onload = function () {};
+//Add which slide is currently active based on visibility
+const page1 = $("#page-1");
+const page2 = $("#page-2");
+const page3 = $("#page-3");
+const page4 = $("#page-4");
+const page5 = $("#page-5");
+
+window.onload = function () {
+  page1.attr("next-q", "p2");
+  page2.attr({ "next-q": "p3", "prev-q": "p1" });
+  page3.attr({ "next-q": "p4", "prev-q": "p2" });
+  page4.attr({ "next-q": "p5", "prev-q": "p3" });
+  page5.attr("prev-q", "p4");
+  console.log("Page Num Attrs Added!");
+
+  $(".next-button-quiz").on("click", function () {
+    //check prev + next slide attr for direction
+    //tell slider its destination
+  });
+};
 
 //BRACHING LOGIC //
 
@@ -151,55 +170,55 @@ $("#wf-form-Quiz").submit(function () {
 // });
 
 //Skip Page-2 / j6
-$("[hide-page-2='true']").on("click", function () {
-  console.log("Hide P2 answer clicked");
+// $("[hide-page-2='true']").on("click", function () {
+//   console.log("Hide P2 answer clicked");
 
-  if ($("#page-3").css("visibility") == "hidden") {
-    $(".next-button-quiz").on("click", function () {
-      $(".w-slider-dot")[1].click();
-      console.log("Skipping Page-2 Forward!");
-    });
-  } else if ($("#page-3").css("display") == "block") {
-    $(".next-button-quiz").on("click", function () {
-      //Return slider to normal logic
-      console.log("PAGE-3 IS CURRENTLY ACTIVE!");
-    });
-  }
+//   if ($("#page-3").css("visibility") == "hidden") {
+//     $(".next-button-quiz").on("click", function () {
+//       $(".w-slider-dot")[1].click();
+//       console.log("Skipping Page-2 Forward!");
+//     });
+//   } else if ($("#page-3").css("display") == "block") {
+//     $(".next-button-quiz").on("click", function () {
+//       //Return slider to normal logic
+//       console.log("PAGE-3 IS CURRENTLY ACTIVE!");
+//     });
+//   }
 
-  if (
-    $(".back-button-quiz").on("click", function () {
-      $(".w-slider-dot")[1].click();
-      console.log("Returning to Page 1!");
-    })
-  ) {
-    //nothing
-  }
-});
+//   if (
+//     $(".back-button-quiz").on("click", function () {
+//       $(".w-slider-dot")[1].click();
+//       console.log("Returning to Page 1!");
+//     })
+//   ) {
+//     //nothing
+//   }
+// });
 
 //Skip Page-3 // j7
-$("[hide-page-3='true']").on("click", function () {
-  //Add while page-2 is active / not hidden and nest code below
-  if ($("#page-2").css("visibility") == "hidden") {
-    console.log("page-2 is hidden!");
-  } else if ($("#page-2").css("visibility") != "hidden") {
-    $(".next-button-quiz").on("click", function () {
-      console.log("Skipping page-3");
-      $(".w-slider-dot")[2].click();
-    });
-  }
+// $("[hide-page-3='true']").on("click", function () {
+//   //Add while page-2 is active / not hidden and nest code below
+//   if ($("#page-2").css("visibility") == "hidden") {
+//     console.log("page-2 is hidden!");
+//   } else if ($("#page-2").css("visibility") != "hidden") {
+//     $(".next-button-quiz").on("click", function () {
+//       console.log("Skipping page-3");
+//       $(".w-slider-dot")[2].click();
+//     });
+//   }
 
-  if (
-    $(".back-button-quiz").on("click", function () {
-      $(".w-slider-dot")[2].click();
-      console.log("Returning to Page 1!");
-    })
-  ) {
-    //Doesn't move past slide 2
-  }
-});
+//   if (
+//     $(".back-button-quiz").on("click", function () {
+//       $(".w-slider-dot")[2].click();
+//       console.log("Returning to Page 1!");
+//     })
+//   ) {
+//     //Doesn't move past slide 2
+//   }
+// });
 
 //Skip Page-4 / j8-10
-$("[hidepage-4='true']").on("click", function () {
-  //Add while page-2 is active / not hidden and nest code below
-  //page 3 + 4 are hidden w same answers
-});
+// $("[hidepage-4='true']").on("click", function () {
+//   //Add while page-2 is active / not hidden and nest code below
+//   //page 3 + 4 are hidden w same answers
+// });
