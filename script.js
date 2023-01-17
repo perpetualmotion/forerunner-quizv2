@@ -107,60 +107,8 @@ $("[hide-question-89='1']").on("click", function () {
   console.log("Hiding j8 + j9");
 });
 
-//Shreyansh slider logic
-// When an answer is clicked, update target slider
-// $("[hide-page-3='true']").on("click", ".w-slide", function () {
-//   // Find target slider, if not found exit
-//   var target = $($(this).parents(".w-slider").attr("[hide-page-3='true']"));
-//   if (target.length == 0) return;
-
-//   // Update target slider by triggering a "tap" event on the targetNav corresponding slide button
-//   target.find(".w-slider-nav").children().eq($(this).index()).trigger("tap");
-// });
-
-//Skip Page-2 / j6
-$("[hide-page-2='true']").on("click", function () {
-  console.log("Hide P2 answer clicked");
-  if ($("#page-3").css("visibility") == "hidden") {
-    $(".next-button-quiz").on("click", function () {
-      $(".w-slider-dot")[1].click();
-      console.log("Skipping Page-2 Forward!");
-    });
-  } else if ($("#page-3").css("visibility") != "hidden") {
-    $(".next-button-quiz").on("click", function () {});
-  }
-
-  if (
-    $(".back-button-quiz").on("click", function () {
-      $(".w-slider-dot")[1].click();
-      console.log("Returning to Page 1, skipping Page-2");
-    })
-  ) {
-    //nothing
-  }
-});
-
-//Skip Page-3 // j7
-// $("[hide-page-3='true']").on("click", function () {
-//   //Add while page-2 is active / not hidden and nest code below
-//   if ($("#page-2:visible")) {
-//     console.log("page2 is visible!");
-//     if (
-//       $(".next-button-quiz").on("click", function () {
-//         console.log("page-3 is being skipped");
-//         $(".w-slider-dot")[1].click();
-//       })
-//     ) {
-//       //nothing
-//     }
-//   }
-// });
-
-//Skip Page-4 / j8-10
-$("[hidepage-4='true']").on("click", function () {
-  //Add while page-2 is active / not hidden and nest code below
-  //page 3 + 4 are hidden w same answers
-});
+//When slides are initialized, add prev + next slide attribute to each slide, check prev + next slide attribute, then when next button is clicked check the desired attribute for where to send slider
+window.onload = function () {};
 
 //BRACHING LOGIC //
 
@@ -201,3 +149,57 @@ $("#wf-form-Quiz").submit(function () {
 //     console.log("Error checking j6 selector!");
 //   }
 // });
+
+//Skip Page-2 / j6
+$("[hide-page-2='true']").on("click", function () {
+  console.log("Hide P2 answer clicked");
+
+  if ($("#page-3").css("visibility") == "hidden") {
+    $(".next-button-quiz").on("click", function () {
+      $(".w-slider-dot")[1].click();
+      console.log("Skipping Page-2 Forward!");
+    });
+  } else if ($("#page-3").css("display") == "block") {
+    $(".next-button-quiz").on("click", function () {
+      //Return slider to normal logic
+      console.log("PAGE-3 IS CURRENTLY ACTIVE!");
+    });
+  }
+
+  if (
+    $(".back-button-quiz").on("click", function () {
+      $(".w-slider-dot")[1].click();
+      console.log("Returning to Page 1!");
+    })
+  ) {
+    //nothing
+  }
+});
+
+//Skip Page-3 // j7
+$("[hide-page-3='true']").on("click", function () {
+  //Add while page-2 is active / not hidden and nest code below
+  if ($("#page-2").css("visibility") == "hidden") {
+    console.log("page-2 is hidden!");
+  } else if ($("#page-2").css("visibility") != "hidden") {
+    $(".next-button-quiz").on("click", function () {
+      console.log("Skipping page-3");
+      $(".w-slider-dot")[2].click();
+    });
+  }
+
+  if (
+    $(".back-button-quiz").on("click", function () {
+      $(".w-slider-dot")[2].click();
+      console.log("Returning to Page 1!");
+    })
+  ) {
+    //Doesn't move past slide 2
+  }
+});
+
+//Skip Page-4 / j8-10
+$("[hidepage-4='true']").on("click", function () {
+  //Add while page-2 is active / not hidden and nest code below
+  //page 3 + 4 are hidden w same answers
+});
