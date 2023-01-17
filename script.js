@@ -138,7 +138,7 @@ $("[hide-page-2='true']").on("click", function () {
 
 //Skip Page-3 // j7
 $("[hide-page-3='true']").on("click", function () {
-  //page-2 is active / not hidden
+  //Add while page-2 is active / not hidden and nest code below
   if ($("#page-2:visible")) {
     console.log("page2 is visible!");
     if (
@@ -153,7 +153,10 @@ $("[hide-page-3='true']").on("click", function () {
 });
 
 //Skip Page-4 / j8-10
-$("[hidepage-4='true']").on("click", function () {});
+$("[hidepage-4='true']").on("click", function () {
+  //Add while page-2 is active / not hidden and nest code below
+  //page 3 + 4 are hidden w same answers
+});
 
 //BRACHING LOGIC //
 
