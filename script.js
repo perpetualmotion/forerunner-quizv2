@@ -110,49 +110,35 @@ $("[data-type='checkbox']").on("click", function () {
 //Hide j7 + j10
 //skip page-3 for j7
 $("[hide-question-710='1']").on("click", function () {
-  console.log("clicking on j3 answer");
   //need to skip page-3 instead of hiding j7
-  // $("#j7").hide();
+  //   $("#j7").hide();
   $("#j10").hide();
-  console.log("Hiding j10 - awaiting j7 page logic");
+  console.log("Hiding j10");
 });
 
 //Hide j8 + j9
 $("[hide-question-89='1']").on("click", function () {
-  console.log("clicking on j3 answer");
   $("#j8").hide();
   $("#j9").hide();
   console.log("Hiding j8 + j9");
 });
 
-//Hide Page 3 + 4 if answer to j3 == j3.6 or j3.7
-// $("[data-type='checkbox']").on("click", function () {
-//   if ($(this).find("input").prop("checked") == true) {
-//     if ($(this).val() == "j3-6" || "j3-7") {
-//       //   document.getElementById("page-3").hide();
-//       //   document.getElementById("page-4").hide();
-//     } else {
-//       console.log("Error hiding Pages 3 & 4");
-//     }
-//   }
-// });
+$("[hide-page-3='true']").on("click", function () {
+  console.log("CLICKING HIDE PAGE 3 ANSWER");
+});
 
 //Shreyansh slider logic
 //prop needs to be added to every answer that hides pages 3 + 4
-//j3-6, j3-7,
-// When a question is clicked, update target slider
-$("[hide-question-page-3='1']").on("click", ".w-slide", function () {
+
+// When an answer is clicked, update target slider
+$("[hide-page-3='true']").on("click", ".w-slide", function () {
   // Find target slider, if not found exit
-  var target = $(
-    $(this).parents(".w-slider").attr("[hide-question-page-3='1']")
-  );
+  var target = $($(this).parents(".w-slider").attr("[hide-page-3='true']"));
   if (target.length == 0) return;
 
   // Update target slider by triggering a "tap" event on the targetNav corresponding slide button
   target.find(".w-slider-nav").children().eq($(this).index()).trigger("tap");
 });
-
-//Hide Page 3 + 4 if answer to j3 == j3.6 or j3.7
 
 //Branching Logic //
 
@@ -178,3 +164,15 @@ $("#wf-form-Quiz").submit(function () {
   console.log("THE SUBMIT BUTTON IS LOCKED FOR TESTING!");
   return false;
 });
+
+//Hide Page 3 + 4 if answer to j3 == j3.6 or j3.7
+// $("[data-type='checkbox']").on("click", function () {
+//   if ($(this).find("input").prop("checked") == true) {
+//     if ($(this).val() == "j3-6" || "j3-7") {
+//       //   document.getElementById("page-3").hide();
+//       //   document.getElementById("page-4").hide();
+//     } else {
+//       console.log("Error hiding Pages 3 & 4");
+//     }
+//   }
+// });
