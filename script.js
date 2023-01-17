@@ -93,8 +93,7 @@ $("[data-clear-target]").on("click", function () {
 
 //Branching Logic //
 
-//Hide j7 + j10
-//skip page-3 for j7
+//Hide j10
 $("[hide-question-710='1']").on("click", function () {
   //need to skip page-3 instead of hiding j7
   $("#j10").hide();
@@ -112,12 +111,7 @@ $("[hide-page-3='true']").on("click", function () {
   console.log("CLICKING HIDE PAGE 3 ANSWER");
 });
 
-//Hide Page-2 / j6
-$("[hide-page-2='true]").on("click", function () {});
-
 //Shreyansh slider logic
-//prop needs to be added to every answer that hides pages 3 + 4
-
 // When an answer is clicked, update target slider
 $("[hide-page-3='true']").on("click", ".w-slide", function () {
   // Find target slider, if not found exit
@@ -128,7 +122,10 @@ $("[hide-page-3='true']").on("click", ".w-slide", function () {
   target.find(".w-slider-nav").children().eq($(this).index()).trigger("tap");
 });
 
-//Hide Page-4 / j8-10
+//Skip Page-2 / j6
+$("[hide-page-2='true]").on("click", function () {});
+
+//Skip Page-4 / j8-10
 $("[hidepage-4='true']").on("click", function () {});
 
 //Branching Logic //
