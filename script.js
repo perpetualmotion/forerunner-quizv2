@@ -128,14 +128,11 @@ window.onload = function () {
   $(".next-button-quiz").on("click", function () {
     //check prev + next slide attr for direction
     //tell slider its destination
-    //for each page check there slide attr
-
-    // for (const prop in arr) {
-    //   console.log(`${prop}:`, `${arr[prop]}`);
-    // }
-
-    $(".slide").val(function () {
-      console.log($(this).attr("next-q"));
+    $(".w-slide").val(function () {
+      console.log("Next Question:", $(this).attr("next-q"));
+    });
+    $(".w-slide").val(function () {
+      console.log("Prev Question:", $(this).attr("prev-q"));
     });
   });
 };
