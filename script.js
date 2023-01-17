@@ -91,7 +91,7 @@ $("[data-clear-target]").on("click", function () {
   });
 });
 
-//Branching Logic //
+//BRANCHING LOGIC //
 
 //Hide j10
 $("[hide-question-710='1']").on("click", function () {
@@ -128,9 +128,9 @@ $("[hide-page-2='true]").on("click", function () {});
 //Skip Page-4 / j8-10
 $("[hidepage-4='true']").on("click", function () {});
 
-//Branching Logic //
+//BRACHING LOGIC //
 
-//Input type questions have characters between 0-24
+//Char. between 0-24 for Input Type qs
 //regex ^(0?[0-9]|1[0-9]|2[0-4])$
 $("[data-type='input']").on("onfocusout", function () {
   //validate if regex attr is true or not
@@ -153,6 +153,8 @@ $("#wf-form-Quiz").submit(function () {
   return false;
 });
 
+//Older code
+
 //Hide j6
 $("[data-type='checkbox']").on("click", function () {
   if ($("#j5-3")) {
@@ -166,17 +168,3 @@ $("[data-type='checkbox']").on("click", function () {
     console.log("Error checking j6 selector!");
   }
 });
-
-//Older code
-
-//Hide Page 3 + 4 if answer to j3 == j3.6 or j3.7
-// $("[data-type='checkbox']").on("click", function () {
-//   if ($(this).find("input").prop("checked") == true) {
-//     if ($(this).val() == "j3-6" || "j3-7") {
-//       //   document.getElementById("page-3").hide();
-//       //   document.getElementById("page-4").hide();
-//     } else {
-//       console.log("Error hiding Pages 3 & 4");
-//     }
-//   }
-// });
