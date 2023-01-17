@@ -123,9 +123,20 @@ window.onload = function () {
   page5.attr("prev-q", "p4");
   console.log("Page Num Attrs Added!");
 
+  const arr = [{ page1, page2, page3, page4, page5 }];
+
   $(".next-button-quiz").on("click", function () {
     //check prev + next slide attr for direction
     //tell slider its destination
+    //for each page check there slide attr
+
+    // for (const prop in arr) {
+    //   console.log(`${prop}:`, `${arr[prop]}`);
+    // }
+
+    $(".slide").val(function () {
+      console.log($(this).attr("next-q"));
+    });
   });
 };
 
