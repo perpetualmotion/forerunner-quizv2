@@ -109,38 +109,35 @@ $("[hide-question-89='1']").on("click", function () {
 
 //Shreyansh slider logic
 // When an answer is clicked, update target slider
-$("[hide-page-3='true']").on("click", ".w-slide", function () {
-  // Find target slider, if not found exit
-  var target = $($(this).parents(".w-slider").attr("[hide-page-3='true']"));
-  if (target.length == 0) return;
+// $("[hide-page-3='true']").on("click", ".w-slide", function () {
+//   // Find target slider, if not found exit
+//   var target = $($(this).parents(".w-slider").attr("[hide-page-3='true']"));
+//   if (target.length == 0) return;
 
-  // Update target slider by triggering a "tap" event on the targetNav corresponding slide button
-  target.find(".w-slider-nav").children().eq($(this).index()).trigger("tap");
-});
+//   // Update target slider by triggering a "tap" event on the targetNav corresponding slide button
+//   target.find(".w-slider-nav").children().eq($(this).index()).trigger("tap");
+// });
 
 //Skip Page-2 / j6
 $("[hide-page-2='true']").on("click", function () {
   console.log("Hide P2 answer clicked");
-  //Add while page-1 is active and nest below code
-  if ($("#page-3").prop("aria-hidden") == "true") {
-    $(".next-button-quiz").on("click", function () {
-      //normal slider functionality +1
-      console.log("Page-3 ARIA-HIDDEN!");
-    });
-  } else if (
+  if ($("#page-3").css("visibility") == "hidden") {
     $(".next-button-quiz").on("click", function () {
       $(".w-slider-dot")[1].click();
       console.log("Skipping Page-2 Forward!");
+    });
+  } else if ($("#page-3").css("visibility") != "hidden") {
+    $(".next-button-quiz").on("click", function () {});
+  }
+
+  if (
+    $(".back-button-quiz").on("click", function () {
+      $(".w-slider-dot")[1].click();
+      console.log("Returning to Page 1, skipping Page-2");
     })
-  )
-    if (
-      $(".back-button-quiz").on("click", function () {
-        $(".w-slider-dot")[1].click();
-        console.log("Returning to Page 1, skipping Page-2");
-      })
-    ) {
-      //nothing
-    }
+  ) {
+    //nothing
+  }
 });
 
 //Skip Page-3 // j7
