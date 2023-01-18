@@ -114,13 +114,19 @@ const page2 = $("#page-2");
 const page3 = $("#page-3");
 const page4 = $("#page-4");
 const page5 = $("#page-5");
+const page6 = $("#page-6");
+const page7 = $("#page-7");
+const page8 = $("#page-8");
 
 window.onload = function () {
   page1.attr("next-q", "p2");
-  page2.attr({ "next-q": "p3", "prev-q": "p1" });
-  page3.attr({ "next-q": "p4", "prev-q": "p2" });
-  page4.attr({ "next-q": "p5", "prev-q": "p3" });
-  page5.attr("prev-q", "p4");
+  page2.attr({ "prev-q": "p1", "next-q": "p3" });
+  page3.attr({ "prev-q": "p2", "next-q": "p4" });
+  page4.attr({ "prev-q": "p3", "next-q": "p5" });
+  page5.attr({ "prev-q": "p4", "next-q": "p6" });
+  page6.attr({ "prev-q": "p5", "next-q": "p7" });
+  page7.attr({ "prev-q": "p6", "next-q": "p8" });
+  page8.attr("prev-q", "p7");
   console.log("Page Num Attrs Added!");
 
   const arr = [{ page1, page2, page3, page4, page5 }];
