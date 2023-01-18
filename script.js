@@ -109,6 +109,8 @@ $("[hide-question-89='1']").on("click", function () {
 
 //When slides are initialized, add prev + next slide attribute to each slide, check prev + next slide attribute, then when next button is clicked check the desired attribute for where to send slider
 //Add which slide is currently active based on visibility
+
+//Page values to add attr
 const page1 = $("#page-1");
 const page2 = $("#page-2");
 const page3 = $("#page-3");
@@ -117,23 +119,31 @@ const page5 = $("#page-5");
 const page6 = $("#page-6");
 const page7 = $("#page-7");
 const page8 = $("#page-8");
-
+//Slide values
+const slide0 = $(".slide")[0];
 const slide1 = $(".slide")[1];
-const slide2 = $(".slide")[2];
-//because ready fires so early, it shows slide visible even when clicking away from it
+
 function isItVisible() {
   $(document).ready(function () {
     //Skip page-3, send slider to [4]
     if (slide1.style.visibility == "") {
-      console.log("page-2 visible");
+      //   console.log("page-2 visible");
       $(".next-button-quiz").on("click", function () {
         $(".w-slider-dot")[2].click();
       });
       $(".back-button-quiz").on("click", function () {
         $(".w-slider-dot")[2].click();
       });
-    } else if (slide2.style.visibility == "") {
-      console.log("page-3 visible");
+    }
+    //Skip page-2, send slider to [2]
+    if (slide0.style.visibility == "") {
+      console.log("page-1 visible");
+      $(".next-button-quiz").on("click", function () {
+        $(".w-slider-dot")[1].click();
+      });
+      $(".back-button-quiz").on("click", function () {
+        $(".w-slider-dot")[1].click();
+      });
     } else {
       console.log("not visible");
       //Do nothing
