@@ -118,6 +118,19 @@ const page6 = $("#page-6");
 const page7 = $("#page-7");
 const page8 = $("#page-8");
 
+const slide1 = $(".slide")[1];
+//because ready fires so early, it shows slide visible even when clicking away from it
+function isItVisible() {
+  $(document).ready(function () {
+    if (slide1.style.visibility == "") {
+      console.log("visible");
+    } else {
+      console.log("not visible");
+    }
+  });
+}
+isItVisible();
+
 window.onload = function () {
   page1.attr("next-q", "p2");
   page2.attr({ "prev-q": "p1", "next-q": "p3" });
@@ -129,17 +142,19 @@ window.onload = function () {
   page8.attr("prev-q", "p7");
   console.log("Page Num Attrs Added!");
 
-  const arr = [{ page1, page2, page3, page4, page5 }];
-
   $(".next-button-quiz").on("click", function () {
     //check prev + next slide attr for direction
     //tell slider its destination
-    $(".w-slide").val(function () {
-      console.log("Next Question:", $(this).attr("next-q"));
-    });
-    $(".w-slide").val(function () {
-      console.log("Prev Question:", $(this).attr("prev-q"));
-    });
+    isItVisible();
+    // $(".w-slide").val(function () {
+    //   console.log("Next Question:", $(this).attr("next-q"));
+    // });
+    // $(".w-slide").val(function () {
+    //   console.log("Prev Question:", $(this).attr("prev-q"));
+    // });
+  });
+  $(".back-button-quiz").on("click", function () {
+    isItVisible();
   });
 };
 
