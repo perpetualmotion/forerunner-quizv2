@@ -123,20 +123,12 @@ const page8 = $("#page-8");
 const slide0 = $(".slide")[0];
 const slide1 = $(".slide")[1];
 
+$("[hide-question-3='true']").on("click", function () {
+  $("#j3-6").attr("clicked", "true");
+});
+
 function isItVisible() {
   $(document).ready(function () {
-    //Skip page-3, send slider to [4]
-    // if (slide1.style.visibility == "") {
-    //   console.log("page-2 visible");
-    //   $("[hide-page-3='true']").on("click", function () {
-    //     $(".next-button-quiz").on("click", function () {
-    //       $(".w-slider-dot")[4].click();
-    //     });
-    //     $(".back-button-quiz").on("click", function () {
-    //       $(".w-slider-dot")[2].click();
-    //     });
-    //   });
-    // }
     //Skip page-2, send slider to [2]
     if (slide0.style.visibility == "") {
       console.log("page-1 visible");
@@ -150,9 +142,23 @@ function isItVisible() {
         $(".back-button-quiz").on("click", function () {
           $(".w-slider-dot")[1].click();
         });
+    } else if (slide1.style.visibility == "") {
+      console.log("page-2 is visible");
+      if (
+        $("[hide-question-3='true']").data("clicked", function () {
+          console.log("Answer skips Page 3");
+          $(".next-button-quiz").on("click", function () {
+            $(".w-slider-dot")[2].click();
+          });
+          $(".back-button-quiz").on("click", function () {
+            $(".w-slider-dot")[1].click();
+            console.log("Returning to Page-1");
+          });
+        })
+      ) {
+      }
     } else {
-      console.log("not visible");
-      //Do nothing
+      console.log("ERROR SKIPPING");
     }
   });
 }
