@@ -120,8 +120,14 @@ const page6 = $("#page-6");
 const page7 = $("#page-7");
 const page8 = $("#page-8");
 //Slide values
-const slide0 = $(".slide")[0];
-const slide1 = $(".slide")[1];
+const slide0 = $(".w-slide")[0];
+const slide1 = $(".w-slide")[1];
+const slide2 = $(".w-slide")[2];
+const slide3 = $(".w-slide")[3];
+const slide4 = $(".w-slide")[4];
+const slide5 = $(".w-slide")[5];
+const slide6 = $(".w-slide")[6];
+const slide7 = $(".w-slide")[7];
 //if questions are clicked give them attr clicked == true
 $("#j3-7").on("click", function () {
   $("#j3-7").attr("clicked", "true");
@@ -130,6 +136,10 @@ $("#j3-7").on("click", function () {
 $("#j3-8").on("click", function () {
   $("#j3-8").attr("clicked", "true");
   console.log("Attributes added to j3 answers");
+});
+$("#j5-1").on("click", function () {
+  $("#j5-1").attr("clicked", "true");
+  console.log("Attributes added to j5 answers");
 });
 
 window.onload = function () {
@@ -143,67 +153,89 @@ window.onload = function () {
   page8.attr("prev-q", "p7");
   //   console.log("Page Num Attrs Added!");
 
-  $(".next-button-quiz").on("click", function () {
-    //tell slider its destination
-    // $(".w-slide").val(function () {
-    //   console.log("Next Question:", $(this).attr("next-q"));
-    // });
-    // $(".w-slide").val(function () {
-    //   console.log("Prev Question:", $(this).attr("prev-q"));
-    // });
-    isItVisible();
-  });
-  $(".back-button-quiz").on("click", function () {
-    isItVisible();
-  });
+  //   $(".next-button-quiz").on("click", function () {
+  //     //tell slider its destination
+  //     // $(".w-slide").val(function () {
+  //     //   console.log("Next Question:", $(this).attr("next-q"));
+  //     // });
+  //     // $(".w-slide").val(function () {
+  //     //   console.log("Prev Question:", $(this).attr("prev-q"));
+  //     // });
+  //     isItVisible();
+  //   });
+  //   $(".back-button-quiz").on("click", function () {
+  //     isItVisible();
+  //   });
 };
 
+function onetothree() {
+  $(".next-button-quiz").on("click", function () {
+    if (slide2.style.visibility == "") {
+      console.log("skip p222222");
+      $(".w-slider-dot")[2].click();
+    }
+  });
+}
+
+function twotofour() {
+  $(".next-button-quiz").on("click", function () {
+    if (slide1.style.visibility == "") {
+      console.log("Skip s2 => s4");
+      $(".w-slider-dot")[2].click();
+    }
+  });
+}
+
 function isItVisible() {
-  //   $(document).ready(function () {
-
-  //Skip Page - 3, send slider to
-  //   if (slide1.style.visibility == "") {
-  //     console.log("page-2 is visible");
-  //     //J3-6
-  //     if (
-  //       $("[hide-question-3='true']").attr("clicked") == "true" ||
-  //       $("#j3-8").attr("clicked") == "true"
-  //     ) {
-  //       console.log("answer is clicked");
-  //       $(".next-button-quiz").on("click", function () {
-  //         $(".w-slider-dot")[2].click();
-  //       });
-  //       $(".back-button-quiz").on("click", function () {
-  //         $(".w-slider-dot")[2].click();
-  //         console.log("Returning to Page-1");
-  //       });
-  //     }
-  //   }
-
-  //Skip page-2, send slider to [2]
-  if (slide0.style.visibility == "") {
-    console.log("page-1 visible");
-    if (
-      $("[hide-page-2='true']").on("click", function () {
+  $(document).ready(function () {
+    //Skip Page - 3, send slider to p4 / slide3
+    if (slide1.style.visibility == "") {
+      console.log("page-2 is visible");
+      //j3-6
+      if ($("[hide-page-3='true']").attr("clicked") == "true") {
+        console.log("answer is clicked");
         $(".next-button-quiz").on("click", function () {
+          $(".w-slider-dot")[3].click();
+        });
+        $(".back-button-quiz").on("click", function () {
+          $(".w-slider-dot")[2].click();
+          console.log("Returning to Page-1");
+        });
+      }
+    }
+
+    //Skip page-2, send slider to [2]
+
+    if (slide2.style.visibility == "") {
+      console.log("Slide 2 visible");
+      $(".next-button-quiz").on("click", function () {
+        console.log("Attempting to advance to slide 3");
+        $(".w-slider-dot")[2].click();
+      });
+    } else if (slide0.style.visibility == "") {
+      console.log("page-1 visible");
+      if (
+        $("[hide-page-2='true']").on("click", function () {
+          $(".next-button-quiz").on("click", function () {
+            console.log("skip p2");
+            $(".w-slider-dot")[1].click();
+          });
+        })
+      )
+        $(".back-button-quiz").on("click", function () {
           $(".w-slider-dot")[1].click();
         });
-      })
-    )
-      $(".back-button-quiz").on("click", function () {
-        $(".w-slider-dot")[1].click();
-      });
-  } else {
-    console.log("ERROR SKIPPING");
-    $(".next-button-quiz").on("click", function () {
-      $(".w-slider-dot")[4];
-    });
-  }
-  //   });
+    } else {
+      console.log("ERROR SKIPPING");
+      $(".next-button-quiz").on("click", function () {});
+    }
+  });
 }
-isItVisible();
+
 $(".w-slide").ready(function () {
-  isItVisible();
+  //   onetothree();
+  twotofour();
+  //   isItVisible();
 });
 
 //BRACHING LOGIC //
