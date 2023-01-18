@@ -124,11 +124,11 @@ const slide0 = $(".slide")[0];
 const slide1 = $(".slide")[1];
 //if questions are clicked give them attr clicked == true
 $("#j3-7").on("click", function () {
-  $("#j3-6").attr("clicked", "true");
+  $("#j3-7").attr("clicked", "true");
   console.log("Attributes added to j3 answers");
 });
 $("#j3-8").on("click", function () {
-  $("#j3-7").attr("clicked", "true");
+  $("#j3-8").attr("clicked", "true");
   console.log("Attributes added to j3 answers");
 });
 
@@ -159,44 +159,52 @@ window.onload = function () {
 };
 
 function isItVisible() {
-  $(document).ready(function () {
-    //Skip page-2, send slider to [2]
-    if (slide0.style.visibility == "") {
-      console.log("page-1 visible");
-      if (
-        $("[hide-page-2='true']").on("click", function () {
-          $(".next-button-quiz").on("click", function () {
-            $(".w-slider-dot")[1].click();
-          });
-        })
-      )
-        $(".back-button-quiz").on("click", function () {
+  //   $(document).ready(function () {
+
+  //Skip Page - 3, send slider to
+  //   if (slide1.style.visibility == "") {
+  //     console.log("page-2 is visible");
+  //     //J3-6
+  //     if (
+  //       $("[hide-question-3='true']").attr("clicked") == "true" ||
+  //       $("#j3-8").attr("clicked") == "true"
+  //     ) {
+  //       console.log("answer is clicked");
+  //       $(".next-button-quiz").on("click", function () {
+  //         $(".w-slider-dot")[2].click();
+  //       });
+  //       $(".back-button-quiz").on("click", function () {
+  //         $(".w-slider-dot")[2].click();
+  //         console.log("Returning to Page-1");
+  //       });
+  //     }
+  //   }
+
+  //Skip page-2, send slider to [2]
+  if (slide0.style.visibility == "") {
+    console.log("page-1 visible");
+    if (
+      $("[hide-page-2='true']").on("click", function () {
+        $(".next-button-quiz").on("click", function () {
           $(".w-slider-dot")[1].click();
         });
-    }
-    //Skip Page - 3, send slider to
-    if (slide1.style.visibility == "") {
-      console.log("page-2 is visible");
-      //J3-6
-      if (
-        $("[hide-question-3='true']").attr("clicked") == "true" ||
-        $("#j3-7").attr("clicked") == "true"
-      ) {
-        console.log("answer is clicked");
-        $(".next-button-quiz").on("click", function () {
-          $(".w-slider-dot")[2].click();
-        });
-        $(".back-button-quiz").on("click", function () {
-          $(".w-slider-dot")[2].click();
-          console.log("Returning to Page-1");
-        });
-      }
-    } else {
-      console.log("ERROR SKIPPING");
-    }
-  });
+      })
+    )
+      $(".back-button-quiz").on("click", function () {
+        $(".w-slider-dot")[1].click();
+      });
+  } else {
+    console.log("ERROR SKIPPING");
+    $(".next-button-quiz").on("click", function () {
+      $(".w-slider-dot")[4];
+    });
+  }
+  //   });
 }
 isItVisible();
+$(".w-slide").ready(function () {
+  isItVisible();
+});
 
 //BRACHING LOGIC //
 
