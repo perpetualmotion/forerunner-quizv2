@@ -123,10 +123,13 @@ const page8 = $("#page-8");
 const slide0 = $(".slide")[0];
 const slide1 = $(".slide")[1];
 //if questions are clicked give them attr clicked == true
-$("[hide-question-3='true']").on("click", function () {
+$("#j3-6").on("click", function () {
   $("#j3-6").attr("clicked", "true");
+  console.log("Attributes added to j3 answers");
+});
+$("#j3-7").on("click", function () {
   $("#j3-7").attr("clicked", "true");
-  console.log("");
+  console.log("Attributes added to j3 answers");
 });
 
 function isItVisible() {
@@ -144,20 +147,30 @@ function isItVisible() {
         $(".back-button-quiz").on("click", function () {
           $(".w-slider-dot")[1].click();
         });
-    } else if (slide1.style.visibility == "") {
+    }
+    if (slide1.style.visibility == "") {
       console.log("page-2 is visible");
-      if (
-        $("[hide-question-3='true']").data("clicked", function () {
-          console.log("Answer skips Page 3");
-          $(".next-button-quiz").on("click", function () {
-            $(".w-slider-dot")[2].click();
-          });
-          $(".back-button-quiz").on("click", function () {
-            $(".w-slider-dot")[1].click();
-            console.log("Returning to Page-1");
-          });
-        })
-      ) {
+      if ($("#j3-6") == "clicked") {
+        console.log("answer is clicked");
+        $(".next-button-quiz").on("click", function () {
+          $(".w-slider-dot")[2].click();
+        });
+        $(".back-button-quiz").on("click", function () {
+          $(".w-slider-dot")[2].click();
+          console.log("Returning to Page-1");
+        });
+      }
+      if ($("#j3-7") == "clicked") {
+        console.log("answer is clicked");
+        $(".next-button-quiz").on("click", function () {
+          $(".w-slider-dot")[2].click();
+        });
+        $(".back-button-quiz").on("click", function () {
+          $(".w-slider-dot")[2].click();
+          console.log("Returning to Page-1");
+        });
+      }
+      {
       }
     } else {
       console.log("ERROR SKIPPING");
