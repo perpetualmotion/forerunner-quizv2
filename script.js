@@ -123,14 +123,40 @@ const page8 = $("#page-8");
 const slide0 = $(".slide")[0];
 const slide1 = $(".slide")[1];
 //if questions are clicked give them attr clicked == true
-$("#j3-6").on("click", function () {
+$("#j3-7").on("click", function () {
   $("#j3-6").attr("clicked", "true");
   console.log("Attributes added to j3 answers");
 });
-$("#j3-7").on("click", function () {
+$("#j3-8").on("click", function () {
   $("#j3-7").attr("clicked", "true");
   console.log("Attributes added to j3 answers");
 });
+
+window.onload = function () {
+  page1.attr("next-q", "p2");
+  page2.attr({ "prev-q": "p1", "next-q": "p3" });
+  page3.attr({ "prev-q": "p2", "next-q": "p4" });
+  page4.attr({ "prev-q": "p3", "next-q": "p5" });
+  page5.attr({ "prev-q": "p4", "next-q": "p6" });
+  page6.attr({ "prev-q": "p5", "next-q": "p7" });
+  page7.attr({ "prev-q": "p6", "next-q": "p8" });
+  page8.attr("prev-q", "p7");
+  //   console.log("Page Num Attrs Added!");
+
+  $(".next-button-quiz").on("click", function () {
+    //tell slider its destination
+    // $(".w-slide").val(function () {
+    //   console.log("Next Question:", $(this).attr("next-q"));
+    // });
+    // $(".w-slide").val(function () {
+    //   console.log("Prev Question:", $(this).attr("prev-q"));
+    // });
+    isItVisible();
+  });
+  $(".back-button-quiz").on("click", function () {
+    isItVisible();
+  });
+};
 
 function isItVisible() {
   $(document).ready(function () {
@@ -152,7 +178,10 @@ function isItVisible() {
     if (slide1.style.visibility == "") {
       console.log("page-2 is visible");
       //J3-6
-      if ($("#j3-6").attr("clicked") == "true") {
+      if (
+        $("[hide-question-3='true']").attr("clicked") == "true" ||
+        $("#j3-7").attr("clicked") == "true"
+      ) {
         console.log("answer is clicked");
         $(".next-button-quiz").on("click", function () {
           $(".w-slider-dot")[2].click();
@@ -161,19 +190,6 @@ function isItVisible() {
           $(".w-slider-dot")[2].click();
           console.log("Returning to Page-1");
         });
-      }
-      //J3-7
-      if ($("#j3-7").attr("clicked") == "true") {
-        console.log("answer is clicked");
-        $(".next-button-quiz").on("click", function () {
-          $(".w-slider-dot")[2].click();
-        });
-        $(".back-button-quiz").on("click", function () {
-          $(".w-slider-dot")[2].click();
-          console.log("Returning to Page-1");
-        });
-      }
-      {
       }
     } else {
       console.log("ERROR SKIPPING");
@@ -181,32 +197,6 @@ function isItVisible() {
   });
 }
 isItVisible();
-
-window.onload = function () {
-  page1.attr("next-q", "p2");
-  page2.attr({ "prev-q": "p1", "next-q": "p3" });
-  page3.attr({ "prev-q": "p2", "next-q": "p4" });
-  page4.attr({ "prev-q": "p3", "next-q": "p5" });
-  page5.attr({ "prev-q": "p4", "next-q": "p6" });
-  page6.attr({ "prev-q": "p5", "next-q": "p7" });
-  page7.attr({ "prev-q": "p6", "next-q": "p8" });
-  page8.attr("prev-q", "p7");
-  console.log("Page Num Attrs Added!");
-
-  $(".next-button-quiz").on("click", function () {
-    //tell slider its destination
-    isItVisible();
-    // $(".w-slide").val(function () {
-    //   console.log("Next Question:", $(this).attr("next-q"));
-    // });
-    // $(".w-slide").val(function () {
-    //   console.log("Prev Question:", $(this).attr("prev-q"));
-    // });
-  });
-  $(".back-button-quiz").on("click", function () {
-    isItVisible();
-  });
-};
 
 //BRACHING LOGIC //
 
