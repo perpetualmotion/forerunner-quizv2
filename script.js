@@ -184,6 +184,13 @@ function twotofour() {
       $(".w-slider-dot")[2].click();
     }
   });
+
+  $(".back-button-quiz").on("click", function () {
+    if (slide3.style.visibility == "") {
+      console.log("Skip s4 => s2");
+      $(".w-slider-dot")[2].click();
+    }
+  });
 }
 
 function isItVisible() {
