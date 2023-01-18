@@ -148,9 +148,11 @@ function isItVisible() {
           $(".w-slider-dot")[1].click();
         });
     }
+    //Skip Page - 3, send slider to
     if (slide1.style.visibility == "") {
       console.log("page-2 is visible");
-      if ($("#j3-6") == "clicked") {
+      //J3-6
+      if ($("#j3-6").attr("clicked") == "true") {
         console.log("answer is clicked");
         $(".next-button-quiz").on("click", function () {
           $(".w-slider-dot")[2].click();
@@ -160,7 +162,8 @@ function isItVisible() {
           console.log("Returning to Page-1");
         });
       }
-      if ($("#j3-7") == "clicked") {
+      //J3-7
+      if ($("#j3-7").attr("clicked") == "true") {
         console.log("answer is clicked");
         $(".next-button-quiz").on("click", function () {
           $(".w-slider-dot")[2].click();
