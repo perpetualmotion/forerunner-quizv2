@@ -119,13 +119,24 @@ const page7 = $("#page-7");
 const page8 = $("#page-8");
 
 const slide1 = $(".slide")[1];
+const slide2 = $(".slide")[2];
 //because ready fires so early, it shows slide visible even when clicking away from it
 function isItVisible() {
   $(document).ready(function () {
+    //Skip page-3, send slider to [4]
     if (slide1.style.visibility == "") {
-      console.log("visible");
+      console.log("page-2 visible");
+      $(".next-button-quiz").on("click", function () {
+        $(".w-slider-dot")[2].click();
+      });
+      $(".back-button-quiz").on("click", function () {
+        $(".w-slider-dot")[2].click();
+      });
+    } else if (slide2.style.visibility == "") {
+      console.log("page-3 visible");
     } else {
       console.log("not visible");
+      //Do nothing
     }
   });
 }
