@@ -122,9 +122,11 @@ const page8 = $("#page-8");
 //Slide values
 const slide0 = $(".slide")[0];
 const slide1 = $(".slide")[1];
-
+//if questions are clicked give them attr clicked == true
 $("[hide-question-3='true']").on("click", function () {
   $("#j3-6").attr("clicked", "true");
+  $("#j3-7").attr("clicked", "true");
+  console.log("");
 });
 
 function isItVisible() {
@@ -176,7 +178,6 @@ window.onload = function () {
   console.log("Page Num Attrs Added!");
 
   $(".next-button-quiz").on("click", function () {
-    //check prev + next slide attr for direction
     //tell slider its destination
     isItVisible();
     // $(".w-slide").val(function () {
@@ -214,73 +215,3 @@ $("#wf-form-Quiz").submit(function () {
   console.log("THE SUBMIT BUTTON IS LOCKED FOR TESTING!");
   return false;
 });
-
-//Older code
-
-//Hide j6
-// $("[data-type='checkbox']").on("click", function () {
-//   if ($("#j5-3")) {
-//     if ($(this).find("input").prop("checked") == true) {
-//       $("#j6").hide();
-//       console.log("Question 6 has been hidden!");
-//     } else {
-//       console.log("Error hiding question 6!");
-//     }
-//   } else {
-//     console.log("Error checking j6 selector!");
-//   }
-// });
-
-//Skip Page-2 / j6
-// $("[hide-page-2='true']").on("click", function () {
-//   console.log("Hide P2 answer clicked");
-
-//   if ($("#page-3").css("visibility") == "hidden") {
-//     $(".next-button-quiz").on("click", function () {
-//       $(".w-slider-dot")[1].click();
-//       console.log("Skipping Page-2 Forward!");
-//     });
-//   } else if ($("#page-3").css("display") == "block") {
-//     $(".next-button-quiz").on("click", function () {
-//       //Return slider to normal logic
-//       console.log("PAGE-3 IS CURRENTLY ACTIVE!");
-//     });
-//   }
-
-//   if (
-//     $(".back-button-quiz").on("click", function () {
-//       $(".w-slider-dot")[1].click();
-//       console.log("Returning to Page 1!");
-//     })
-//   ) {
-//     //nothing
-//   }
-// });
-
-//Skip Page-3 // j7
-// $("[hide-page-3='true']").on("click", function () {
-//   //Add while page-2 is active / not hidden and nest code below
-//   if ($("#page-2").css("visibility") == "hidden") {
-//     console.log("page-2 is hidden!");
-//   } else if ($("#page-2").css("visibility") != "hidden") {
-//     $(".next-button-quiz").on("click", function () {
-//       console.log("Skipping page-3");
-//       $(".w-slider-dot")[2].click();
-//     });
-//   }
-
-//   if (
-//     $(".back-button-quiz").on("click", function () {
-//       $(".w-slider-dot")[2].click();
-//       console.log("Returning to Page 1!");
-//     })
-//   ) {
-//     //Doesn't move past slide 2
-//   }
-// });
-
-//Skip Page-4 / j8-10
-// $("[hidepage-4='true']").on("click", function () {
-//   //Add while page-2 is active / not hidden and nest code below
-//   //page 3 + 4 are hidden w same answers
-// });
