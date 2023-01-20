@@ -230,6 +230,7 @@ function isChecked() {
         console.log("An answer has been clicked");
         if ($(this).is(":checked")) {
           console.log("Answer checked!");
+          //Slider functions normally
         }
       })
     ) {
@@ -248,6 +249,46 @@ function disIfUnchecked() {
     }
   });
 }
+
+function slide1IsChecked() {
+  if ($(slide1.style.visibility == "")) {
+    $(".next-button-quiz").on("click", function () {
+      console.log("hello");
+      if (!$("#j6").is(":checked")) {
+        console.log("No answer on slide 1 selecteds");
+        $(".next-button-quiz").on("click", false);
+      }
+    });
+  }
+  //   $(".next-button-quiz").on("click", function () {
+  //     if ($(slide0.style.visibility == "hidden")) {
+  //       if (
+  //         !$("#j6").is(":checked") ||
+  //         !$("#j6-2").is(":checked") ||
+  //         !$("#j6-3").is(":checked") ||
+  //         !$("#j6-4").is(":checked") ||
+  //         !$("#j6-5").is(":checked") ||
+  //         !$("#j6-6").is(":checked") ||
+  //         !$("#j6-7").is(":checked") ||
+  //         !$("#j6-8").is(":checked")
+  //       ) {
+  //         console.log("No answers on slide 1 clicked!");
+  //         return false;
+  //       }
+  //     }
+  //   });
+}
+
+$(".w-slide").ready(function () {
+  //   test();
+  //Page Lock Functions
+  slide1IsChecked();
+  isChecked();
+  disIfUnchecked();
+  //Skip Page Functions
+  zeroToTwo();
+  oneToThree();
+});
 //DISABLE NEXT BUTTON//
 
 //VALUE CANNOT EXCEED 24//
@@ -266,13 +307,6 @@ $("[data-type='input']").on("onfocusout", function () {
 //VALUE CANNOT EXCEED 24//
 
 console.log("LOCALHOST LIVE SERVER IS RUNNING!");
-
-$(".w-slide").ready(function () {
-  isChecked();
-  disIfUnchecked();
-  zeroToTwo();
-  oneToThree();
-});
 
 //'Get my archetype' stop submit for testing
 $("#wf-form-Quiz").submit(function () {
