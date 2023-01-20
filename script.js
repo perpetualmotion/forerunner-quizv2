@@ -190,16 +190,18 @@ function test() {
 function zerototwo() {
   $(".next-button-quiz").on("click", function () {
     if (slide0.style.visibility == "") {
-      if ($("#j3-7").is(":checked")) {
-        console.log("skip s0 => s2");
+      if ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) {
+        console.log("Skip Test s0 -> s2");
         $(".w-slider-dot")[1].click();
       }
     }
   });
   $(".back-button-quiz").on("click", function () {
     if (slide2.style.visibility == "") {
-      console.log("Skip s2 => s0");
-      $(".w-slider-dot")[1].click();
+      if ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) {
+        console.log("Skip s2 => s0");
+        $(".w-slider-dot")[1].click();
+      }
     }
   });
 }
