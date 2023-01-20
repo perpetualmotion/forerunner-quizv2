@@ -348,9 +348,32 @@ function checkSlide3() {
   });
 }
 
+//Slide 4
+function checkSlide4() {
+  nextButton.on("click", function () {
+    if (slide4.style.visibility == "") {
+      if (
+        $("#j111").is(":checked") ||
+        $("#j112").is(":checked") ||
+        $("#j113").is(":checked") ||
+        $("#j114").is(":checked") ||
+        $("#j115").is(":checked") ||
+        $("#j116").is(":checked")
+        //Have Matthew add ids to all answers in webflow
+      ) {
+        return true;
+      } else {
+        console.log("S4 Next button locked, no answers clicked!");
+        return false;
+      }
+    }
+  });
+}
+
 $(".w-slide").ready(function () {
   //   test();
   //Page Lock Functions
+  checkSlide4();
   checkSlide3();
   checkSlide2();
   checkSlide1();
