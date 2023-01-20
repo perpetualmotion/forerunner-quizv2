@@ -148,7 +148,7 @@ $("[hide-question-89='1']").on("click", function () {
 //   });
 // }
 
-function zerototwo() {
+function zeroToTwo() {
   $(".next-button-quiz").on("click", function () {
     if (slide0.style.visibility == "") {
       if ($("#j5-1").is(":checked") || $("#j5-8").is(":checked")) {
@@ -167,7 +167,7 @@ function zerototwo() {
   });
 }
 
-function onetothree() {
+function oneToThree() {
   $(".next-button-quiz").on("click", function () {
     if (slide1.style.visibility == "") {
       if (
@@ -204,8 +204,8 @@ function onetothree() {
 
 $(".w-slide").ready(function () {
   //   test();
-  zerototwo();
-  onetothree();
+  zeroToTwo();
+  oneToThree();
 });
 
 //BRACHING LOGIC //
