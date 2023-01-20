@@ -248,52 +248,6 @@ $(".w-slide").ready(function () {
   //   isItVisible();
 });
 
-function isItVisible() {
-  $(document).ready(function () {
-    //Skip Page - 3, send slider to p4 / slide3
-    if (slide1.style.visibility == "") {
-      console.log("page-2 is visible");
-      //j3-6
-      if ($("[hide-page-3='true']").attr("clicked") == "true") {
-        console.log("answer is clicked");
-        $(".next-button-quiz").on("click", function () {
-          $(".w-slider-dot")[3].click();
-        });
-        $(".back-button-quiz").on("click", function () {
-          $(".w-slider-dot")[2].click();
-          console.log("Returning to Page-1");
-        });
-      }
-    }
-
-    //Skip page-2, send slider to [2]
-
-    if (slide2.style.visibility == "") {
-      console.log("Slide 2 visible");
-      $(".next-button-quiz").on("click", function () {
-        console.log("Attempting to advance to slide 3");
-        $(".w-slider-dot")[2].click();
-      });
-    } else if (slide0.style.visibility == "") {
-      console.log("page-1 visible");
-      if (
-        $("[hide-page-2='true']").on("click", function () {
-          $(".next-button-quiz").on("click", function () {
-            console.log("skip p2");
-            $(".w-slider-dot")[1].click();
-          });
-        })
-      )
-        $(".back-button-quiz").on("click", function () {
-          $(".w-slider-dot")[1].click();
-        });
-    } else {
-      console.log("ERROR SKIPPING");
-      $(".next-button-quiz").on("click", function () {});
-    }
-  });
-}
-
 //BRACHING LOGIC //
 
 //Char. between 0-24 for Input Type qs
