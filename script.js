@@ -168,16 +168,22 @@ window.onload = function () {
   //   });
 };
 
-function onetothree() {
+function zerototwo() {
   $(".next-button-quiz").on("click", function () {
+    if (slide0.style.visibility == "") {
+      console.log("skip s0 => s2");
+      $(".w-slider-dot")[1].click();
+    }
+  });
+  $(".back-button-quiz").on("click", function () {
     if (slide2.style.visibility == "") {
-      console.log("skip p222222");
-      $(".w-slider-dot")[2].click();
+      console.log("Skip s0 => s2");
+      $(".w-slider-dot")[1].click();
     }
   });
 }
 
-function twotofour() {
+function onetothree() {
   $(".next-button-quiz").on("click", function () {
     if (slide1.style.visibility == "") {
       console.log("Skip s2 => s4");
@@ -240,8 +246,8 @@ function isItVisible() {
 }
 
 $(".w-slide").ready(function () {
+  zerototwo();
   //   onetothree();
-  twotofour();
   //   isItVisible();
 });
 
