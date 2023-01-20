@@ -216,20 +216,30 @@ function oneToThree() {
 }
 
 $(".w-slide").ready(function () {
-  //   test();
-  disableNext();
+  test();
+  //   disableNext();
   zeroToTwo();
   oneToThree();
 });
 
 //BRACHING LOGIC //
 
+function test() {
+  //on page render
+  if (!$(":input").prop("checked")) {
+    console.log("No elements checked");
+    $(".next-button-quiz").on("click", function () {
+      console.log("Next button is locked!");
+      return false;
+    });
+  }
+}
+
 //DISABLE NEXT BUTTON//
 //when current slide is visible, for all q's, if el w/ :checked does not exist, disable next button
 function disableNext() {
   $(document).ready(function () {
     $(":input").on("click", function () {
-      console.log("answer clicked");
       if ($(this).is(":checked")) {
         console.log("Answer clicked is checked!");
         $(".next-button-quiz").on("click", function () {
