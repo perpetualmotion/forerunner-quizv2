@@ -198,6 +198,10 @@ function oneToThree() {
         console.log("Skip s3 => s1");
         $(".w-slider-dot")[2].click();
       }
+      if ($("#j5-1").is(":checked") || $("#j5-8").is(":checked")) {
+        console.log("Returning to s0!");
+        $(".w-slider-dot")[1].click();
+      }
     }
   });
 }
