@@ -215,14 +215,6 @@ function oneToThree() {
   });
 }
 
-$(".w-slide").ready(function () {
-  isChecked();
-  disIfUnchecked();
-  //   disableNext();
-  zeroToTwo();
-  oneToThree();
-});
-
 //BRACHING LOGIC //
 
 //DISABLE NEXT BUTTON//
@@ -274,6 +266,13 @@ $("[data-type='input']").on("onfocusout", function () {
 //VALUE CANNOT EXCEED 24//
 
 console.log("LOCALHOST LIVE SERVER IS RUNNING!");
+
+$(".w-slide").ready(function () {
+  isChecked();
+  disIfUnchecked();
+  zeroToTwo();
+  oneToThree();
+});
 
 //'Get my archetype' stop submit for testing
 $("#wf-form-Quiz").submit(function () {
