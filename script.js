@@ -228,12 +228,15 @@ $(".w-slide").ready(function () {
 //when current slide is visible, for all q's, if el w/ :checked does not exist, disable next button
 function disableNext() {
   $(document).ready(function () {
-    $(".next-button-quiz").on("click", function () {
-      console.log("Next button is locked!");
-      //   return false;
-    });
     $(":input").on("click", function () {
       console.log("answer clicked");
+      if ($(this).is(":checked")) {
+        console.log("Answer clicked is checked!");
+        $(".next-button-quiz").on("click", function () {
+          console.log("Next button is locked!");
+          return false;
+        });
+      }
     });
   });
 }
