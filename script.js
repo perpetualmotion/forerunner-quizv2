@@ -168,16 +168,29 @@ window.onload = function () {
   //   });
 };
 
+function test() {
+  if (slide0.style.visibility == "") {
+    $(".next-button-quiz").on("click", function () {
+      if ($("#j3-7").is(":checked")) {
+        console.log("Test = True");
+        $(".w-slider-dot")[1].click();
+      }
+    });
+  }
+}
+
 function zerototwo() {
   $(".next-button-quiz").on("click", function () {
     if (slide0.style.visibility == "") {
-      console.log("skip s0 => s2");
-      $(".w-slider-dot")[1].click();
+      if ($("[hide-page-3='true']").attr("clicked") == "true") {
+        console.log("skip s0 => s2");
+        $(".w-slider-dot")[1].click();
+      }
     }
   });
   $(".back-button-quiz").on("click", function () {
     if (slide2.style.visibility == "") {
-      console.log("Skip s0 => s2");
+      console.log("Skip s2 => s0");
       $(".w-slider-dot")[1].click();
     }
   });
@@ -198,6 +211,13 @@ function onetothree() {
     }
   });
 }
+
+$(".w-slide").ready(function () {
+  test();
+  //   zerototwo();
+  //   onetothree();
+  //   isItVisible();
+});
 
 function isItVisible() {
   $(document).ready(function () {
@@ -244,12 +264,6 @@ function isItVisible() {
     }
   });
 }
-
-$(".w-slide").ready(function () {
-  zerototwo();
-  //   onetothree();
-  //   isItVisible();
-});
 
 //BRACHING LOGIC //
 
