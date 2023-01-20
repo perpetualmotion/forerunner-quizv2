@@ -254,11 +254,11 @@ function disIfUnchecked() {
 function test() {
   nextButton.on("click", function () {
     if (slide1.style.visibility == "") {
-      if (!$("#j61").is(":checked")) {
+      if ($("#j61").is(":checked")) {
+        return true;
+      } else {
         console.log("S1 Next button locked, no answers clicked!");
         return false;
-      } else {
-        return true;
       }
     }
   });
