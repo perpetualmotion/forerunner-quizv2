@@ -198,7 +198,16 @@ function oneToThree() {
         console.log("Skip s3 => s1");
         $(".w-slider-dot")[2].click();
       }
-      if ($("#j5-1").is(":checked") || $("#j5-8").is(":checked")) {
+      if (
+        $("#j5-1").is(":checked") ||
+        ($("#j5-8").is(":checked") && $("#j3-1").is(":checked")) ||
+        $("#j3-2").is(":checked") ||
+        $("#j3-3").is(":checked") ||
+        $("#j3-5").is(":checked") ||
+        $("#j3-6").is(":checked") ||
+        $("#j3-7").is(":checked") ||
+        $("#j3-8").is(":checked")
+      ) {
         console.log("Returning to s0!");
         $(".w-slider-dot")[1].click();
       }
