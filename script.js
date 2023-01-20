@@ -170,18 +170,18 @@ window.onload = function () {
 
 function test() {
   $(".next-button-quiz").on("click", function () {
-    if (slide0.style.visibility == "") {
+    if (slide1.style.visibility == "") {
       if ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) {
-        console.log("Skip Test s0 -> s2");
-        $(".w-slider-dot")[1].click();
+        console.log("Skip Test s1 -> s3");
+        $(".w-slider-dot")[2].click();
       }
     }
   });
   $(".back-button-quiz").on("click", function () {
-    if (slide2.style.visibility == "") {
+    if (slide3.style.visibility == "") {
       if ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) {
-        console.log("Skip s2 => s0");
-        $(".w-slider-dot")[1].click();
+        console.log("Skip s3 => s1");
+        $(".w-slider-dot")[2].click();
       }
     }
   });
@@ -209,23 +209,42 @@ function zerototwo() {
 function onetothree() {
   $(".next-button-quiz").on("click", function () {
     if (slide1.style.visibility == "") {
-      console.log("Skip s2 => s4");
-      $(".w-slider-dot")[2].click();
+      if (
+        $("#j3-1").is(":checked") ||
+        $("#j3-2").is(":checked") ||
+        $("#j3-3").is(":checked") ||
+        $("#j3-5").is(":checked") ||
+        $("#j3-6").is(":checked") ||
+        $("#j3-7").is(":checked") ||
+        $("#j3-8").is(":checked")
+      ) {
+        console.log("Skip s1 -> s3");
+        $(".w-slider-dot")[2].click();
+      }
     }
   });
-
   $(".back-button-quiz").on("click", function () {
     if (slide3.style.visibility == "") {
-      console.log("Skip s4 => s2");
-      $(".w-slider-dot")[2].click();
+      if (
+        $("#j3-1").is(":checked") ||
+        $("#j3-2").is(":checked") ||
+        $("#j3-3").is(":checked") ||
+        $("#j3-5").is(":checked") ||
+        $("#j3-6").is(":checked") ||
+        $("#j3-7").is(":checked") ||
+        $("#j3-8").is(":checked")
+      ) {
+        console.log("Skip s3 => s1");
+        $(".w-slider-dot")[2].click();
+      }
     }
   });
 }
 
 $(".w-slide").ready(function () {
-  test();
+  //   test();
   //   zerototwo();
-  //   onetothree();
+  onetothree();
   //   isItVisible();
 });
 
