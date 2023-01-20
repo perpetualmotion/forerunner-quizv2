@@ -152,7 +152,7 @@ $("[hide-question-89='1']").on("click", function () {
 // }
 
 function zeroToTwo() {
-  $(".next-button-quiz").on("click", function () {
+  nextButton.on("click", function () {
     if (slide0.style.visibility == "") {
       if ($("#j5-1").is(":checked") || $("#j5-8").is(":checked")) {
         console.log("Skip Test s0 -> s2");
@@ -160,7 +160,7 @@ function zeroToTwo() {
       }
     }
   });
-  $(".back-button-quiz").on("click", function () {
+  backButton.on("click", function () {
     if (slide2.style.visibility == "") {
       if ($("#j5-1").is(":checked") || $("#j5-8").is(":checked")) {
         console.log("Skip s2 => s0");
@@ -171,7 +171,7 @@ function zeroToTwo() {
 }
 
 function oneToThree() {
-  $(".next-button-quiz").on("click", function () {
+  nextButton.on("click", function () {
     if (slide1.style.visibility == "") {
       if (
         $("#j3-1").is(":checked") ||
@@ -184,10 +184,12 @@ function oneToThree() {
       ) {
         console.log("Skip s1 -> s3");
         $(".w-slider-dot")[2].click();
+      } else {
+        return false;
       }
     }
   });
-  $(".back-button-quiz").on("click", function () {
+  backButton.on("click", function () {
     if (slide3.style.visibility == "") {
       if (
         $("#j3-1").is(":checked") ||
@@ -369,10 +371,73 @@ function checkSlide4() {
     }
   });
 }
+//Slide 5
+function checkSlide5() {
+  nextButton.on("click", function () {
+    if (slide5.style.visibility == "") {
+      if (
+        $("#j111").is(":checked") ||
+        $("#j112").is(":checked") ||
+        $("#j113").is(":checked") ||
+        $("#j114").is(":checked") ||
+        $("#j115").is(":checked") ||
+        $("#j116").is(":checked")
+      ) {
+        return true;
+      } else {
+        console.log("S5 Next button locked, no answers clicked!");
+        return false;
+      }
+    }
+  });
+}
+//Slide 6
+function checkSlide6() {
+  nextButton.on("click", function () {
+    if (slide6.style.visibility == "") {
+      if (
+        $("#j111").is(":checked") ||
+        $("#j112").is(":checked") ||
+        $("#j113").is(":checked") ||
+        $("#j114").is(":checked") ||
+        $("#j115").is(":checked") ||
+        $("#j116").is(":checked")
+      ) {
+        return true;
+      } else {
+        console.log("S6 Next button locked, no answers clicked!");
+        return false;
+      }
+    }
+  });
+}
+//Slide 7
+function checkSlide7() {
+  nextButton.on("click", function () {
+    if (slide7.style.visibility == "") {
+      if (
+        $("#j111").is(":checked") ||
+        $("#j112").is(":checked") ||
+        $("#j113").is(":checked") ||
+        $("#j114").is(":checked") ||
+        $("#j115").is(":checked") ||
+        $("#j116").is(":checked")
+      ) {
+        return true;
+      } else {
+        console.log("S7 Next button locked, no answers clicked!");
+        return false;
+      }
+    }
+  });
+}
 
 $(".w-slide").ready(function () {
   //   test();
   //Page Lock Functions
+  checkSlide7();
+  checkSlide6();
+  checkSlide5();
   checkSlide4();
   checkSlide3();
   checkSlide2();
