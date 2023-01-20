@@ -320,7 +320,24 @@ function checkSlide3() {
         $("#j8-4").is(":checked") ||
         $("#j8-5").is(":checked") ||
         $("#j8-6").is(":checked") ||
-        $("#j8-7").is(":checked")
+        $("#j8-7").is(":checked") ||
+        $("#j9-1").is(":checked") ||
+        $("#j9-2").is(":checked") ||
+        $("#j9-3").is(":checked") ||
+        $("#j9-4").is(":checked") ||
+        $("#j9-5").is(":checked") ||
+        $("#j9-6").is(":checked") ||
+        $("#j9-7").is(":checked") ||
+        $("#j9-8").is(":checked") ||
+        $("#j9-9").is(":checked") ||
+        $("#j9-10").is(":checked") ||
+        $("#j10-1").is(":checked") ||
+        $("#j10-2").is(":checked") ||
+        $("#j10-3").is(":checked") ||
+        $("#j10-4").is(":checked") ||
+        $("#j10-5").is(":checked") ||
+        $("#j10-6").is(":checked") ||
+        $("#j10-7").is(":checked")
       ) {
         return true;
       } else {
