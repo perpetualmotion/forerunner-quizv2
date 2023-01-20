@@ -252,9 +252,9 @@ function disIfUnchecked() {
 function slide1Checked() {
   if ($(slide1.style.visibility == "")) {
     $(".next-button-quiz").on("click", function () {
-      if ($("#j61").is(":checked")) {
+      if ($("#Multiple-times-a-day").is(":checked")) {
         console.log("j6 checked");
-        //nothing
+        $(".next-button-quiz").on("click", true);
       }
     });
   }
@@ -262,7 +262,7 @@ function slide1Checked() {
 function slide1Unchecked() {
   if ($(slide1.style.visibility == "")) {
     $(".next-button-quiz").on("click", function () {
-      if (!$("#j61").is(":checked")) {
+      if (!$("#Multiple-times-a-day").is(":checked")) {
         console.log("No answer on slide 1 selecteds");
         $(".next-button-quiz").on("click", false);
       }
