@@ -151,21 +151,6 @@ window.onload = function () {
   page6.attr({ "prev-q": "p5", "next-q": "p7" });
   page7.attr({ "prev-q": "p6", "next-q": "p8" });
   page8.attr("prev-q", "p7");
-  //   console.log("Page Num Attrs Added!");
-
-  //   $(".next-button-quiz").on("click", function () {
-  //     //tell slider its destination
-  //     // $(".w-slide").val(function () {
-  //     //   console.log("Next Question:", $(this).attr("next-q"));
-  //     // });
-  //     // $(".w-slide").val(function () {
-  //     //   console.log("Prev Question:", $(this).attr("prev-q"));
-  //     // });
-  //     isItVisible();
-  //   });
-  //   $(".back-button-quiz").on("click", function () {
-  //     isItVisible();
-  //   });
 };
 
 function test() {
@@ -243,9 +228,8 @@ function onetothree() {
 
 $(".w-slide").ready(function () {
   //   test();
-  //   zerototwo();
+  zerototwo();
   onetothree();
-  //   isItVisible();
 });
 
 //BRACHING LOGIC //
