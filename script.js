@@ -92,10 +92,6 @@ $("[data-clear-target]").on("click", function () {
 });
 
 //BRANCHING LOGIC //
-
-//When slides are initialized, add prev + next slide attribute to each slide, check prev + next slide attribute, then when next button is clicked check the desired attribute for where to send slider
-//Add which slide is currently active based on visibility
-
 //Page values to add attr
 const page1 = $("#page-1");
 const page2 = $("#page-2");
@@ -219,12 +215,9 @@ function oneToThree() {
     }
   });
 }
-
 //BRACHING LOGIC //
 
 //DISABLE NEXT BUTTON//
-//when current slide is visible, for all q's, if el w/ :checked does not exist, disable next button
-
 function isChecked() {
   //on page render
   if (!$(":input").prop("checked")) {
@@ -253,18 +246,6 @@ function disIfUnchecked() {
     }
   });
 }
-// function test() {
-//   nextButton.on("click", function () {
-//     if (slide1.style.visibility == "") {
-//       if ($("#j61").is(":checked")) {
-//         return true;
-//       } else {
-//         console.log("S1 Next button locked, no answers clicked!");
-//         return false;
-//       }
-//     }
-//   });
-// }
 
 //Slide1 Lock
 function checkSlide1() {
