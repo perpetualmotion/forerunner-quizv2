@@ -217,13 +217,34 @@ function oneToThree() {
 
 $(".w-slide").ready(function () {
   //   test();
+  disableNext();
   zeroToTwo();
   oneToThree();
 });
 
 //BRACHING LOGIC //
 
-//Char. between 0-24 for Input Type qs
+//DISABLE NEXT BUTTON//
+//when current slide is visible, for all q's, if el w/ :checked does not exist, disable next button
+function disableNext() {
+  $(document).ready(function () {
+    $(".next-button-quiz").on("click", function () {
+      console.log("Next button is locked!");
+      //   return false;
+    });
+    $(":input").on("click", function () {
+      console.log("answer clicked");
+    });
+  });
+}
+
+function myF(el) {
+  console.log("Reading .map contents");
+  console.log(el.textContent);
+}
+//DISABLE NEXT BUTTON//
+
+//VALUE CANNOT EXCEED 24//
 $("[data-type='input']").on("onfocusout", function () {
   //validate if regex attr is true or not
   if ($(this).val().match($(this).attr("pattern"))) {
@@ -236,6 +257,7 @@ $("[data-type='input']").on("onfocusout", function () {
     $(".next-button-quiz").prop("disabled", true);
   }
 });
+//VALUE CANNOT EXCEED 24//
 
 console.log("LOCALHOST LIVE SERVER IS RUNNING!");
 
