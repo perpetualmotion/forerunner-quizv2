@@ -171,20 +171,12 @@ window.onload = function () {
 function test() {
   $(".next-button-quiz").on("click", function () {
     if (slide0.style.visibility == "") {
-      if ($("#j3-7").is(":checked")) {
+      if ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) {
         console.log("Skip Test s0 -> s2");
         $(".w-slider-dot")[1].click();
       }
     }
   });
-  if (slide0.style.visibility == "") {
-    $(".next-button-quiz").on("click", function () {
-      if ($("#j3-7").is(":checked")) {
-        // console.log("Test = True");
-        // $(".w-slider-dot")[1].click();
-      }
-    });
-  }
 }
 
 function zerototwo() {
