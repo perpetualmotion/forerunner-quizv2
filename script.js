@@ -309,10 +309,32 @@ function checkSlide2() {
     }
   });
 }
+//Slide 3
+function checkSlide3() {
+  nextButton.on("click", function () {
+    if (slide3.style.visibility == "") {
+      if (
+        $("#j8-1").is(":checked") ||
+        $("#j8-2").is(":checked") ||
+        $("#j8-3").is(":checked") ||
+        $("#j8-4").is(":checked") ||
+        $("#j8-5").is(":checked") ||
+        $("#j8-6").is(":checked") ||
+        $("#j8-7").is(":checked")
+      ) {
+        return true;
+      } else {
+        console.log("S3 Next button locked, no answers clicked!");
+        return false;
+      }
+    }
+  });
+}
 
 $(".w-slide").ready(function () {
   //   test();
   //Page Lock Functions
+  checkSlide3();
   checkSlide2();
   checkSlide1();
   isChecked();
