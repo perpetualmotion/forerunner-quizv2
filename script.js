@@ -252,7 +252,17 @@ function disIfUnchecked() {
 function slide1Checked() {
   if ($(slide1.style.visibility == "")) {
     $(".next-button-quiz").on("click", function () {
-      if ($("#Multiple-times-a-day").is(":checked")) {
+      if (
+        $("#j61").is(":checked") ||
+        $("#j62").is(":checked") ||
+        $("#j63").is(":checked") ||
+        $("#j64").is(":checked") ||
+        $("#j65").is(":checked") ||
+        $("#j66").is(":checked") ||
+        $("#j67").is(":checked") ||
+        $("#j68").is(":checked") ||
+        $("#j69").is(":checked")
+      ) {
         console.log("j6 checked");
         $(".next-button-quiz").on("click", true);
       }
@@ -262,7 +272,17 @@ function slide1Checked() {
 function slide1Unchecked() {
   if ($(slide1.style.visibility == "")) {
     $(".next-button-quiz").on("click", function () {
-      if (!$("#Multiple-times-a-day").is(":checked")) {
+      if (
+        !$("#j61").is(":checked") ||
+        !$("#j62").is(":checked") ||
+        !$("#j63").is(":checked") ||
+        !$("#j64").is(":checked") ||
+        !$("#j65").is(":checked") ||
+        !$("#j66").is(":checked") ||
+        !$("#j67").is(":checked") ||
+        !$("#j68").is(":checked") ||
+        !$("#j69").is(":checked")
+      ) {
         console.log("No answer on slide 1 selecteds");
         $(".next-button-quiz").on("click", false);
       }
