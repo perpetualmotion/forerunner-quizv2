@@ -216,8 +216,8 @@ function oneToThree() {
 }
 
 $(".w-slide").ready(function () {
-  test();
-  testDis();
+  isChecked();
+  disIfUnchecked();
   //   disableNext();
   zeroToTwo();
   oneToThree();
@@ -225,7 +225,10 @@ $(".w-slide").ready(function () {
 
 //BRACHING LOGIC //
 
-function test() {
+//DISABLE NEXT BUTTON//
+//when current slide is visible, for all q's, if el w/ :checked does not exist, disable next button
+
+function isChecked() {
   //on page render
   if (!$(":input").prop("checked")) {
     console.log("No elements checked");
@@ -240,38 +243,18 @@ function test() {
     ) {
     }
   } else {
+    //nothing being handled in following function
   }
 }
 
-function testDis() {
+function disIfUnchecked() {
   //on page render
   $(".next-button-quiz").on("click", function () {
     if (!$(":input").is(":checked")) {
-      console.log("Next button locked!");
+      console.log("Next button locked, no answers clicked!");
       return false;
     }
   });
-}
-
-//DISABLE NEXT BUTTON//
-//when current slide is visible, for all q's, if el w/ :checked does not exist, disable next button
-function disableNext() {
-  $(document).ready(function () {
-    $(":input").on("click", function () {
-      if ($(this).is(":checked")) {
-        console.log("Answer clicked is checked!");
-        $(".next-button-quiz").on("click", function () {
-          console.log("Next button is locked!");
-          return false;
-        });
-      }
-    });
-  });
-}
-
-function myF(el) {
-  console.log("Reading .map contents");
-  console.log(el.textContent);
 }
 //DISABLE NEXT BUTTON//
 
@@ -297,3 +280,19 @@ $("#wf-form-Quiz").submit(function () {
   console.log("THE SUBMIT BUTTON IS LOCKED FOR TESTING!");
   return false;
 });
+
+//Ref Code
+
+//function disableNext() {
+//   $(document).ready(function () {
+//     $(":input").on("click", function () {
+//       if ($(this).is(":checked")) {
+//         console.log("Answer clicked is checked!");
+//         $(".next-button-quiz").on("click", function () {
+//           console.log("Next button is locked!");
+//           return false;
+//         });
+//       }
+//     });
+//   });
+// }
