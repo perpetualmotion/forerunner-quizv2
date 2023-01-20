@@ -177,6 +177,14 @@ function test() {
       }
     }
   });
+  $(".back-button-quiz").on("click", function () {
+    if (slide2.style.visibility == "") {
+      if ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) {
+        console.log("Skip s2 => s0");
+        $(".w-slider-dot")[1].click();
+      }
+    }
+  });
 }
 
 function zerototwo() {
