@@ -217,6 +217,7 @@ function oneToThree() {
 
 $(".w-slide").ready(function () {
   test();
+  testDis();
   //   disableNext();
   zeroToTwo();
   oneToThree();
@@ -228,11 +229,28 @@ function test() {
   //on page render
   if (!$(":input").prop("checked")) {
     console.log("No elements checked");
-    $(".next-button-quiz").on("click", function () {
-      console.log("Next button is locked!");
-      return false;
-    });
+
+    if (
+      $(":input").on("click", function () {
+        console.log("An answer has been clicked");
+        if ($(this).is(":checked")) {
+          console.log("Answer checked!");
+        }
+      })
+    ) {
+    }
+  } else {
   }
+}
+
+function testDis() {
+  //on page render
+  $(".next-button-quiz").on("click", function () {
+    if (!$(":input").is(":checked")) {
+      console.log("Next button locked!");
+      return false;
+    }
+  });
 }
 
 //DISABLE NEXT BUTTON//
