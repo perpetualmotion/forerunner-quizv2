@@ -93,20 +93,6 @@ $("[data-clear-target]").on("click", function () {
 
 //BRANCHING LOGIC //
 
-//Hide j10
-$("[hide-question-710='1']").on("click", function () {
-  //need to skip page-3 instead of hiding j7
-  $("#j10").hide();
-  console.log("Hiding j10");
-});
-
-//Hide j8 + j9
-$("[hide-question-89='1']").on("click", function () {
-  $("#j8").hide();
-  $("#j9").hide();
-  console.log("Hiding j8 + j9");
-});
-
 //When slides are initialized, add prev + next slide attribute to each slide, check prev + next slide attribute, then when next button is clicked check the desired attribute for where to send slider
 //Add which slide is currently active based on visibility
 
@@ -128,49 +114,39 @@ const slide4 = $(".w-slide")[4];
 const slide5 = $(".w-slide")[5];
 const slide6 = $(".w-slide")[6];
 const slide7 = $(".w-slide")[7];
-//if questions are clicked give them attr clicked == true
-$("#j3-7").on("click", function () {
-  $("#j3-7").attr("clicked", "true");
-  console.log("Attributes added to j3 answers");
-});
-$("#j3-8").on("click", function () {
-  $("#j3-8").attr("clicked", "true");
-  console.log("Attributes added to j3 answers");
-});
-$("#j5-1").on("click", function () {
-  $("#j5-1").attr("clicked", "true");
-  console.log("Attributes added to j5 answers");
+
+//Hide j10
+$("[hide-question-710='1']").on("click", function () {
+  //need to skip page-3 instead of hiding j7
+  $("#j10").hide();
+  console.log("Hiding j10");
 });
 
-window.onload = function () {
-  page1.attr("next-q", "p2");
-  page2.attr({ "prev-q": "p1", "next-q": "p3" });
-  page3.attr({ "prev-q": "p2", "next-q": "p4" });
-  page4.attr({ "prev-q": "p3", "next-q": "p5" });
-  page5.attr({ "prev-q": "p4", "next-q": "p6" });
-  page6.attr({ "prev-q": "p5", "next-q": "p7" });
-  page7.attr({ "prev-q": "p6", "next-q": "p8" });
-  page8.attr("prev-q", "p7");
-};
+//Hide j8 + j9
+$("[hide-question-89='1']").on("click", function () {
+  $("#j8").hide();
+  $("#j9").hide();
+  console.log("Hiding j8 + j9");
+});
 
-function test() {
-  $(".next-button-quiz").on("click", function () {
-    if (slide1.style.visibility == "") {
-      if ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) {
-        console.log("Skip Test s1 -> s3");
-        $(".w-slider-dot")[2].click();
-      }
-    }
-  });
-  $(".back-button-quiz").on("click", function () {
-    if (slide3.style.visibility == "") {
-      if ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) {
-        console.log("Skip s3 => s1");
-        $(".w-slider-dot")[2].click();
-      }
-    }
-  });
-}
+// function test() {
+//   $(".next-button-quiz").on("click", function () {
+//     if (slide1.style.visibility == "") {
+//       if ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) {
+//         console.log("Skip Test s1 -> s3");
+//         $(".w-slider-dot")[2].click();
+//       }
+//     }
+//   });
+//   $(".back-button-quiz").on("click", function () {
+//     if (slide3.style.visibility == "") {
+//       if ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) {
+//         console.log("Skip s3 => s1");
+//         $(".w-slider-dot")[2].click();
+//       }
+//     }
+//   });
+// }
 
 function zerototwo() {
   $(".next-button-quiz").on("click", function () {
