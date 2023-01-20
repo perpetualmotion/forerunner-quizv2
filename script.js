@@ -115,6 +115,9 @@ const slide5 = $(".w-slide")[5];
 const slide6 = $(".w-slide")[6];
 const slide7 = $(".w-slide")[7];
 
+const nextButton = $(".next-button-quiz");
+const backButton = $(".back-button-quiz");
+
 //Hide j10
 $("[hide-question-710='1']").on("click", function () {
   //need to skip page-3 instead of hiding j7
@@ -241,7 +244,7 @@ function isChecked() {
 }
 function disIfUnchecked() {
   //on page render
-  $(".next-button-quiz").on("click", function () {
+  nextButton.on("click", function () {
     if (!$(":input").is(":checked")) {
       console.log("Next button locked, no answers clicked!");
       return false;
@@ -252,7 +255,7 @@ function disIfUnchecked() {
 //Slide1 Lock
 function checkSlide1() {
   if ($(slide1.style.visibility == " ")) {
-    $(".next-button-quiz").on("click", function () {
+    nextButton.on("click", function () {
       if (
         $("#j61").is(":checked") ||
         $("#j62").is(":checked") ||
@@ -264,22 +267,43 @@ function checkSlide1() {
         $("#j68").is(":checked") ||
         $("#j69").is(":checked")
       ) {
-        console.log("test true");
-        $(".next-button-quiz").on("click", true);
+        nextButton.on("click", true);
       } else {
-        console.log("test false");
-        $(".next-button-quiz").on("click", false);
+        console.log("S1 Next button locked, no answers clicked!");
+        nextButton.on("click", false);
       }
     });
   }
 }
+//Slide2 Lock
+// function checkSlide2() {
+//   if ($(slide2.style.visibility == " ")) {
+//     if (
+//       $("#j7-1").is(":checked") ||
+//       $("#j7-2").is(":checked") ||
+//       $("#j7-3").is(":checked") ||
+//       $("#j7-4").is(":checked") ||
+//       $("#j7-5").is(":checked") ||
+//       $("#j7-6").is(":checked") ||
+//       $("#j7-7").is(":checked")
+//     ) {
+//       nextButton.disabled = false;
+//       console.log("GOING TO NEXT PAGE");
+//     } else {
+//       console.log("S2 Next button locked, no answers clicked!");
+//       nextButton.disabled = true;
+//     }
+//   }
+// }
 
 $(".w-slide").ready(function () {
   //   test();
   //Page Lock Functions
-  checkSlide1();
+  //   checkSlide2();
   isChecked();
   disIfUnchecked();
+  checkSlide1();
+
   //Skip Page Functions
   zeroToTwo();
   oneToThree();
