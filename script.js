@@ -190,7 +190,7 @@ function test() {
 function zerototwo() {
   $(".next-button-quiz").on("click", function () {
     if (slide0.style.visibility == "") {
-      if ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) {
+      if ($("#j5-1").is(":checked") || $("#j5-8").is(":checked")) {
         console.log("Skip Test s0 -> s2");
         $(".w-slider-dot")[1].click();
       }
@@ -198,7 +198,7 @@ function zerototwo() {
   });
   $(".back-button-quiz").on("click", function () {
     if (slide2.style.visibility == "") {
-      if ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) {
+      if ($("#j5-1").is(":checked") || $("#j5-8").is(":checked")) {
         console.log("Skip s2 => s0");
         $(".w-slider-dot")[1].click();
       }
