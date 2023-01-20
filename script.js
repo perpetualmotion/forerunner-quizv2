@@ -251,10 +251,34 @@ function disIfUnchecked() {
     }
   });
 }
-function test() {
+// function test() {
+//   nextButton.on("click", function () {
+//     if (slide1.style.visibility == "") {
+//       if ($("#j61").is(":checked")) {
+//         return true;
+//       } else {
+//         console.log("S1 Next button locked, no answers clicked!");
+//         return false;
+//       }
+//     }
+//   });
+// }
+
+//Slide1 Lock
+function checkSlide1() {
   nextButton.on("click", function () {
     if (slide1.style.visibility == "") {
-      if ($("#j61").is(":checked")) {
+      if (
+        $("#j61").is(":checked") ||
+        $("#j62").is(":checked") ||
+        $("#j63").is(":checked") ||
+        $("#j64").is(":checked") ||
+        $("#j65").is(":checked") ||
+        $("#j66").is(":checked") ||
+        $("#j67").is(":checked") ||
+        $("#j68").is(":checked") ||
+        $("#j69").is(":checked")
+      ) {
         return true;
       } else {
         console.log("S1 Next button locked, no answers clicked!");
@@ -264,29 +288,6 @@ function test() {
   });
 }
 
-//Slide1 Lock
-// function checkSlide1() {
-//   if (slide1.style.visibility == " " || slide0.style.visibility == "hidden") {
-//     nextButton.on("click", function () {
-//       if (
-//         $("#j61").is(":checked") ||
-//         $("#j62").is(":checked") ||
-//         $("#j63").is(":checked") ||
-//         $("#j64").is(":checked") ||
-//         $("#j65").is(":checked") ||
-//         $("#j66").is(":checked") ||
-//         $("#j67").is(":checked") ||
-//         $("#j68").is(":checked") ||
-//         $("#j69").is(":checked")
-//       ) {
-//         nextButton.on("click", true);
-//       } else {
-//         console.log("S1 Next button locked, no answers clicked!");
-//         nextButton.on("click", false);
-//       }
-//     });
-//   }
-// }
 //Slide2 Lock
 // function checkSlide2() {
 //   if ($(slide2.style.visibility == " ")) {
@@ -309,10 +310,10 @@ function test() {
 // }
 
 $(".w-slide").ready(function () {
-  test();
+  //   test();
   //Page Lock Functions
   //   checkSlide2();
-  //   checkSlide1();
+  checkSlide1();
   isChecked();
   disIfUnchecked();
 
