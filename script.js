@@ -289,30 +289,31 @@ function checkSlide1() {
 }
 
 //Slide2 Lock
-// function checkSlide2() {
-//   if ($(slide2.style.visibility == " ")) {
-//     if (
-//       $("#j7-1").is(":checked") ||
-//       $("#j7-2").is(":checked") ||
-//       $("#j7-3").is(":checked") ||
-//       $("#j7-4").is(":checked") ||
-//       $("#j7-5").is(":checked") ||
-//       $("#j7-6").is(":checked") ||
-//       $("#j7-7").is(":checked")
-//     ) {
-//       nextButton.disabled = false;
-//       console.log("GOING TO NEXT PAGE");
-//     } else {
-//       console.log("S2 Next button locked, no answers clicked!");
-//       nextButton.disabled = true;
-//     }
-//   }
-// }
+function checkSlide2() {
+  nextButton.on("click", function () {
+    if (slide2.style.visibility == "") {
+      if (
+        $("#j7-1").is(":checked") ||
+        $("#j7-2").is(":checked") ||
+        $("#j7-3").is(":checked") ||
+        $("#j7-4").is(":checked") ||
+        $("#j7-5").is(":checked") ||
+        $("#j7-6").is(":checked") ||
+        $("#j7-7").is(":checked")
+      ) {
+        return true;
+      } else {
+        console.log("S2 Next button locked, no answers clicked!");
+        return false;
+      }
+    }
+  });
+}
 
 $(".w-slide").ready(function () {
   //   test();
   //Page Lock Functions
-  //   checkSlide2();
+  checkSlide2();
   checkSlide1();
   isChecked();
   disIfUnchecked();
