@@ -119,10 +119,6 @@ $("[hide-question-89='1']").on("click", function () {
 function zeroToTwo() {
   nextButton.on("click", function () {
     if (slide0.style.visibility == "") {
-      // if ($("#j5-1").is(":checked") || $("#j5-8").is(":checked")) {
-      //   console.log("Skip Test s0 -> s2");
-      //   $(".w-slider-dot")[1].click();
-      // }
       if (
         $("#j5-1").is(":checked") &&
         ($("#j5-2").is(":checked") ||
@@ -132,7 +128,6 @@ function zeroToTwo() {
           $("#j5-6").is(":checked") ||
           $("#j5-7").is(":checked"))
       ) {
-        console.log("j5 mul choice");
         return true;
       } else if ($("#j5-1").is(":checked") || $("#j5-8").is(":checked")) {
         console.log("Skip Test s0 -> s2");
@@ -149,7 +144,7 @@ function zeroToTwo() {
     }
   });
 }
-function oneToThree() {
+function oneToFour() {
   nextButton.on("click", function () {
     if (slide1.style.visibility == "") {
       if (
@@ -157,15 +152,13 @@ function oneToThree() {
         $("#j3-2").is(":checked") ||
         $("#j3-3").is(":checked") ||
         $("#j3-5").is(":checked") ||
-        $("#j3-6").is(":checked") ||
-        $("#j3-7").is(":checked") ||
-        $("#j3-8").is(":checked")
+        $("#j3-6").is(":checked")
       ) {
         console.log("Skip s1 -> s3");
-        $(".w-slider-dot")[3].click();
-      } else {
-        // Caused bug where slide 1 locks and will not skip
-        // return false;
+        $(".w-slider-dot")[2].click();
+        $("#j10").show();
+      } else if ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) {
+        $(".w-slider-dot")[2].click();
       }
     }
   });
@@ -181,7 +174,7 @@ function oneToThree() {
         $("#j3-8").is(":checked")
       ) {
         console.log("Skip s3 => s1");
-        $(".w-slider-dot")[3].click();
+        $(".w-slider-dot")[2].click();
       }
       if (
         $("#j5-1").is(":checked") ||
@@ -509,7 +502,7 @@ $(".w-slide").ready(function () {
   //Skip Page Functions
   // j5Mul();
   zeroToTwo();
-  oneToThree();
+  oneToFour();
 });
 
 //VALUE CANNOT EXCEED 24//
