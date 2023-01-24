@@ -147,7 +147,20 @@ function zeroToTwo() {
 function oneToFour() {
   nextButton.on("click", function () {
     if (slide1.style.visibility == "") {
-      if ($("#j3-1").is(":checked")) {
+      if (
+        $("#j3-1").is(":checked") &&
+        $("#j3-2").is(":checked") &&
+        $("#j3-3").is(":checked") &&
+        $("#j3-4").is(":checked") &&
+        $("#j3-5").is(":checked") &&
+        $("#j3-7").is(":checked") &&
+        $("#j3-8").is(":checked")
+      ) {
+        $("#j8").show();
+        $("#j9").show();
+        $("#j10").show();
+        return true;
+      } else if ($("#j3-1").is(":checked")) {
         $(".w-slider-dot")[2].click();
       }
       if (
@@ -192,7 +205,7 @@ function oneToFour() {
         $(".w-slider-dot")[3].click();
       } else if ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) {
         $(".w-slider-dot")[3].click();
-      } else if ()
+      }
     }
   });
   backButton.on("click", function () {
