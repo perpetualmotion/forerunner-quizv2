@@ -585,3 +585,170 @@ $("#wf-form-Quiz").submit(function () {
   $(".quiz-error-message-email").show();
   return false;
 });
+
+let rowNum = 0;
+
+//API
+function submitResponse() {
+  let date = new Date().toJSON();
+
+  let data = $("form")
+    .serializeArray()
+    .reduce(function (obj, item) {
+      obj[item.name] = item.value;
+      return obj;
+    }, {});
+
+  let fields = [
+    "j1",
+    "j2-1",
+    "j2-2",
+    "j2-3",
+    "j2-4",
+    "j2-5",
+    "j2-6",
+    "j2-7",
+    "j2-8",
+    "j2-9",
+    "j3-1",
+    "j3-2",
+    "j3-3",
+    "j3-4",
+    "j3-5",
+    "j3-6",
+    "j3-7",
+    "j4-1",
+    "j4-2",
+    "j4-3",
+    "j4-4",
+    "j4-5",
+    "j4-6",
+    "j4-7",
+    "j4-8",
+    "j5-1",
+    "j5-2",
+    "j5-3",
+    "j5-4",
+    "j5-5",
+    "j5-6",
+    "j5-7",
+    "j5-8",
+    "j6",
+    "j7-1",
+    "j7-2",
+    "j7-3",
+    "j7-4",
+    "j7-5",
+    "j7-6",
+    "j7-7",
+    "j8-1",
+    "j8-2",
+    "j8-3",
+    "j8-4",
+    "j8-5",
+    "j8-6",
+    "j8-7",
+    "j9-1",
+    "j9-2",
+    "j9-3",
+    "j9-4",
+    "j9-5",
+    "j9-6",
+    "j9-7",
+    "j9-8",
+    "j9-9",
+    "j9-10",
+    "j10-1",
+    "j10-2",
+    "j10-3",
+    "j10-4",
+    "j10-5",
+    "j10-6",
+    "j10-7",
+    "j11",
+    "j12-1",
+    "j12-2",
+    "j12-3",
+    "j12-4",
+    "j12-5",
+    "j12-6",
+    "j12-7",
+    "j13-1",
+    "j13-2",
+    "j13-3",
+    "j13-4",
+    "j13-5",
+    "j13-6",
+    "j13-7",
+    "j13-8",
+    "j13-9",
+    "j14-1",
+    "j14-2",
+    "j14-3",
+    "j14-4",
+    "j14-5",
+    "j14-6",
+    "j14-7",
+    "j14-8",
+    "j15-1",
+    "j15-2",
+    "j15-3",
+    "j15-4",
+    "j15-5",
+    "j15-6",
+    "j16",
+    "j17",
+    "j18",
+    "j19",
+    "j20",
+    "j21",
+    "j22",
+    "j23",
+    "j24",
+    "j25",
+    "j26",
+    "j27",
+    "j28",
+  ];
+
+  let values = [date];
+
+  for (let i = 0; i < fields.length; i++) {
+    if (data[fields[i]] == null) values.push("0");
+    else if (data[fields[i]] == "on") values.push("1");
+    else values.push(data[fields[i]]);
+  }
+
+  values.push(localStorage.getItem("q63.0.0"));
+  values.push(localStorage.getItem("q63.0.1"));
+
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  var requestOptions = {
+    method: "post",
+    headers: myHeaders,
+    redirect: "follow",
+    body: JSON.stringify([values]),
+  };
+
+  //on submit of form trigger fetch
+  fetch(
+    //replace link w/ Perpetuals
+    "https://v1.nocodeapi.com/shreyansh_perpetual/google_sheets/siTGULDpbzaiheJb?tabId=Form Responses",
+    requestOptions
+  )
+    .then((response) => response.text())
+    .then((result) => getArchtype(result))
+    .catch((error) => console.log("error", error));
+}
+
+//fetch for aspect of Typing Tool
+function getArchtype(result) {
+  fetch(console.log(result));
+}
+
+//Get request for that collumn
+// No Code account
+//instead of values put in r
+
+function calcArchtype() {}
