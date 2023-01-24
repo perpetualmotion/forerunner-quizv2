@@ -436,7 +436,7 @@ const field2 = document.getElementById("j31");
 function checkSlide6() {
   nextButton.on("click", function () {
     if (slide6.style.visibility == "") {
-      if (field1.value || field2.value) {
+      if (field1.value && field2.value) {
         $(".quiz-error-message").hide();
         return true;
       } else {
@@ -485,18 +485,22 @@ $(".w-slide").ready(function () {
   oneToFour();
 });
 
-// const err = document.getElementsByClassName("quiz-error-message");
-
 //VALUE CANNOT EXCEED 24//
 function errorMess() {
+  if ($(".quiz-error-message").css("display") == "block") {
+    nextButton.on("click", function () {
+      return false;
+    });
+  } else if ($("#q31 .quiz-error-message").css("display") == "block") {
+    nextButton.on("click", function () {
+      return false;
+    });
+  }
   $("#j30").focusout(function () {
     if ($(this).val().match($(this).attr("pattern"))) {
       $("#q30 .quiz-error-message").hide();
     } else {
       $("#q30 .quiz-error-message").show();
-      // nextButton.on("click", function () {
-      //   return false;
-      // });
     }
   });
   $("#j31").focusout(function () {
@@ -504,22 +508,9 @@ function errorMess() {
       $("#q31 .quiz-error-message").hide();
     } else {
       $("#q31 .quiz-error-message").show();
-      // nextButton.on("click", function () {
-      //   return false;
-      // });
     }
   });
-  if (
-    $("#q30 .quiz-error-message").css("display") == "block" ||
-    $("#q31 .quiz-error-message").css("display") == "block"
-  ) {
-    nextButton.on("click", function () {
-      return false;
-    });
-  }
 }
-
-//
 
 console.log("LOCALHOST LIVE SERVER IS RUNNING!");
 //'Get my archetype' stop submit for testing
