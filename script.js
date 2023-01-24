@@ -466,27 +466,6 @@ function checkSlide7() {
   });
 }
 
-//j5 multiple choice
-function j5Mul() {
-  nextButton.on("click", function () {
-    if (slide0.style.visibility == "") {
-      if (
-        $("#j5-1").is(":checked") &&
-        ($("#j5-2").is(":checked") ||
-          $("#j5-3").is(":checked") ||
-          $("#j5-4").is(":checked") ||
-          $("#j5-5").is(":checked") ||
-          $("#j5-6").is(":checked") ||
-          $("#j5-7").is(":checked"))
-      ) {
-        console.log("j5 mul choice");
-        return true;
-      } else {
-        //nothing
-      }
-    }
-  });
-}
 $(".w-slide").ready(function () {
   //Page Lock Functions
   checkSlide7();
@@ -500,7 +479,6 @@ $(".w-slide").ready(function () {
   disIfUnchecked();
 
   //Skip Page Functions
-  // j5Mul();
   zeroToTwo();
   oneToFour();
 });
