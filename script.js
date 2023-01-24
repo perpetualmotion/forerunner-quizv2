@@ -161,7 +161,7 @@ function oneToThree() {
         $("#j3-8").is(":checked")
       ) {
         console.log("Skip s1 -> s3");
-        $(".w-slider-dot")[2].click();
+        $(".w-slider-dot")[3].click();
       } else {
         // Caused bug where slide 1 locks and will not skip
         // return false;
@@ -180,7 +180,7 @@ function oneToThree() {
         $("#j3-8").is(":checked")
       ) {
         console.log("Skip s3 => s1");
-        $(".w-slider-dot")[2].click();
+        $(".w-slider-dot")[3].click();
       }
       if (
         $("#j5-1").is(":checked") ||
@@ -364,13 +364,71 @@ function checkSlide5() {
   nextButton.on("click", function () {
     if (slide5.style.visibility == "") {
       if (
-        //add to WF
-        $("#j16").is(":checked") ||
-        $("#j16").is(":checked") ||
-        $("#j16").is(":checked") ||
-        $("#j16").is(":checked") ||
-        $("#j16").is(":checked") ||
-        $("#j16").is(":checked")
+        $("#j171").is(":checked") ||
+        $("#j172").is(":checked") ||
+        $("#j173").is(":checked") ||
+        $("#j174").is(":checked") ||
+        $("#j175").is(":checked") ||
+        $("#j181").is(":checked") ||
+        $("#j182").is(":checked") ||
+        $("#j183").is(":checked") ||
+        $("#j184").is(":checked") ||
+        $("#j185").is(":checked") ||
+        $("#j191").is(":checked") ||
+        $("#j192").is(":checked") ||
+        $("#j193").is(":checked") ||
+        $("#j194").is(":checked") ||
+        $("#j195").is(":checked") ||
+        $("#j201").is(":checked") ||
+        $("#j202").is(":checked") ||
+        $("#j203").is(":checked") ||
+        $("#j204").is(":checked") ||
+        $("#j205").is(":checked") ||
+        $("#j211").is(":checked") ||
+        $("#j212").is(":checked") ||
+        $("#j213").is(":checked") ||
+        $("#j214").is(":checked") ||
+        $("#j215").is(":checked") ||
+        $("#j221").is(":checked") ||
+        $("#j222").is(":checked") ||
+        $("#j223").is(":checked") ||
+        $("#j224").is(":checked") ||
+        $("#j225").is(":checked") ||
+        $("#j231").is(":checked") ||
+        $("#j232").is(":checked") ||
+        $("#j233").is(":checked") ||
+        $("#j234").is(":checked") ||
+        $("#j235").is(":checked") ||
+        $("#j241").is(":checked") ||
+        $("#j242").is(":checked") ||
+        $("#j243").is(":checked") ||
+        $("#j244").is(":checked") ||
+        $("#j245").is(":checked") ||
+        $("#j251").is(":checked") ||
+        $("#j252").is(":checked") ||
+        $("#j253").is(":checked") ||
+        $("#j254").is(":checked") ||
+        $("#j255").is(":checked") ||
+        $("#j261").is(":checked") ||
+        $("#j262").is(":checked") ||
+        $("#j263").is(":checked") ||
+        $("#j264").is(":checked") ||
+        $("#j265").is(":checked") ||
+        $("#j271").is(":checked") ||
+        $("#j272").is(":checked") ||
+        $("#j273").is(":checked") ||
+        $("#j274").is(":checked") ||
+        $("#j275").is(":checked") ||
+        $("#j281").is(":checked") ||
+        $("#j282").is(":checked") ||
+        $("#j283").is(":checked") ||
+        $("#j284").is(":checked") ||
+        $("#j285").is(":checked") ||
+        $("#j291").is(":checked") ||
+        $("#j292").is(":checked") ||
+        $("#j293").is(":checked") ||
+        $("#j294").is(":checked") ||
+        $("#j295").is(":checked")
       ) {
         return true;
       } else {
@@ -396,6 +454,7 @@ function checkSlide6() {
         return true;
       } else {
         //also trigger error
+        errormessage.show();
         console.log("S6 Next button locked, no answers clicked!");
         return false;
       }
@@ -430,7 +489,7 @@ $(".w-slide").ready(function () {
   //Page Lock Functions
   // checkSlide7();
   // checkSlide6();
-  // checkSlide5();
+  checkSlide5();
   checkSlide4();
   checkSlide3();
   checkSlide2();
