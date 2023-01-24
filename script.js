@@ -467,6 +467,7 @@ function checkSlide7() {
 }
 
 $(".w-slide").ready(function () {
+  //Input field Error Message +
   errorMess();
   //Page Lock Functions
   checkSlide7();
@@ -484,6 +485,8 @@ $(".w-slide").ready(function () {
   oneToFour();
 });
 
+// const err = document.getElementsByClassName("quiz-error-message");
+
 //VALUE CANNOT EXCEED 24//
 function errorMess() {
   $("#j30").focusout(function () {
@@ -491,6 +494,9 @@ function errorMess() {
       $("#q30 .quiz-error-message").hide();
     } else {
       $("#q30 .quiz-error-message").show();
+      // nextButton.on("click", function () {
+      //   return false;
+      // });
     }
   });
   $("#j31").focusout(function () {
@@ -498,8 +504,19 @@ function errorMess() {
       $("#q31 .quiz-error-message").hide();
     } else {
       $("#q31 .quiz-error-message").show();
+      // nextButton.on("click", function () {
+      //   return false;
+      // });
     }
   });
+  if (
+    $("#q30 .quiz-error-message").css("display") == "block" ||
+    $("#q31 .quiz-error-message").css("display") == "block"
+  ) {
+    nextButton.on("click", function () {
+      return false;
+    });
+  }
 }
 
 //
