@@ -436,7 +436,7 @@ const field2 = document.getElementById("j31");
 function checkSlide6() {
   nextButton.on("click", function () {
     if (slide6.style.visibility == "") {
-      if (field1.value && field2.value) {
+      if (field1.value && field2.value == "pattern") {
         $(".quiz-error-message").hide();
         return true;
       } else {
