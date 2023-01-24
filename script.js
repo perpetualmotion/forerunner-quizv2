@@ -92,15 +92,6 @@ $("[data-clear-target]").on("click", function () {
 });
 
 //BRANCHING LOGIC //
-//Page values to add attr
-const page1 = $("#page-1");
-const page2 = $("#page-2");
-const page3 = $("#page-3");
-const page4 = $("#page-4");
-const page5 = $("#page-5");
-const page6 = $("#page-6");
-const page7 = $("#page-7");
-const page8 = $("#page-8");
 //Slide values
 const slide0 = $(".w-slide")[0];
 const slide1 = $(".w-slide")[1];
@@ -439,23 +430,20 @@ function checkSlide5() {
   });
 }
 //Slide 6
+const field1 = document.getElementById("j30");
+const field2 = document.getElementById("j31");
+const field3 = document.getElementById("j32");
+console.log(field1.value);
+
 function checkSlide6() {
   nextButton.on("click", function () {
     if (slide6.style.visibility == "") {
-      if (
-        //add to WF
-        $("#j111").is(":checked") ||
-        $("#j112").is(":checked") ||
-        $("#j113").is(":checked") ||
-        $("#j114").is(":checked") ||
-        $("#j115").is(":checked") ||
-        $("#j116").is(":checked")
-      ) {
+      if (field1.value || field2.value) {
+        $(".quiz-error-message").hide();
         return true;
       } else {
-        //also trigger error
-        errormessage.show();
         console.log("S6 Next button locked, no answers clicked!");
+        $(".quiz-error-message").show();
         return false;
       }
     }
@@ -465,19 +453,13 @@ function checkSlide6() {
 function checkSlide7() {
   nextButton.on("click", function () {
     if (slide7.style.visibility == "") {
-      if (
-        //add to WF
-        $("#j111").is(":checked") ||
-        $("#j112").is(":checked") ||
-        $("#j113").is(":checked") ||
-        $("#j114").is(":checked") ||
-        $("#j115").is(":checked") ||
-        $("#j116").is(":checked")
-      ) {
+      if (field3.value) {
+        console.log("Email is valid");
+        $(".quiz-error-message-email").hide();
         return true;
       } else {
-        //also trigger error
         console.log("S7 Next button locked, no answers clicked!");
+        $(".quiz-error-message-email").show();
         return false;
       }
     }
@@ -487,8 +469,8 @@ function checkSlide7() {
 $(".w-slide").ready(function () {
   //   test();
   //Page Lock Functions
-  // checkSlide7();
-  // checkSlide6();
+  checkSlide7();
+  checkSlide6();
   checkSlide5();
   checkSlide4();
   checkSlide3();
