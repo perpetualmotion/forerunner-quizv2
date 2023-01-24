@@ -235,7 +235,6 @@ function checkSlide1() {
         $("#j68").is(":checked") ||
         $("#j69").is(":checked")
       ) {
-        console.log("s1 true");
         return true;
       } else {
         console.log("S1 Next button locked, no answers clicked!");
@@ -257,7 +256,6 @@ function checkSlide2() {
         $("#j7-6").is(":checked") ||
         $("#j7-7").is(":checked")
       ) {
-        console.log("s2 true");
         return true;
       } else {
         console.log("S2 Next button locked, no answers clicked!");
@@ -433,6 +431,7 @@ function checkSlide5() {
 const field1 = document.getElementById("j30");
 const field2 = document.getElementById("j31");
 const field3 = document.getElementById("j32");
+const submitButton = document.getElementsByClassName("submit-button-2");
 console.log(field1.value);
 
 function checkSlide6() {
@@ -451,12 +450,11 @@ function checkSlide6() {
 }
 //Slide 7
 function checkSlide7() {
-  nextButton.on("click", function () {
+  $("#wf-form-Quiz").submit(function () {
     if (slide7.style.visibility == "") {
       if (field3.value) {
-        console.log("Email is valid");
-        $(".quiz-error-message-email").hide();
-        return true;
+        console.log("Email is Valid");
+        //return true;
       } else {
         console.log("S7 Next button locked, no answers clicked!");
         $(".quiz-error-message-email").show();
@@ -464,6 +462,19 @@ function checkSlide7() {
       }
     }
   });
+  // submitButton.submit(function () {
+  //   if (slide7.style.visibility == "") {
+  //     if (field3.value) {
+  //       console.log("Email is valid");
+  //       $(".quiz-error-message-email").hide();
+  //       return true;
+  //     } else {
+  //       console.log("S7 Next button locked, no answers clicked!");
+  //       $(".quiz-error-message-email").show();
+  //       return false;
+  //     }
+  //   }
+  // });
 }
 
 $(".w-slide").ready(function () {
@@ -505,6 +516,7 @@ console.log("LOCALHOST LIVE SERVER IS RUNNING!");
 //'Get my archetype' stop submit for testing
 $("#wf-form-Quiz").submit(function () {
   console.log("THE SUBMIT BUTTON IS LOCKED FOR TESTING!");
+  $(".quiz-error-message-email").show();
   return false;
 });
 
