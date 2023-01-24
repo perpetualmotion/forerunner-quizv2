@@ -156,9 +156,16 @@ function oneToFour() {
           $("#j3-2").is(":checked") ||
           $("#j3-3").is(":checked") ||
           $("#j3-5").is(":checked") ||
-          $("#j3-6").is(":checked") ||
-          $("#j3-7").is(":checked") ||
-          $("#j3-8").is(":checked"))
+          $("#j3-6").is(":checked"))
+      ) {
+        $("#j8").show();
+        $("#j9").show();
+        $("#j10").show();
+        return true;
+      }
+      if (
+        $("#j3-4").is(":checked") &&
+        ($("#j3-7").is(":checked") || $("#j3-8").is(":checked"))
       ) {
         $("#j8").hide();
         $("#j9").hide();
@@ -166,6 +173,16 @@ function oneToFour() {
         return true;
       }
       if (
+        ($("#j3-1").is(":checked") ||
+          $("#j3-2").is(":checked") ||
+          $("#j3-3").is(":checked") ||
+          $("#j3-5").is(":checked")) &&
+        ($("#j3-7").is(":checked") || $("#j3-8").is(":checked"))
+      ) {
+        $("#j8").show();
+        $("#j9").show();
+        $(".w-slider-dot")[2].click();
+      } else if (
         $("#j3-2").is(":checked") ||
         $("#j3-3").is(":checked") ||
         $("#j3-5").is(":checked") ||
@@ -175,7 +192,7 @@ function oneToFour() {
         $(".w-slider-dot")[3].click();
       } else if ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) {
         $(".w-slider-dot")[3].click();
-      }
+      } else if ()
     }
   });
   backButton.on("click", function () {
@@ -463,14 +480,15 @@ function checkSlide5() {
 //Slide 6
 const field1 = document.getElementById("j30");
 const field2 = document.getElementById("j31");
+const pattern = field1.getAttribute("pattern");
+var re = new RegExp(pattern);
 
 function checkSlide6() {
   nextButton.on("click", function () {
     if (slide6.style.visibility == "") {
-      if (field1.value == "pattern") {
-        $(".quiz-error-message").hide();
-        console.log("test true");
-        return true;
+      if (re.test(field1.value) && re.test(field2.value)) {
+        // Pattern matches!
+        console.log("Pattern matches");
       } else {
         console.log("S6 Next button locked, no answers clicked!");
         $(".quiz-error-message").show();
