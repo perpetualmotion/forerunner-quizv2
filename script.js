@@ -101,7 +101,6 @@ const slide4 = $(".w-slide")[4];
 const slide5 = $(".w-slide")[5];
 const slide6 = $(".w-slide")[6];
 const slide7 = $(".w-slide")[7];
-
 const nextButton = $(".next-button-quiz");
 const backButton = $(".back-button-quiz");
 
@@ -111,14 +110,12 @@ $("[hide-question-710='1']").on("click", function () {
   $("#j10").hide();
   console.log("Hiding j10");
 });
-
 //Hide j8 + j9
 $("[hide-question-89='1']").on("click", function () {
   $("#j8").hide();
   $("#j9").hide();
   console.log("Hiding j8 + j9");
 });
-
 function zeroToTwo() {
   nextButton.on("click", function () {
     if (slide0.style.visibility == "") {
@@ -189,7 +186,6 @@ function oneToThree() {
     }
   });
 }
-//BRACHING LOGIC //
 
 //DISABLE NEXT BUTTON//
 function isChecked() {
@@ -430,9 +426,6 @@ function checkSlide5() {
 //Slide 6
 const field1 = document.getElementById("j30");
 const field2 = document.getElementById("j31");
-const field3 = document.getElementById("j32");
-const submitButton = document.getElementsByClassName("submit-button-2");
-console.log(field1.value);
 
 function checkSlide6() {
   nextButton.on("click", function () {
@@ -449,6 +442,9 @@ function checkSlide6() {
   });
 }
 //Slide 7
+const field3 = document.getElementById("j32");
+const submitButton = document.getElementsByClassName("submit-button-2");
+
 function checkSlide7() {
   $("#wf-form-Quiz").submit(function () {
     if (slide7.style.visibility == "") {
@@ -462,23 +458,9 @@ function checkSlide7() {
       }
     }
   });
-  // submitButton.submit(function () {
-  //   if (slide7.style.visibility == "") {
-  //     if (field3.value) {
-  //       console.log("Email is valid");
-  //       $(".quiz-error-message-email").hide();
-  //       return true;
-  //     } else {
-  //       console.log("S7 Next button locked, no answers clicked!");
-  //       $(".quiz-error-message-email").show();
-  //       return false;
-  //     }
-  //   }
-  // });
 }
 
 $(".w-slide").ready(function () {
-  //   test();
   //Page Lock Functions
   checkSlide7();
   checkSlide6();
@@ -494,7 +476,6 @@ $(".w-slide").ready(function () {
   zeroToTwo();
   oneToThree();
 });
-//DISABLE NEXT BUTTON//
 
 //VALUE CANNOT EXCEED 24//
 $("[data-type='input']").on("onfocusout", function () {
@@ -519,19 +500,3 @@ $("#wf-form-Quiz").submit(function () {
   $(".quiz-error-message-email").show();
   return false;
 });
-
-//Ref Code
-
-//function disableNext() {
-//   $(document).ready(function () {
-//     $(":input").on("click", function () {
-//       if ($(this).is(":checked")) {
-//         console.log("Answer clicked is checked!");
-//         $(".next-button-quiz").on("click", function () {
-//           console.log("Next button is locked!");
-//           return false;
-//         });
-//       }
-//     });
-//   });
-// }
