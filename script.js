@@ -467,6 +467,7 @@ function checkSlide7() {
 }
 
 $(".w-slide").ready(function () {
+  errorMess();
   //Page Lock Functions
   checkSlide7();
   checkSlide6();
@@ -484,22 +485,26 @@ $(".w-slide").ready(function () {
 });
 
 //VALUE CANNOT EXCEED 24//
-$("[data-type='input']").on("onfocusout", function () {
-  //validate if regex attr is true or not
-  if ($(this).val().match($(this).attr("pattern"))) {
-    $(".quiz-error-message").hide();
-    console.log("Error for Input field set to hidden");
-  } else {
-    $(".quiz-error-message").show();
-    console.log("Error for Input field set to display");
-    //disable next button return false
-    $(".next-button-quiz").prop("disabled", true);
-  }
-});
-//VALUE CANNOT EXCEED 24//
+function errorMess() {
+  $("#j30").focusout(function () {
+    if ($(this).val().match($(this).attr("pattern"))) {
+      $("#q30 .quiz-error-message").hide();
+    } else {
+      $("#q30 .quiz-error-message").show();
+    }
+  });
+  $("#j31").focusout(function () {
+    if ($(this).val().match($(this).attr("pattern"))) {
+      $("#q31 .quiz-error-message").hide();
+    } else {
+      $("#q31 .quiz-error-message").show();
+    }
+  });
+}
+
+//
 
 console.log("LOCALHOST LIVE SERVER IS RUNNING!");
-
 //'Get my archetype' stop submit for testing
 $("#wf-form-Quiz").submit(function () {
   console.log("THE SUBMIT BUTTON IS LOCKED FOR TESTING!");
