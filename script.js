@@ -128,25 +128,6 @@ $("[hide-question-89='1']").on("click", function () {
   console.log("Hiding j8 + j9");
 });
 
-// function test() {
-//   $(".next-button-quiz").on("click", function () {
-//     if (slide1.style.visibility == "") {
-//       if ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) {
-//         console.log("Skip Test s1 -> s3");
-//         $(".w-slider-dot")[2].click();
-//       }
-//     }
-//   });
-//   $(".back-button-quiz").on("click", function () {
-//     if (slide3.style.visibility == "") {
-//       if ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) {
-//         console.log("Skip s3 => s1");
-//         $(".w-slider-dot")[2].click();
-//       }
-//     }
-//   });
-// }
-
 function zeroToTwo() {
   nextButton.on("click", function () {
     if (slide0.style.visibility == "") {
@@ -167,7 +148,6 @@ function zeroToTwo() {
     }
   });
 }
-
 function oneToThree() {
   nextButton.on("click", function () {
     if (slide1.style.visibility == "") {
@@ -249,7 +229,6 @@ function disIfUnchecked() {
     }
   });
 }
-
 //Slide1 Lock
 function checkSlide1() {
   nextButton.on("click", function () {
@@ -274,7 +253,6 @@ function checkSlide1() {
     }
   });
 }
-
 //Slide2 Lock
 function checkSlide2() {
   nextButton.on("click", function () {
@@ -345,8 +323,33 @@ function checkSlide4() {
         $("#j113").is(":checked") ||
         $("#j114").is(":checked") ||
         $("#j115").is(":checked") ||
-        $("#j116").is(":checked")
-        //Have Matthew add ids to all answers in webflow
+        ($("#j116").is(":checked") && $("#j12-1").is(":checked")) ||
+        $("#j12-2").is(":checked") ||
+        $("#j12-3").is(":checked") ||
+        $("#j12-4").is(":checked") ||
+        $("#j12-5").is(":checked") ||
+        $("#j12-6").is(":checked") ||
+        ($("#j12-7").is(":checked") && $("#j13-1").is(":checked")) ||
+        $("#j13-2").is(":checked") ||
+        $("#j13-3").is(":checked") ||
+        $("#j13-4").is(":checked") ||
+        $("#j13-5").is(":checked") ||
+        $("#j13-6").is(":checked") ||
+        $("#j13-7").is(":checked") ||
+        $("#j13-8").is(":checked") ||
+        ($("#j13-9").is(":checked") && $("#j14-1").is(":checked")) ||
+        $("#j14-2").is(":checked") ||
+        $("#j14-3").is(":checked") ||
+        $("#j14-4").is(":checked") ||
+        $("#j14-5").is(":checked") ||
+        $("#j14-6").is(":checked") ||
+        $("#j14-7").is(":checked") ||
+        ($("#j14-8").is(":checked") && $("#j15-1").is(":checked")) ||
+        $("#j15-2").is(":checked") ||
+        $("#j15-3").is(":checked") ||
+        $("#j15-4").is(":checked") ||
+        $("#j15-5").is(":checked") ||
+        $("#j15-6").is(":checked")
       ) {
         return true;
       } else {
@@ -357,65 +360,70 @@ function checkSlide4() {
   });
 }
 //Slide 5
-// function checkSlide5() {
-//   nextButton.on("click", function () {
-//     if (slide5.style.visibility == "") {
-//       if (
-//         $("#j111").is(":checked") ||
-//         $("#j112").is(":checked") ||
-//         $("#j113").is(":checked") ||
-//         $("#j114").is(":checked") ||
-//         $("#j115").is(":checked") ||
-//         $("#j116").is(":checked")
-//       ) {
-//         return true;
-//       } else {
-//         console.log("S5 Next button locked, no answers clicked!");
-//         return false;
-//       }
-//     }
-//   });
-// }
+function checkSlide5() {
+  nextButton.on("click", function () {
+    if (slide5.style.visibility == "") {
+      if (
+        //add to WF
+        $("#j16").is(":checked") ||
+        $("#j16").is(":checked") ||
+        $("#j16").is(":checked") ||
+        $("#j16").is(":checked") ||
+        $("#j16").is(":checked") ||
+        $("#j16").is(":checked")
+      ) {
+        return true;
+      } else {
+        console.log("S5 Next button locked, no answers clicked!");
+        return false;
+      }
+    }
+  });
+}
 //Slide 6
-// function checkSlide6() {
-//   nextButton.on("click", function () {
-//     if (slide6.style.visibility == "") {
-//       if (
-//         $("#j111").is(":checked") ||
-//         $("#j112").is(":checked") ||
-//         $("#j113").is(":checked") ||
-//         $("#j114").is(":checked") ||
-//         $("#j115").is(":checked") ||
-//         $("#j116").is(":checked")
-//       ) {
-//         return true;
-//       } else {
-//         console.log("S6 Next button locked, no answers clicked!");
-//         return false;
-//       }
-//     }
-//   });
-// }
+function checkSlide6() {
+  nextButton.on("click", function () {
+    if (slide6.style.visibility == "") {
+      if (
+        //add to WF
+        $("#j111").is(":checked") ||
+        $("#j112").is(":checked") ||
+        $("#j113").is(":checked") ||
+        $("#j114").is(":checked") ||
+        $("#j115").is(":checked") ||
+        $("#j116").is(":checked")
+      ) {
+        return true;
+      } else {
+        //also trigger error
+        console.log("S6 Next button locked, no answers clicked!");
+        return false;
+      }
+    }
+  });
+}
 //Slide 7
-// function checkSlide7() {
-//   nextButton.on("click", function () {
-//     if (slide7.style.visibility == "") {
-//       if (
-//         $("#j111").is(":checked") ||
-//         $("#j112").is(":checked") ||
-//         $("#j113").is(":checked") ||
-//         $("#j114").is(":checked") ||
-//         $("#j115").is(":checked") ||
-//         $("#j116").is(":checked")
-//       ) {
-//         return true;
-//       } else {
-//         console.log("S7 Next button locked, no answers clicked!");
-//         return false;
-//       }
-//     }
-//   });
-// }
+function checkSlide7() {
+  nextButton.on("click", function () {
+    if (slide7.style.visibility == "") {
+      if (
+        //add to WF
+        $("#j111").is(":checked") ||
+        $("#j112").is(":checked") ||
+        $("#j113").is(":checked") ||
+        $("#j114").is(":checked") ||
+        $("#j115").is(":checked") ||
+        $("#j116").is(":checked")
+      ) {
+        return true;
+      } else {
+        //also trigger error
+        console.log("S7 Next button locked, no answers clicked!");
+        return false;
+      }
+    }
+  });
+}
 
 $(".w-slide").ready(function () {
   //   test();
