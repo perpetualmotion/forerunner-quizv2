@@ -147,23 +147,39 @@ function zeroToTwo() {
 function oneToFour() {
   nextButton.on("click", function () {
     if (slide1.style.visibility == "") {
+      if ($("#j3-1").is(":checked")) {
+        $(".w-slider-dot")[2].click();
+      }
       if (
-        $("#j3-1").is(":checked") ||
+        $("#j3-4").is(":checked") &&
+        ($("#j3-1").is(":checked") ||
+          $("#j3-2").is(":checked") ||
+          $("#j3-3").is(":checked") ||
+          $("#j3-5").is(":checked") ||
+          $("#j3-6").is(":checked") ||
+          $("#j3-7").is(":checked") ||
+          $("#j3-8").is(":checked"))
+      ) {
+        $("#j8").hide();
+        $("#j9").hide();
+        $("#j10").show();
+        return true;
+      }
+      if (
         $("#j3-2").is(":checked") ||
         $("#j3-3").is(":checked") ||
         $("#j3-5").is(":checked") ||
         $("#j3-6").is(":checked")
       ) {
         console.log("Skip s1 -> s3");
-        $(".w-slider-dot")[2].click();
-        $("#j10").show();
+        $(".w-slider-dot")[3].click();
       } else if ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) {
-        $(".w-slider-dot")[2].click();
+        $(".w-slider-dot")[3].click();
       }
     }
   });
   backButton.on("click", function () {
-    if (slide3.style.visibility == "") {
+    if (slide4.style.visibility == "") {
       if (
         $("#j3-1").is(":checked") ||
         $("#j3-2").is(":checked") ||
@@ -174,7 +190,7 @@ function oneToFour() {
         $("#j3-8").is(":checked")
       ) {
         console.log("Skip s3 => s1");
-        $(".w-slider-dot")[2].click();
+        $(".w-slider-dot")[3].click();
       }
       if (
         $("#j5-1").is(":checked") ||
@@ -205,6 +221,9 @@ function isChecked() {
         if ($(this).is(":checked")) {
           console.log("Answer checked!");
           //Slider functions normally
+          nextButton.on("click", function () {
+            return true;
+          });
         }
       })
     ) {
@@ -222,6 +241,18 @@ function disIfUnchecked() {
     }
   });
 }
+//Slide0 Lock
+const questions = document.getElementsByClassName("form-question-wrapper");
+// function checkSlide0() {
+//   for (var i = 0; i < questions.length; i++) {
+//     if (!$(":input").prop("checked")) {
+//       console.log("Test false");
+//       nextButton.on("click", function () {
+//         return false;
+//       });
+//     }
+//   }
+// }
 //Slide1 Lock
 function checkSlide1() {
   nextButton.on("click", function () {
@@ -436,8 +467,9 @@ const field2 = document.getElementById("j31");
 function checkSlide6() {
   nextButton.on("click", function () {
     if (slide6.style.visibility == "") {
-      if (field1.value && field2.value == "pattern") {
+      if (field1.value == "pattern") {
         $(".quiz-error-message").hide();
+        console.log("test true");
         return true;
       } else {
         console.log("S6 Next button locked, no answers clicked!");
@@ -467,8 +499,6 @@ function checkSlide7() {
 }
 
 $(".w-slide").ready(function () {
-  //Input field Error Message +
-  errorMess();
   //Page Lock Functions
   checkSlide7();
   checkSlide6();
@@ -477,28 +507,24 @@ $(".w-slide").ready(function () {
   checkSlide3();
   checkSlide2();
   checkSlide1();
+  // checkSlide0();
   isChecked();
   disIfUnchecked();
-
   //Skip Page Functions
   zeroToTwo();
   oneToFour();
+  //Input field Error Message +
+  errorMess();
 });
 
 //VALUE CANNOT EXCEED 24//
 function errorMess() {
-  if ($(".quiz-error-message").css("display") == "block") {
-    nextButton.on("click", function () {
-      return false;
-    });
-  } else if ($("#q31 .quiz-error-message").css("display") == "block") {
-    nextButton.on("click", function () {
-      return false;
-    });
-  }
   $("#j30").focusout(function () {
     if ($(this).val().match($(this).attr("pattern"))) {
       $("#q30 .quiz-error-message").hide();
+      nextButton.on("click", function () {
+        return true;
+      });
     } else {
       $("#q30 .quiz-error-message").show();
     }
@@ -510,6 +536,15 @@ function errorMess() {
       $("#q31 .quiz-error-message").show();
     }
   });
+  if ($("#q30 .quiz-error-message").css("display") == "block") {
+    nextButton.on("click", function () {
+      return false;
+    });
+  } else if ($("#q31 .quiz-error-message").css("display") == "block") {
+    nextButton.on("click", function () {
+      return false;
+    });
+  }
 }
 
 console.log("LOCALHOST LIVE SERVER IS RUNNING!");
