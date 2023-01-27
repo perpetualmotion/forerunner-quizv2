@@ -734,7 +734,7 @@ function submitResponse() {
   //on submit of form trigger fetch
   fetch(
     //replace link w/ Perpetuals
-    "https://v1.nocodeapi.com/shreyansh_perpetual/google_sheets/siTGULDpbzaiheJb?tabId=Form Responses",
+    "https://v1.nocodeapi.com/nikudon/google_sheets/JBDsjjblJvUyDCJf?tabId=Form Responses",
     requestOptions
   )
     .then((response) => response.text())
@@ -749,6 +749,23 @@ function getArchtype(result) {
 
 //Get request for that collumn
 // No Code account
-//instead of values put in r
-
-function calcArchtype() {}
+//instead of values put in rowNum
+function calcArchtype() {
+  // var myHeaders = new Headers();
+  // myHeaders.append("Content-Type", "application/json");
+  // var requestOptions = {
+  //   method: "post",
+  //   headers: myHeaders,
+  //   redirect: "follow",
+  //   body: JSON.stringify([values]),
+  // };
+  // //on submit of form trigger fetch
+  // fetch(
+  //   //replace link w/ Perpetuals
+  //   "https://v1.nocodeapi.com/shreyansh_perpetual/google_sheets/siTGULDpbzaiheJb?tabId=Form Responses",
+  //   requestOptions
+  // )
+  //   .then((response) => response.text())
+  //   .then((result) => getArchtype(result))
+  //   .catch((error) => console.log("error", error));
+}
