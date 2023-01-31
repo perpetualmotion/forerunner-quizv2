@@ -775,12 +775,19 @@ function pushToTT(result) {
     newRequestOptions
   )
     .then((response) => response.text())
-    .then((result) => console.log(result))
+    .then((results) => {
+      var data = JSON.parse(results);
+      console.log(data);
+      console.log(data["row_id"]);
+      getArchtype(data["row_id"]);
+    })
     .catch((error) => console.log("error", error));
 }
 
 //Get request for that row in Archetype outputs
-function getArchtype() {
+function getArchtype(results) {
+  console.log(results);
+
   var getHeaders = new Headers();
   getHeaders.append("Content-Type", "application/json");
   var requestOptions = {
@@ -790,13 +797,14 @@ function getArchtype() {
   };
 
   fetch(
-    "https://v1.nocodeapi.com/nikudon/google_sheets/JBDsjjblJvUyDCJf?tabId=Archetype outputs&row_id=4",
+    "https://v1.nocodeapi.com/nikudon/google_sheets/JBDsjjblJvUyDCJf?tabId=Archetype outputs&row_id=" +
+      `${results}`,
     requestOptions
   )
     .then((response) => response.text())
     .then((result) => {
       console.log(result);
-      console.log(result);
+      console.log(result["row_id"]);
       let image = document.getElementsByClassName("archetype-image-success");
       // image.setAttribute("src", result.Image_URL);
     })
