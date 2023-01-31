@@ -804,13 +804,34 @@ function getArchtype(results) {
     .then((response) => response.text())
     .then((result) => {
       var newData = JSON.parse(result);
-      // console.log(newData);
       console.log(newData["Archetype"]);
       console.log(newData["Image URL"]);
       console.log(newData["Tagline"]);
       console.log(newData["Long Description"]);
-      // let image = document.getElementsByClassName("archetype-image-success");
-      // image.setAttribute("src", result.Image_URL);
+
+      //Set newData to display els
+      let image = document.getElementById("archetype-image");
+      console.log(image.getAttribute("src"));
+      image.setAttribute("src", newData["Image URL"]);
+
+      //Archetype name
+      let archetype = document.getElementsByClassName(
+        "archetype-name-responsive"
+      );
+      console.log(archetype);
+      archetype.text(newData["Archetype"]);
+
+      //Tagline
+      let tagline = document.getElementsByClassName(
+        "text-size-medium text-style-wide"
+      );
+      console.log(tagline);
+      tagline.text(newData["Tagline"]);
+
+      //Desc
+      let desc = document.getElementsByClassName("archetype-text w-richtext");
+      console.log(desc);
+      desc.text(newData["Long Description"]);
     })
     .catch((error) => console.log("error", error));
 }
