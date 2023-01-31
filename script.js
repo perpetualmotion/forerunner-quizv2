@@ -750,8 +750,11 @@ function pushToTT(result) {
   let dataTT = localStorageVariables.reduce(function (item, value) {
     let answer = localStorage.getItem(item, value);
     console.log({ item, answer });
-    return { answer };
+    return answer;
   });
+
+  var answerOne = Number(localStorage.getItem("q1"));
+  console.log(answerOne);
 
   var myNewHeaders = new Headers();
   myNewHeaders.append("Content-Type", "application/json");
@@ -759,7 +762,7 @@ function pushToTT(result) {
     method: "post",
     headers: myNewHeaders,
     redirect: "follow",
-    body: JSON.stringify([{ dataTT }]),
+    body: JSON.stringify([{ q1: answerOne }]),
   };
   //Post to Typing Tool
   fetch(
