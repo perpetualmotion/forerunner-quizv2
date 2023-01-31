@@ -758,22 +758,27 @@ function pushToTT(result) {
   //   }
   // });
 
+  localStorageVariables.forEach(function (item, value) {
+    let answer = localStorage.getItem(item, value);
+    console.log(`${item}`, answer);
+  });
+
   var myNewHeaders = new Headers();
   myNewHeaders.append("Content-Type", "application/json");
   var newRequestOptions = {
     method: "post",
     headers: myNewHeaders,
     redirect: "follow",
-    body: JSON.stringify([{ Name: "Test", q1: "2" }]),
+    body: JSON.stringify([values]),
   };
   //Post to Typing Tool
-  fetch(
-    "https://v1.nocodeapi.com/nikudon/google_sheets/JBDsjjblJvUyDCJf/addRows?tabId=Typing Tool",
-    newRequestOptions
-  )
-    .then((response) => response.text())
-    .then((result) => console.log(result))
-    .catch((error) => console.log("error", error));
+  // fetch(
+  //   "https://v1.nocodeapi.com/nikudon/google_sheets/JBDsjjblJvUyDCJf/addRows?tabId=Typing Tool",
+  //   newRequestOptions
+  // )
+  //   .then((response) => response.text())
+  //   .then((result) => console.log(result))
+  //   .catch((error) => console.log("error", error));
 }
 
 //Get request for that collumn in Archetype outputs
