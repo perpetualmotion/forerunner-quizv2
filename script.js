@@ -761,6 +761,11 @@ function pushToTT(result) {
   localStorageVariables.forEach(function (item, value) {
     let answer = localStorage.getItem(item, value);
     console.log(`${item}`, answer);
+    return localStorageVariables.reduce(function (obj, item) {
+      obj[item.name] = item.value;
+      console.log(obj);
+      return obj;
+    }, {});
   });
 
   var myNewHeaders = new Headers();
@@ -769,7 +774,7 @@ function pushToTT(result) {
     method: "post",
     headers: myNewHeaders,
     redirect: "follow",
-    body: JSON.stringify([values]),
+    body: JSON.stringify([]),
   };
   //Post to Typing Tool
   // fetch(
