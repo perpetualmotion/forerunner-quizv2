@@ -587,8 +587,6 @@ $("#wf-form-Quiz").submit(function () {
   return false;
 });
 
-let rowNum = 0;
-
 //Trigger Submit of Quiz
 //API
 function submitResponse() {
@@ -747,17 +745,6 @@ function submitResponse() {
 //passing in result
 //add new row from localstorage values "q1, q10, etc..."
 function pushToTT(result) {
-  // let dataTT = localStorageVariables.reduce(function (item, value) {
-  //   let answer = localStorage.getItem(item, value);
-  //   console.log({ item, answer });
-  //   return answer;
-  // });
-
-  // let dataTT = localStorageVariables.reduce(function () {
-  //   console.log(Number(localStorage.getItem(localStorageVariables)));
-  // });
-  // console.log(dataTT);
-
   let answerOne = Number(localStorage.getItem("q1"));
   let answerTwo = Number(localStorage.getItem("q10.1"));
   let answerThree = Number(localStorage.getItem("q10.11"));
@@ -805,6 +792,7 @@ function pushToTT(result) {
     redirect: "follow",
     body: JSON.stringify([
       {
+        q1: answerOne,
         q1: answerOne,
         "q10.1": answerTwo,
         "q10.11": answerThree,
@@ -859,22 +847,20 @@ function pushToTT(result) {
 //Get request for that collumn in Archetype outputs
 //instead of values put in rowNum
 //rowNum of 2nd post data
-function calcArchtype() {
-  // var myHeaders = new Headers();
-  // myHeaders.append("Content-Type", "application/json");
-  // var requestOptions = {
-  //   method: "post",
-  //   headers: myHeaders,
-  //   redirect: "follow",
-  //   body: JSON.stringify([values]),
-  // };
-  // //on submit of form trigger fetch
-  // fetch(
-  //   //replace link w/ Perpetuals
-  //   "https://v1.nocodeapi.com/nikudon/google_sheets/JBDsjjblJvUyDCJf?tabId=Form Responses",
-  //   requestOptions
-  // )
-  //   .then((response) => response.text())
-  //   .then((result) => getArchtype(result))
-  //   .catch((error) => console.log("error", error));
+function getArchtype() {
+  var getHeaders = new Headers();
+  getHeaders.append("Content-Type", "application/json");
+  var requestOptions = {
+    method: "get",
+    headers: getHeaders,
+    redirect: "follow",
+  };
+
+  fetch(
+    "https://v1.nocodeapi.com/nikudon/google_sheets/JBDsjjblJvUyDCJf?tabId=Archetype outputs&row_id=4",
+    requestOptions
+  )
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.log("error", error));
 }
