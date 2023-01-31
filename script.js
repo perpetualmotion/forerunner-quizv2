@@ -739,9 +739,10 @@ function submitResponse() {
   )
     .then((response) => response.text())
     .then((result) => {
-      var data = result;
+      var data = JSON.parse(result);
       console.log(data);
       console.log(data["row_id"]);
+      pushToTT(data["row_id"]);
     })
     .catch((error) => console.log("error", error));
 }
@@ -778,16 +779,8 @@ function pushToTT(result) {
     .catch((error) => console.log("error", error));
 }
 
-//Get request for that collumn in Archetype outputs
-//instead of values put in rowNum
-//rowNum of 2nd post data
+//Get request for that row in Archetype outputs
 function getArchtype() {
-  const resultId = localStorage.getItem("resultid");
-  const resultURL =
-    "https://v1.nocodeapi.com/nikudon/google_sheets/JBDsjjblJvUyDCJf?tabId=Archetype outputs" +
-    resultId;
-  const resultroot = document.getElementById("results");
-
   var getHeaders = new Headers();
   getHeaders.append("Content-Type", "application/json");
   var requestOptions = {
@@ -809,5 +802,3 @@ function getArchtype() {
     })
     .catch((error) => console.log("error", error));
 }
-
-//
