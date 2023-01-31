@@ -747,14 +747,55 @@ function submitResponse() {
 //passing in result
 //add new row from localstorage values "q1, q10, etc..."
 function pushToTT(result) {
-  let dataTT = localStorageVariables.reduce(function (item, value) {
-    let answer = localStorage.getItem(item, value);
-    console.log({ item, answer });
-    return answer;
-  });
+  // let dataTT = localStorageVariables.reduce(function (item, value) {
+  //   let answer = localStorage.getItem(item, value);
+  //   console.log({ item, answer });
+  //   return answer;
+  // });
 
-  var answerOne = Number(localStorage.getItem("q1"));
-  console.log(answerOne);
+  // let dataTT = localStorageVariables.reduce(function () {
+  //   console.log(Number(localStorage.getItem(localStorageVariables)));
+  // });
+  // console.log(dataTT);
+
+  let answerOne = Number(localStorage.getItem("q1"));
+  let answerTwo = Number(localStorage.getItem("q10.1"));
+  let answerThree = Number(localStorage.getItem("q10.11"));
+  let answerFour = Number(localStorage.getItem("q14.1"));
+  let answerFive = Number(localStorage.getItem("q15.4"));
+  let answerSix = Number(localStorage.getItem("q18.1"));
+  let answerSeven = Number(localStorage.getItem("q19.3"));
+  let answerEight = Number(localStorage.getItem("q20"));
+  let answerNine = Number(localStorage.getItem("q30.4"));
+  let answer10 = Number(localStorage.getItem("q30.5"));
+  let answer11 = Number(localStorage.getItem("q31"));
+  let answer12 = Number(localStorage.getItem("q33"));
+  let answer13 = Number(localStorage.getItem("q39.1"));
+  let answer14 = Number(localStorage.getItem("q39.6"));
+  let answer15 = Number(localStorage.getItem("q39.8"));
+  let answer16 = Number(localStorage.getItem("q46.0"));
+  let answer17 = Number(localStorage.getItem("q46.3"));
+  let answer18 = Number(localStorage.getItem("q46.4"));
+  let answer19 = Number(localStorage.getItem("q48.4"));
+  let answer20 = Number(localStorage.getItem("q48.5"));
+  let answer21 = Number(localStorage.getItem("q49.3"));
+  let answer22 = Number(localStorage.getItem("q49.5"));
+  let answer23 = Number(localStorage.getItem("q50.0"));
+  let answer24 = Number(localStorage.getItem("q50.1"));
+  let answer25 = Number(localStorage.getItem("q51_1"));
+  let answer26 = Number(localStorage.getItem("q55_2"));
+  let answer27 = Number(localStorage.getItem("q63.0.0"));
+  let answer28 = Number(localStorage.getItem("q63.0.1"));
+  let answer29 = Number(localStorage.getItem("q65.6"));
+  let answer30 = Number(localStorage.getItem("q82.5"));
+  let answer31 = Number(localStorage.getItem("q83.0"));
+  let answer32 = Number(localStorage.getItem("q83.1"));
+  let answer33 = Number(localStorage.getItem("q83.2"));
+  let answer34 = Number(localStorage.getItem("q83.3"));
+  let answer35 = Number(localStorage.getItem("q83.4"));
+  let answer36 = Number(localStorage.getItem("q83.5"));
+  let answer37 = Number(localStorage.getItem("q90.2"));
+  let answer38 = Number(localStorage.getItem("q49.6"));
 
   var myNewHeaders = new Headers();
   myNewHeaders.append("Content-Type", "application/json");
@@ -762,7 +803,48 @@ function pushToTT(result) {
     method: "post",
     headers: myNewHeaders,
     redirect: "follow",
-    body: JSON.stringify([{ q1: answerOne }]),
+    body: JSON.stringify([
+      {
+        q1: answerOne,
+        "q10.1": answerTwo,
+        "q10.11": answerThree,
+        "q14.1": answerFour,
+        "q15.4": answerFive,
+        "q18.1": answerSix,
+        "q19.3": answerSeven,
+        q20: answerEight,
+        "q30.4": answerNine,
+        "q30.5": answer10,
+        q31: answer11,
+        q33: answer12,
+        "q39.1": answer13,
+        "q39.6": answer14,
+        "q39.8": answer15,
+        "q46.0": answer16,
+        "q46.3": answer17,
+        "q46.4": answer18,
+        "q48.4": answer19,
+        "q48.5": answer20,
+        "q49.3": answer21,
+        "q49.5": answer22,
+        "q50.0": answer23,
+        "q50.1": answer24,
+        q51_1: answer25,
+        q55_2: answer26,
+        "q63.0.0": answer27,
+        "q63.0.1": answer28,
+        "q65.6": answer29,
+        "q82.5": answer30,
+        "q83.0": answer31,
+        "q83.1": answer32,
+        "q83.2": answer33,
+        "q83.3": answer34,
+        "q83.4": answer35,
+        "q83.5": answer36,
+        "q90.2": answer37,
+        "q49.6": answer38,
+      },
+    ]),
   };
   //Post to Typing Tool
   fetch(
