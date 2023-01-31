@@ -582,12 +582,14 @@ console.log("LOCALHOST LIVE SERVER IS RUNNING!");
 //'Get my archetype' stop submit for testing
 $("#wf-form-Quiz").submit(function () {
   console.log("THE SUBMIT BUTTON IS LOCKED FOR TESTING!");
-  $(".quiz-error-message-email").show();
+  // $(".quiz-error-message-email").show();
+  submitResponse();
   return false;
 });
 
 let rowNum = 0;
 
+//Trigger Submit of Quiz
 //API
 function submitResponse() {
   let date = new Date().toJSON();
@@ -733,23 +735,35 @@ function submitResponse() {
 
   //on submit of form trigger fetch
   fetch(
-    //replace link w/ Perpetuals
     "https://v1.nocodeapi.com/nikudon/google_sheets/JBDsjjblJvUyDCJf?tabId=Form Responses",
     requestOptions
   )
     .then((response) => response.text())
-    .then((result) => getArchtype(result))
+    .then((result) => pushToTT(result))
     .catch((error) => console.log("error", error));
+  console.log(result);
 }
 
 //fetch for aspect of Typing Tool
-function getArchtype(result) {
-  fetch(console.log(result));
+//passing in result
+//add new row from localstorage values "q1, q10, etc..."
+function pushToTT(result) {
+  // fetch(console.log(result));
+  // for (let i = 0; i < localStorageVariables.length; i++) {
+  //   if (localStorageVariables[i] == null) values.push("0");
+  //   else if (localStorageVariables[i] == "on") values.push("1");
+  //   else values.push(localStorageVariables[i]);
+  // }
+  localStorageVariables.forEach(function (item, index) {
+    // localStorageVariables.item;
+    let answer = localStorage.getItem(item, "1");
+    console.log(answer);
+  });
 }
 
-//Get request for that collumn
-// No Code account
+//Get request for that collumn in Archetype outputs
 //instead of values put in rowNum
+//rowNum of 2nd post data
 function calcArchtype() {
   // var myHeaders = new Headers();
   // myHeaders.append("Content-Type", "application/json");
@@ -762,7 +776,7 @@ function calcArchtype() {
   // //on submit of form trigger fetch
   // fetch(
   //   //replace link w/ Perpetuals
-  //   "https://v1.nocodeapi.com/shreyansh_perpetual/google_sheets/siTGULDpbzaiheJb?tabId=Form Responses",
+  //   "https://v1.nocodeapi.com/nikudon/google_sheets/JBDsjjblJvUyDCJf?tabId=Form Responses",
   //   requestOptions
   // )
   //   .then((response) => response.text())
