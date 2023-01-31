@@ -739,26 +739,35 @@ function submitResponse() {
     requestOptions
   )
     .then((response) => response.text())
-    .then((result) => pushToTT(result))
+    .then((result) => console.log(result))
     .catch((error) => console.log("error", error));
-  console.log(result);
 }
 
 //fetch for aspect of Typing Tool
 //passing in result
 //add new row from localstorage values "q1, q10, etc..."
 function pushToTT(result) {
-  // fetch(console.log(result));
-  // for (let i = 0; i < localStorageVariables.length; i++) {
-  //   if (localStorageVariables[i] == null) values.push("0");
-  //   else if (localStorageVariables[i] == "on") values.push("1");
-  //   else values.push(localStorageVariables[i]);
-  // }
-  localStorageVariables.forEach(function (item, index) {
-    // localStorageVariables.item;
-    let answer = localStorage.getItem(item, "1");
-    console.log(answer);
+  const LS = localStorageVariables.forEach(function (item) {
+    let answer = localStorage.getItem(item);
+    console.log(`${item}:`, answer);
   });
+
+  var myNewHeaders = new Headers();
+  myNewHeaders.prepend("Content-Type", "application/json");
+  var newRequestOptions = {
+    method: "post",
+    headers: myNewHeaders,
+    redirect: "follow",
+    body: JSON.stringify([LS]),
+  };
+  //Post to Typing Tool
+  // fetch(
+  //   "https://v1.nocodeapi.com/nikudon/google_sheets/JBDsjjblJvUyDCJf?tabId=Typing Tool",
+  //   newRequestOptions
+  // )
+  //   .then((response) => response.text())
+  //   .then((result) => console.log(result))
+  //   .catch((error) => console.log("error", error));
 }
 
 //Get request for that collumn in Archetype outputs
