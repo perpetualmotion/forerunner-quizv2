@@ -840,7 +840,12 @@ function pushToTT(result) {
     newRequestOptions
   )
     .then((response) => response.text())
-    .then((result) => console.log(result))
+    .then((result) => {
+      let myResult = result[0].id;
+      console.log(myResult);
+      localStorage.setItem("resultid", myResult);
+    })
+
     .catch((error) => console.log("error", error));
 }
 
@@ -848,6 +853,12 @@ function pushToTT(result) {
 //instead of values put in rowNum
 //rowNum of 2nd post data
 function getArchtype() {
+  const resultId = localStorage.getItem("resultid");
+  const resultURL =
+    "https://v1.nocodeapi.com/nikudon/google_sheets/JBDsjjblJvUyDCJf?tabId=Archetype outputs" +
+    resultId;
+  const resultroot = document.getElementById("results");
+
   var getHeaders = new Headers();
   getHeaders.append("Content-Type", "application/json");
   var requestOptions = {
