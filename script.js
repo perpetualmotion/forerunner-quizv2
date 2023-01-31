@@ -747,10 +747,16 @@ function submitResponse() {
 //passing in result
 //add new row from localstorage values "q1, q10, etc..."
 function pushToTT(result) {
-  const LS = localStorageVariables.forEach(function (item, value) {
-    let answer = localStorage.getItem(item, value);
-    console.log(`${item}:`, answer);
-  });
+  // const LS = localStorageVariables.forEach(function (item, value) {
+  //   let answer = localStorage.getItem(item, value);
+  //   console.log(`${item}:`, answer);
+
+  //   for (let i = 0; i < localStorageVariables.length; i++) {
+  //     if (localStorageVariables[i] == null) answer.push();
+  //     else if (localStorageVariables[i] == "") answer.push();
+  //     else answer.push(localStorageVariables[i]);
+  //   }
+  // });
 
   var myNewHeaders = new Headers();
   myNewHeaders.append("Content-Type", "application/json");
@@ -758,11 +764,11 @@ function pushToTT(result) {
     method: "post",
     headers: myNewHeaders,
     redirect: "follow",
-    body: JSON.stringify([[LS]]),
+    body: JSON.stringify([{ Name: "Test", q1: "2" }]),
   };
   //Post to Typing Tool
   fetch(
-    "https://v1.nocodeapi.com/nikudon/google_sheets/JBDsjjblJvUyDCJf?tabId=Typing Tool",
+    "https://v1.nocodeapi.com/nikudon/google_sheets/JBDsjjblJvUyDCJf/addRows?tabId=Typing Tool",
     newRequestOptions
   )
     .then((response) => response.text())
