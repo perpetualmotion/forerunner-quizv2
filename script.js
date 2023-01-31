@@ -804,8 +804,11 @@ function getArchtype(results) {
     .then((response) => response.text())
     .then((result) => {
       var newData = JSON.parse(result);
-      console.log(newData);
-      console.log(result["row_id"]);
+      // console.log(newData);
+      console.log(newData["Archetype"]);
+      console.log(newData["Image URL"]);
+      console.log(newData["Tagline"]);
+      console.log(newData["Long Description"]);
       // let image = document.getElementsByClassName("archetype-image-success");
       // image.setAttribute("src", result.Image_URL);
     })
