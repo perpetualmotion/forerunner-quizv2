@@ -817,11 +817,7 @@ function getArchtype(results) {
       console.log($(".archetype"));
 
       //Tagline
-      let tagline = document.getElementsByClassName(
-        "text-size-medium text-style-wide"
-      );
-      console.log(tagline);
-      tagline.text(newData["Tagline"]);
+      $("#tagline").text(newData["Tagline"]);
 
       //Desc
       let desc = document.getElementsByClassName("archetype-text w-richtext");
