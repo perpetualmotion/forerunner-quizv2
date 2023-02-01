@@ -810,13 +810,11 @@ function getArchtype(results) {
       console.log(newData["Long Description"]);
 
       //Set newData to display els
-      // let image = document.getElementById("archetype-image");
-      // image.attr("src", newData["Image URL"]);
-      // console.log(image.attr("src"));
+      $("#archetype-image").attr("src", newData["Image URL"]);
 
       //Archetype name
       $("#archetype").text(newData["Archetype"]);
-      console.log($(".archetype-name-responsive"));
+      console.log($(".archetype"));
 
       //Tagline
       let tagline = document.getElementsByClassName(
