@@ -821,6 +821,9 @@ function getArchtype(results) {
 
       //Desc
       $("#desc-right p:first-child").text(newData["Long Description"]);
+
+      //Set Archetype Wrapper to display
+      $("#archetype-wrapper").css("display", "block");
     })
     .catch((error) => console.log("error", error));
 }
