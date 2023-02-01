@@ -809,7 +809,7 @@ function getArchtype(results) {
       console.log(newData["Tagline"]);
       console.log(newData["Long Description"]);
 
-      //Set newData to display els
+      //Image src
       $("#archetype-image").attr("src", newData["Image URL"]);
 
       //Archetype name
@@ -820,7 +820,7 @@ function getArchtype(results) {
       $("#tagline").text(newData["Tagline"]);
 
       //Desc
-      $("#long").text(newData["Long Description"]);
+      $("#desc-right p:first-child").text(newData["Long Description"]);
     })
     .catch((error) => console.log("error", error));
 }
