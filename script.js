@@ -809,6 +809,9 @@ function getArchtype(results) {
       console.log(newData["Tagline"]);
       console.log(newData["Long Description"]);
 
+      //Hide Quiz Slides
+      $(".slider").css("display", "none");
+
       //Image src
       $("#archetype-image").attr("src", newData["Image URL"]);
 
