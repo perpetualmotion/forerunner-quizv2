@@ -820,9 +820,7 @@ function getArchtype(results) {
       $("#tagline").text(newData["Tagline"]);
 
       //Desc
-      let desc = document.getElementsByClassName("archetype-text w-richtext");
-      console.log(desc);
-      desc.text(newData["Long Description"]);
+      $("#long").text(newData["Long Description"]);
     })
     .catch((error) => console.log("error", error));
 }
