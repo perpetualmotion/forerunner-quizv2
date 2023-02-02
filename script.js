@@ -1,5 +1,3 @@
-const { is } = require("@babel/types");
-
 // Clear existing local storage
 localStorage.clear();
 let arr = {};
@@ -324,7 +322,7 @@ function checkSlide0() {
           $("#j3-3") ||
           $("#j3-4") ||
           $("#j3-5") ||
-          $("#j3-6") ||
+          // $("#j3-6") ||
           $("#j3-7") ||
           $("#j3-8")
         ).is(":checked") &&
@@ -588,8 +586,8 @@ function checkSlide7() {
   $("#wf-form-Quiz").submit(function () {
     if (slide7.style.visibility == "") {
       if (field3.value) {
-        // console.log("Email is Valid");
-        //return true;
+        console.log("Email is present");
+        // return true;
       } else {
         console.log("S7 Next button locked, no answers clicked!");
         $(".quiz-error-message-email").show();
@@ -601,22 +599,26 @@ function checkSlide7() {
 
 $(".w-slide").ready(function () {
   // checkChecked();
+  checkSlide0();
+  // isChecked();
+  // disIfUnchecked();
+  //Skip Page Functions
+  // zeroToTwo();
+  // oneToFour();
+  //Input field Error Message +
+  errorMess();
+});
+
+nextButton.on("click", function () {
   //Page Lock Functions
-  // checkSlide7();
+  checkSlide7();
   // checkSlide6();
   // checkSlide5();
   // checkSlide4();
   // checkSlide3();
-  // checkSlide2();
-  // checkSlide1();
-  // checkSlide0();
-  // isChecked();
-  // disIfUnchecked();
-  //Skip Page Functions
-  zeroToTwo();
-  oneToFour();
-  //Input field Error Message +
-  errorMess();
+  checkSlide2();
+  checkSlide1();
+  checkSlide0();
 });
 
 let email = document.getElementById("j32");
@@ -654,14 +656,26 @@ function errorMess() {
 console.log("LOCALHOST LIVE SERVER IS RUNNING!");
 //'Get my archetype' stop submit for testing
 $("#wf-form-Quiz").submit(function () {
-  $("#loading").fadeIn(function () {
-    $("#loading").css("display", "block");
-  });
-  $(".progress-bar-wrapper").css("display", "none");
-  console.log(email.value);
-  mailChimp(email.value);
-  submitResponse();
-  return false;
+  if (slide7.style.visibility == "") {
+    if (field3.value.length !== 0) {
+      console.log("Email is present");
+
+      $("#loading").fadeIn(function () {
+        $("#loading").css("display", "block");
+      });
+      $(".image-section-title quiz").css("display", "none");
+      $(".progress-bar-wrapper").css("display", "none");
+
+      console.log(email.value);
+      mailChimp(email.value);
+      submitResponse();
+      // return false;
+    } else {
+      console.log("S7 Next button locked, no answers clicked!");
+      $(".quiz-error-message-email").show();
+      // return false;
+    }
+  }
 });
 
 //Trigger Submit of Quiz
