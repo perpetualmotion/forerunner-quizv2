@@ -290,71 +290,61 @@ function disIfUnchecked() {
     }
   });
 }
+
 //Slide0 Lock
 function checkSlide0() {
   nextButton.on("click", function () {
     if (slide0.style.visibility == "") {
       if (
-        (
-          $("#j11") ||
-          $("#j12") ||
-          $("#j13") ||
-          $("#j14") ||
-          $("#j15") ||
-          $("#j16") ||
-          $("#j17") ||
-          $("#j18")
-        ).is(":checked") &&
-        (
-          $("#j2-1") ||
-          $("#j2-2") ||
-          $("#j2-3") ||
-          $("#j2-4") ||
-          $("#j2-5") ||
-          $("#j2-6") ||
-          $("#j2-7") ||
-          $("#j2-8") ||
-          $("#j2-9")
-        ).is(":checked") &&
-        (
-          $("#j3-1") ||
-          $("#j3-2") ||
-          $("#j3-3") ||
-          $("#j3-4") ||
-          $("#j3-5") ||
+        ($("#j11").is(":checked") ||
+          $("#j12").is(":checked") ||
+          $("#j13").is(":checked") ||
+          $("#j14").is(":checked") ||
+          $("#j15").is(":checked") ||
+          $("#j16").is(":checked") ||
+          $("#j17").is(":checked") ||
+          $("#j18").is(":checked")) &&
+        ($("#j2-1").is(":checked") ||
+          $("#j2-2").is(":checked") ||
+          $("#j2-3").is(":checked") ||
+          $("#j2-4").is(":checked") ||
+          $("#j2-5").is(":checked") ||
+          $("#j2-6").is(":checked") ||
+          $("#j2-7").is(":checked") ||
+          $("#j2-8").is(":checked") ||
+          $("#j2-9").is(":checked")) &&
+        ($("#j3-1").is(":checked") ||
+          $("#j3-2").is(":checked") ||
+          $("#j3-3").is(":checked") ||
+          $("#j3-4").is(":checked") ||
+          $("#j3-5").is(":checked") ||
           // $("#j3-6") ||
-          $("#j3-7") ||
-          $("#j3-8")
-        ).is(":checked") &&
-        (
-          $("#j4-1") ||
-          $("#j4-2") ||
-          $("#j4-3") ||
-          $("#j4-4") ||
-          $("#j4-5") ||
-          $("#j4-6") ||
-          $("#j4-7")
-        ).is(":checked") &&
-        (
-          $("#j5-1") ||
-          $("#j5-2") ||
-          $("#j5-3") ||
-          $("#j5-4") ||
-          $("#j5-6") ||
-          $("#j5-7") ||
-          $("#j5-8")
-        ).is(":checked")
+          $("#j3-7").is(":checked") ||
+          $("#j3-8").is(":checked")) &&
+        ($("#j4-1").is(":checked") ||
+          $("#j4-2").is(":checked") ||
+          $("#j4-3").is(":checked") ||
+          $("#j4-4").is(":checked") ||
+          $("#j4-5").is(":checked") ||
+          $("#j4-6").is(":checked") ||
+          $("#j4-7").is(":checked")) &&
+        ($("#j5-1").is(":checked") ||
+          $("#j5-2").is(":checked") ||
+          $("#j5-3").is(":checked") ||
+          $("#j5-4").is(":checked") ||
+          $("#j5-6").is(":checked") ||
+          $("#j5-7").is(":checked") ||
+          $("#j5-8").is(":checked"))
       ) {
         return true;
       } else {
         console.log("S0 Next button locked, no answers clicked!");
+
         return false;
       }
     }
   });
 }
-const questions = document.getElementsByClassName("form-question-wrapper");
-
 //Slide1 Lock
 function checkSlide1() {
   nextButton.on("click", function () {
@@ -599,6 +589,7 @@ function checkSlide7() {
 
 $(".w-slide").ready(function () {
   // checkChecked();
+  checkSlide1();
   checkSlide0();
   // isChecked();
   // disIfUnchecked();
@@ -611,14 +602,14 @@ $(".w-slide").ready(function () {
 
 nextButton.on("click", function () {
   //Page Lock Functions
-  checkSlide7();
+  // checkSlide7();
   // checkSlide6();
   // checkSlide5();
   // checkSlide4();
   // checkSlide3();
-  checkSlide2();
-  checkSlide1();
-  checkSlide0();
+  // checkSlide2();
+  // checkSlide1();
+  // checkSlide0();
 });
 
 let email = document.getElementById("j32");
