@@ -582,15 +582,13 @@ function errorMess() {
 console.log("LOCALHOST LIVE SERVER IS RUNNING!");
 //'Get my archetype' stop submit for testing
 $("#wf-form-Quiz").submit(function () {
-  console.log("THE SUBMIT BUTTON IS LOCKED FOR TESTING!");
-  // $(".quiz-error-message-email").show();
   submitResponse();
-  return false;
 });
 
 //Trigger Submit of Quiz
 //API
 function submitResponse() {
+  $("#loading").css("display", "block");
   let date = new Date().toJSON();
 
   let data = $("form")
@@ -734,7 +732,7 @@ function submitResponse() {
 
   //on submit of form trigger fetch
   fetch(
-    "https://v1.nocodeapi.com/nikudon/google_sheets/JBDsjjblJvUyDCJf?tabId=Form Responses",
+    "https://v1.nocodeapi.com/perpetualdev/google_sheets/febhqDGsnbjuhzsT?tabId=Form Responses",
     requestOptions
   )
     .then((response) => response.text())
@@ -747,9 +745,7 @@ function submitResponse() {
     .catch((error) => console.log("error", error));
 }
 
-//fetch for aspect of Typing Tool
-//passing in result
-//add new row from localstorage values "q1, q10, etc..."
+//Push form data to Typing Tool
 function pushToTT(result) {
   console.log(result);
   for (let i = 0; i < localStorageVariables.length; i++) {
@@ -771,7 +767,7 @@ function pushToTT(result) {
   };
   //Post to Typing Tool
   fetch(
-    "https://v1.nocodeapi.com/nikudon/google_sheets/JBDsjjblJvUyDCJf?tabId=Typing Tool",
+    "https://v1.nocodeapi.com/perpetualdev/google_sheets/febhqDGsnbjuhzsT?tabId=Typing Tool",
     newRequestOptions
   )
     .then((response) => response.text())
@@ -785,8 +781,9 @@ function pushToTT(result) {
     .catch((error) => console.log("error", error));
 }
 
-//Get request for that row in Archetype outputs
+//Get request specific row in Archetype outputs
 function getArchtype(data) {
+  $("#loading").css("display", "none");
   console.log(data);
 
   var getHeaders = new Headers();
@@ -798,7 +795,7 @@ function getArchtype(data) {
   };
 
   fetch(
-    "https://v1.nocodeapi.com/nikudon/google_sheets/JBDsjjblJvUyDCJf?tabId=Archetype outputs&row_id=" +
+    "https://v1.nocodeapi.com/perpetualdev/google_sheets/febhqDGsnbjuhzsT?tabId=Archetype outputs&row_id=" +
       `${data}`,
     requestOptions
   )
@@ -830,4 +827,9 @@ function getArchtype(data) {
       $("#archetype-wrapper").css("display", "block");
     })
     .catch((error) => console.log("error", error));
+}
+
+//Push email to Mail Chimp
+function mailChimp() {
+  $("#email");
 }
