@@ -779,7 +779,8 @@ function pushToTT(result) {
       var data = JSON.parse(result);
       console.log(data);
       console.log(result["row_id"]);
-      getArchtype(result);
+      console.log(arr["row_id"]);
+      getArchtype(arr["row_id"]);
     })
     .catch((error) => console.log("error", error));
 }
