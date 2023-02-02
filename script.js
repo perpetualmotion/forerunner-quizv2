@@ -243,21 +243,18 @@ function oneToFour() {
 //DISABLE NEXT BUTTON//
 
 function checkChecked() {
-  // nextButton.on("click", function () {
-  //   if (slide0.style.visibility == "") {
-  //     if ($(".w-radio").children('input[type="radio"]').is(":checked")) {
-  //       console.log("test true");
-  //       return true;
-  //     } else {
-  //       console.log("Test False");
-  //     }
-  //   }
-  // });
   nextButton.on("click", function () {
-    if ($(".checkbox-wrapper").find($(":input:checked")).length >= 1) {
-      console.log("TRUE");
-    } else {
-      console.log("FALSE");
+    //add in visible page and copy for function for each page
+    for (let i = 0; i < $(".form-question-wrapper").length; i++) {
+      console.log("looking through qs");
+      console.log($(".form-question-wrapper").length);
+      if ($(".checkbox-wrapper").find($(":input:checked")).length >= 1) {
+        console.log("TRUE");
+        return true;
+      } else {
+        console.log("FALSE");
+        return false;
+      }
     }
   });
 }
@@ -294,6 +291,38 @@ function disIfUnchecked() {
   });
 }
 //Slide0 Lock
+function checkSlide0() {
+  nextButton.on("click", function () {
+    if (slide0.style.visibility == "") {
+      if (
+        (
+          $("#j3-1") ||
+          $("#j3-2") ||
+          $("#j3-3") ||
+          $("#j3-4") ||
+          $("#j3-5") ||
+          $("#j3-6") ||
+          $("#j3-7") ||
+          $("#j3-8")
+        ).is(":checked") &&
+        (
+          $("#j5-1") ||
+          $("#j5-2") ||
+          $("#j5-3") ||
+          $("#j5-4") ||
+          $("#j5-6") ||
+          $("#j5-7") ||
+          $("#j5-8")
+        ).is(":checked")
+      ) {
+        return true;
+      } else {
+        console.log("S0 Next button locked, no answers clicked!");
+        return false;
+      }
+    }
+  });
+}
 const questions = document.getElementsByClassName("form-question-wrapper");
 // function checkSlide0() {
 //   for (var i = 0; i < questions.length; i++) {
@@ -552,7 +581,7 @@ function checkSlide7() {
 }
 
 $(".w-slide").ready(function () {
-  checkChecked();
+  // checkChecked();
   //Page Lock Functions
   checkSlide7();
   checkSlide6();
@@ -561,9 +590,9 @@ $(".w-slide").ready(function () {
   checkSlide3();
   checkSlide2();
   checkSlide1();
-  // checkSlide0();
-  isChecked();
-  disIfUnchecked();
+  checkSlide0();
+  // isChecked();
+  // disIfUnchecked();
   //Skip Page Functions
   zeroToTwo();
   oneToFour();
