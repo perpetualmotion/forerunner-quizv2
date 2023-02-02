@@ -775,18 +775,18 @@ function pushToTT(result) {
     newRequestOptions
   )
     .then((response) => response.text())
-    .then((results) => {
-      var data = JSON.parse(results);
+    .then((result) => {
+      var data = JSON.parse(result);
       console.log(data);
-      console.log(data["row_id"]);
-      getArchtype(data["row_id"]);
+      console.log(result["row_id"]);
+      getArchtype(result);
     })
     .catch((error) => console.log("error", error));
 }
 
 //Get request for that row in Archetype outputs
-function getArchtype(results) {
-  console.log(results);
+function getArchtype(data) {
+  console.log(data);
 
   var getHeaders = new Headers();
   getHeaders.append("Content-Type", "application/json");
@@ -798,7 +798,7 @@ function getArchtype(results) {
 
   fetch(
     "https://v1.nocodeapi.com/nikudon/google_sheets/JBDsjjblJvUyDCJf?tabId=Archetype outputs&row_id=" +
-      `${results}`,
+      `${data}`,
     requestOptions
   )
     .then((response) => response.text())
