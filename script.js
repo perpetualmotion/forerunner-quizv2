@@ -243,17 +243,25 @@ function oneToFour() {
 //DISABLE NEXT BUTTON//
 
 function checkChecked() {
+  // nextButton.on("click", function () {
+  //   if (slide0.style.visibility == "") {
+  //     if ($(".w-radio").children('input[type="radio"]').is(":checked")) {
+  //       console.log("test true");
+  //       return true;
+  //     } else {
+  //       console.log("Test False");
+  //     }
+  //   }
+  // });
   nextButton.on("click", function () {
-    if (slide0.style.visibility == "") {
-      if ($(".w-radio").children('input[type="radio"]').is(":checked")) {
-        console.log("test true");
-        return true;
-      } else {
-        console.log("Test False");
-      }
+    if ($(".checkbox-wrapper").find($(":input:checked")).length >= 1) {
+      console.log("TRUE");
+    } else {
+      console.log("FALSE");
     }
   });
 }
+
 function isChecked() {
   //on page render
   if (!$(":input").prop("checked")) {
@@ -287,7 +295,6 @@ function disIfUnchecked() {
 }
 //Slide0 Lock
 const questions = document.getElementsByClassName("form-question-wrapper");
-
 // function checkSlide0() {
 //   for (var i = 0; i < questions.length; i++) {
 //     if (!$(":input").prop("checked")) {
