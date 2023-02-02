@@ -946,3 +946,8 @@ function mailChimp(userEmail) {
     .then((result) => console.log(result))
     .catch((error) => console.log("error", error));
 }
+
+//Share Button
+$("#Share").on("click", function () {
+  $("#modal").css("display", "block");
+});
