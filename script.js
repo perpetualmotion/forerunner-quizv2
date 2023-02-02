@@ -582,13 +582,14 @@ function errorMess() {
 console.log("LOCALHOST LIVE SERVER IS RUNNING!");
 //'Get my archetype' stop submit for testing
 $("#wf-form-Quiz").submit(function () {
+  $("#loading").css("display", "block");
+
   submitResponse();
 });
 
 //Trigger Submit of Quiz
 //API
 function submitResponse() {
-  $("#loading").css("display", "block");
   let date = new Date().toJSON();
 
   let data = $("form")
@@ -783,7 +784,6 @@ function pushToTT(result) {
 
 //Get request specific row in Archetype outputs
 function getArchtype(data) {
-  $("#loading").css("display", "none");
   console.log(data);
 
   var getHeaders = new Headers();
@@ -806,6 +806,8 @@ function getArchtype(data) {
       console.log(newData["Image URL"]);
       console.log(newData["Tagline"]);
       console.log(newData["Long Description"]);
+
+      $("#loading").css("display", "none");
 
       //Hide Quiz Slides
       $(".slider").css("display", "none");
