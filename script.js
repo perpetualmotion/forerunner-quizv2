@@ -490,45 +490,71 @@ function checkSlide5() {
   nextButton.on("click", function () {
     if (slide5.style.visibility == "") {
       if (
-        ($("#j171") || $("#j172") || $("#j173") || $("#j174") || $("#j175")).is(
-          ":checked"
-        ) &&
-        ($("#j181") || $("#j182") || $("#j183") || $("#j184") || $("#j185")).is(
-          ":checked"
-        ) &&
-        ($("#j191") || $("#j192") || $("#j193") || $("#j194") || $("#j195")).is(
-          ":checked"
-        ) &&
-        ($("#j201") || $("#j202") || $("#j203") || $("#j204") || $("#j205")).is(
-          ":checked"
-        ) &&
-        ($("#j211") || $("#j212") || $("#j213") || $("#j214") || $("#j215")).is(
-          ":checked"
-        ) &&
-        ($("#j221") || $("#j222") || $("#j223") || $("#j224") || $("#j225")).is(
-          ":checked"
-        ) &&
-        ($("#j231") || $("#j232") || $("#j233") || $("#j234") || $("#j235")).is(
-          ":checked"
-        ) &&
-        ($("#j241") || $("#j242") || $("#j243") || $("#j244") || $("#j245")).is(
-          ":checked"
-        ) &&
-        ($("#j251") || $("#j252") || $("#j253") || $("#j254") || $("#j255")).is(
-          ":checked"
-        ) &&
-        ($("#j261") || $("#j262") || $("#j263") || $("#j264") || $("#j265")).is(
-          ":checked"
-        ) &&
-        ($("#j271") || $("#j272") || $("#j273") || $("#j274") || $("#j275")).is(
-          ":checked"
-        ) &&
-        ($("#j281") || $("#j282") || $("#j283") || $("#j284") || $("#j285")).is(
-          ":checked"
-        ) &&
-        ($("#j291") || $("#j292") || $("#j293") || $("#j294") || $("#j295")).is(
-          ":checked"
-        )
+        ($("#j171").is(":checked") ||
+          $("#j172").is(":checked") ||
+          $("#j173").is(":checked") ||
+          $("#j174").is(":checked") ||
+          $("#j175").is(":checked")) &&
+        ($("#j181").is(":checked") ||
+          $("#j182").is(":checked") ||
+          $("#j183").is(":checked") ||
+          $("#j184").is(":checked") ||
+          $("#j185").is(":checked")) &&
+        ($("#j191").is(":checked") ||
+          $("#j192").is(":checked") ||
+          $("#j193").is(":checked") ||
+          $("#j194").is(":checked") ||
+          $("#j195").is(":checked")) &&
+        ($("#j201").is(":checked") ||
+          $("#j202").is(":checked") ||
+          $("#j203").is(":checked") ||
+          $("#j204").is(":checked") ||
+          $("#j205").is(":checked")) &&
+        ($("#j211").is(":checked") ||
+          $("#j212").is(":checked") ||
+          $("#j213").is(":checked") ||
+          $("#j214").is(":checked") ||
+          $("#j215").is(":checked")) &&
+        ($("#j221").is(":checked") ||
+          $("#j222").is(":checked") ||
+          $("#j223").is(":checked") ||
+          $("#j224").is(":checked") ||
+          $("#j225").is(":checked")) &&
+        ($("#j231").is(":checked") ||
+          $("#j232").is(":checked") ||
+          $("#j233").is(":checked") ||
+          $("#j234").is(":checked") ||
+          $("#j235").is(":checked")) &&
+        ($("#j241").is(":checked") ||
+          $("#j242").is(":checked") ||
+          $("#j243").is(":checked") ||
+          $("#j244").is(":checked") ||
+          $("#j245").is(":checked")) &&
+        ($("#j251").is(":checked") ||
+          $("#j252").is(":checked") ||
+          $("#j253").is(":checked") ||
+          $("#j254").is(":checked") ||
+          $("#j255").is(":checked")) &&
+        ($("#j261").is(":checked") ||
+          $("#j262").is(":checked") ||
+          $("#j263").is(":checked") ||
+          $("#j264").is(":checked") ||
+          $("#j265").is(":checked")) &&
+        ($("#j271").is(":checked") ||
+          $("#j272").is(":checked") ||
+          $("#j273").is(":checked") ||
+          $("#j274").is(":checked") ||
+          $("#j275").is(":checked")) &&
+        ($("#j281").is(":checked") ||
+          $("#j282").is(":checked") ||
+          $("#j283").is(":checked") ||
+          $("#j284").is(":checked") ||
+          $("#j285").is(":checked")) &&
+        ($("#j291").is(":checked") ||
+          $("#j292").is(":checked") ||
+          $("#j293").is(":checked") ||
+          $("#j294").is(":checked") ||
+          $("#j295").is(":checked"))
       ) {
         return true;
       } else {
@@ -580,7 +606,9 @@ function checkSlide7() {
 $(".w-slide").ready(function () {
   // checkChecked();
   //Page Lock Functions
-  checkSlide4();
+  // checkSlide6();
+  // checkSlide5();
+  // checkSlide4();
   // checkSlide3();
   // checkSlide2();
   // checkSlide1();
@@ -592,12 +620,6 @@ $(".w-slide").ready(function () {
   // oneToFour();
   //Input field Error Message +
   errorMess();
-});
-
-nextButton.on("click", function () {
-  // checkSlide7();
-  // checkSlide6();
-  // checkSlide5();
 });
 
 let email = document.getElementById("j32");
@@ -648,11 +670,11 @@ $("#wf-form-Quiz").submit(function () {
       console.log(email.value);
       mailChimp(email.value);
       submitResponse();
-      // return false;
+      return false;
     } else {
       console.log("S7 Next button locked, no answers clicked!");
       $(".quiz-error-message-email").show();
-      // return false;
+      return false;
     }
   }
 });
