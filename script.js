@@ -438,54 +438,44 @@ function checkSlide4() {
   nextButton.on("click", function () {
     if (slide4.style.visibility == "") {
       if (
-        (
-          $("#j111") ||
-          $("#j112") ||
-          $("#j113") ||
-          $("#j114") ||
-          $("#j115") ||
-          $("#j116")
-        ).is(":checked") &&
-        (
-          $("#j12-1") ||
-          $("#j12-2") ||
-          $("#j12-3") ||
-          $("#j12-4") ||
-          $("#j12-5") ||
-          $("#j12-6") ||
-          $("#j12-7")
-        ).is(":checked") &&
-        (
-          $("#j13-1") ||
-          $("#j13-2") ||
-          $("#j13-3") ||
-          $("#j13-4") ||
-          $("#j13-5") ||
-          $("#j13-6") ||
-          $("#j13-7") ||
-          $("#j13-8") ||
-          $("#j13-9")
-        ).is(":checked") &&
-        (
-          $("#j14-1") ||
-          $("#j14-2") ||
-          $("#j14-3") ||
-          $("#j14-4") ||
-          $("#j14-5") ||
-          $("#j14-6") ||
-          $("#j14-7") ||
-          $("#j14-8")
-        ).is(":checked") &&
-        (
-          $("#j15-1") ||
-          $("#j15-2") ||
-          $("#j15-3") ||
-          $("#j15-4") ||
-          $("#j15-5") ||
-          $("#j15-6") ||
-          $("#j15-7") ||
-          $("#j15-8")
-        ).is(":checked")
+        ($("#j111").is(":checked") ||
+          $("#j112").is(":checked") ||
+          $("#j113").is(":checked") ||
+          $("#j114").is(":checked") ||
+          $("#j115").is(":checked") ||
+          $("#j116").is(":checked")) &&
+        ($("#j12-1").is(":checked") ||
+          $("#j12-2").is(":checked") ||
+          $("#j12-3").is(":checked") ||
+          $("#j12-4").is(":checked") ||
+          $("#j12-5").is(":checked") ||
+          $("#j12-6").is(":checked") ||
+          $("#j12-7").is(":checked")) &&
+        ($("#j13-1").is(":checked") ||
+          $("#j13-2").is(":checked") ||
+          $("#j13-3").is(":checked") ||
+          $("#j13-4").is(":checked") ||
+          $("#j13-5").is(":checked") ||
+          $("#j13-6").is(":checked") ||
+          $("#j13-7").is(":checked") ||
+          $("#j13-8").is(":checked") ||
+          $("#j13-9").is(":checked")) &&
+        ($("#j14-1").is(":checked") ||
+          $("#j14-2").is(":checked") ||
+          $("#j14-3").is(":checked") ||
+          $("#j14-4").is(":checked") ||
+          $("#j14-5").is(":checked") ||
+          $("#j14-6").is(":checked") ||
+          $("#j14-7").is(":checked") ||
+          $("#j14-8").is(":checked")) &&
+        ($("#j15-1").is(":checked") ||
+          $("#j15-2").is(":checked") ||
+          $("#j15-3").is(":checked") ||
+          $("#j15-4").is(":checked") ||
+          $("#j15-5").is(":checked") ||
+          $("#j15-6").is(":checked") ||
+          $("#j15-7").is(":checked") ||
+          $("#j15-8").is(":checked"))
       ) {
         return true;
       } else {
@@ -589,8 +579,12 @@ function checkSlide7() {
 
 $(".w-slide").ready(function () {
   // checkChecked();
-  checkSlide1();
-  checkSlide0();
+  //Page Lock Functions
+  checkSlide4();
+  // checkSlide3();
+  // checkSlide2();
+  // checkSlide1();
+  // checkSlide0();
   // isChecked();
   // disIfUnchecked();
   //Skip Page Functions
@@ -601,15 +595,9 @@ $(".w-slide").ready(function () {
 });
 
 nextButton.on("click", function () {
-  //Page Lock Functions
   // checkSlide7();
   // checkSlide6();
   // checkSlide5();
-  // checkSlide4();
-  // checkSlide3();
-  // checkSlide2();
-  // checkSlide1();
-  // checkSlide0();
 });
 
 let email = document.getElementById("j32");
