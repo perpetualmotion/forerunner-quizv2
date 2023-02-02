@@ -584,7 +584,9 @@ function errorMess() {
 console.log("LOCALHOST LIVE SERVER IS RUNNING!");
 //'Get my archetype' stop submit for testing
 $("#wf-form-Quiz").submit(function () {
-  $("#loading").css("display", "block");
+  $("#loading").fadeIn(function () {
+    $("#loading").css("display", "block");
+  });
   console.log(email.value);
   mailChimp(email.value);
   submitResponse();
@@ -811,7 +813,9 @@ function getArchtype(data) {
       console.log(newData["Tagline"]);
       console.log(newData["Long Description"]);
 
-      $("#loading").css("display", "none");
+      $("#loading").fadeOut(function () {
+        $("#loading").css("display", "none");
+      });
 
       //Hide Quiz Slides
       $(".slider").css("display", "none");
