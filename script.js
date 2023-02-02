@@ -519,7 +519,7 @@ function checkSlide7() {
   $("#wf-form-Quiz").submit(function () {
     if (slide7.style.visibility == "") {
       if (field3.value) {
-        console.log("Email is Valid");
+        // console.log("Email is Valid");
         //return true;
       } else {
         console.log("S7 Next button locked, no answers clicked!");
@@ -548,6 +548,8 @@ $(".w-slide").ready(function () {
   //Input field Error Message +
   errorMess();
 });
+
+let email = document.getElementById("j32");
 
 //VALUE CANNOT EXCEED 24//
 function errorMess() {
@@ -583,8 +585,10 @@ console.log("LOCALHOST LIVE SERVER IS RUNNING!");
 //'Get my archetype' stop submit for testing
 $("#wf-form-Quiz").submit(function () {
   $("#loading").css("display", "block");
-
+  console.log(email.value);
+  mailChimp(email.value);
   submitResponse();
+  return false;
 });
 
 //Trigger Submit of Quiz
@@ -831,7 +835,24 @@ function getArchtype(data) {
     .catch((error) => console.log("error", error));
 }
 
-//Push email to Mail Chimp
-function mailChimp() {
-  $("#email");
+//Add new member to Mail Chimp
+function mailChimp(userEmail) {
+  console.log(userEmail);
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  var requestOptions = {
+    method: "post",
+    headers: myHeaders,
+    redirect: "follow",
+  };
+
+  fetch(
+    "https://v1.nocodeapi.com/perpetualdev/mailchimp/wKKBmPzxtAoAAduI/members?list_id=1159bd27b0&email_address=" +
+      `${userEmail}` +
+      "&status=subscribed",
+    requestOptions
+  )
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.log("error", error));
 }
