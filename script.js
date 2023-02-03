@@ -935,15 +935,16 @@ $("#Share").on("click", function () {
   $("#overlay").css("display", "none");
 
   $("#social-image").css("display", "block");
-  // $("#social-image").attr(
-  //   "src",
-  //   "https://uploads-ssl.webflow.com/630e86b41791dd290f256f13/63936bc803a952d5a9c4783c_Maverick_full.jpg"
-  // );
 });
 //Close Modal
 $(".icon-close").on("click", function () {
   $("#modal").css("display", "none");
 });
+
+//Social Icons
+$("#twitter").on("click", function () {});
+$("#instagram").on("click", function () {});
+$("#facebook").on("click", function () {});
 
 //Add new member to Mail Chimp
 function mailChimp(userEmail) {
