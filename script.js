@@ -937,6 +937,10 @@ $("#Share").on("click", function () {
   );
 });
 
+$(".icon-close").on("click", function () {
+  $("#modal").css("display", "none");
+});
+
 //Add new member to Mail Chimp
 function mailChimp(userEmail) {
   console.log(userEmail);
