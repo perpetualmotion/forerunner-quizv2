@@ -680,7 +680,6 @@ $("#wf-form-Quiz").submit(function () {
 });
 
 //Trigger Submit of Quiz
-//API
 function submitResponse() {
   let date = new Date().toJSON();
 
@@ -837,7 +836,6 @@ function submitResponse() {
     })
     .catch((error) => console.log("error", error));
 }
-
 //Push form data to Typing Tool
 function pushToTT(result) {
   console.log(result);
@@ -873,7 +871,6 @@ function pushToTT(result) {
     })
     .catch((error) => console.log("error", error));
 }
-
 //Get request specific row in Archetype outputs
 function getArchtype(data) {
   console.log(data);
@@ -928,27 +925,6 @@ function getArchtype(data) {
     })
     .catch((error) => console.log("error", error));
 }
-
-//Share Button
-$("#Share").on("click", function () {
-  $("#modal").css("display", "block");
-  $("#overlay").css("display", "none");
-
-  $("#social-image").css("display", "block");
-});
-//Close Modal
-$(".icon-close").on("click", function () {
-  $("#modal").css("display", "none");
-});
-$("#overlay").on("click", function () {
-  $("#modal").css("display", "none");
-});
-
-//Social Icons
-$("#twitter").on("click", function () {});
-$("#instagram").on("click", function () {});
-$("#facebook").on("click", function () {});
-
 //Add new member to Mail Chimp
 function mailChimp(userEmail) {
   console.log(userEmail);
@@ -970,3 +946,47 @@ function mailChimp(userEmail) {
     .then((result) => console.log(result))
     .catch((error) => console.log("error", error));
 }
+
+//Share Button
+$("#Share").on("click", function () {
+  $("#modal").fadeIn(function () {
+    $("#modal").css("display", "block");
+  });
+  $("#social-image").css("display", "block");
+});
+//Close Modal
+$(".icon-close").on("click", function () {
+  $("#modal").css("display", "none");
+});
+$("#overlay").on("click", function () {
+  $("#modal").css("display", "none");
+});
+
+//Social Icons
+$("#twitter").on("click", function () {});
+$("#instagram").on("click", function () {});
+$("#facebook").on("click", function () {});
+
+$(document).ready(function () {
+  let title = document.title;
+  let url = window.location.href;
+
+  $("[data-share-facebook").attr(
+    "href",
+    "https://www.facebook.com/sharer/sharer.php?display=popup&u=" + url
+  );
+  $("[data-share-facebook").attr("target", "_blank");
+
+  $("[data-share-twitter").attr(
+    "href",
+    "https://twitter.com/share?text=I am the {{wf {&quot;path&quot;:&quot;name&quot;,&quot;type&quot;:&quot;PlainText&quot;} }}! Take The Dinner Party quiz to find out which modern consumer archetype you are, based on new research by @forerunnervc %23JoinTheParty &url=" +
+      url
+  );
+  $("[data-share-twitter").attr("target", "_blank");
+
+  $("[data-share-linkedin").attr(
+    "href",
+    "https://www.linkedin.com/sharing/share-offsite/?url=" + url
+  );
+  $("[data-share-linkedin").attr("target", "_blank");
+});
