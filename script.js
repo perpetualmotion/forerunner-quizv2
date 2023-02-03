@@ -137,7 +137,7 @@ function zeroToTwo() {
     }
   });
   backButton.on("click", function () {
-    if (slide2.style.visibility == "") {
+    if (slide3.style.visibility == "") {
       if ($("#j5-1").is(":checked") || $("#j5-8").is(":checked")) {
         console.log("Skip s2 => s0");
         $(".w-slider-dot")[1].click();
@@ -678,7 +678,6 @@ $("#wf-form-Quiz").submit(function () {
     }
   }
 });
-
 //Skip button Submit
 $(".link-skip-text").on("click", function () {
   if (slide7.style.visibility == "") {
