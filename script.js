@@ -664,7 +664,7 @@ $("#wf-form-Quiz").submit(function () {
       $("#loading").fadeIn(function () {
         $("#loading").css("display", "block");
       });
-      $(".image-section-title quiz").css("display", "none");
+      $(".image-section-title").css("display", "none");
       $(".progress-bar-wrapper").css("display", "none");
 
       console.log(email.value);
@@ -895,7 +895,7 @@ function getArchtype(data) {
     .then((result) => {
       var newData = JSON.parse(result);
       console.log(newData["Archetype"]);
-      console.log(newData["Image URL"]);
+      console.log(newData["Image w/o Title URL"]);
       console.log(newData["Tagline"]);
       console.log(newData["Long Description"]);
 
@@ -906,8 +906,8 @@ function getArchtype(data) {
       //Hide Quiz Slides
       $(".slider").css("display", "none");
 
-      //Image src
-      $("#archetype-image").attr("src", newData["Image URL"]);
+      //Image src w/o Title
+      $("#archetype-image").attr("src", newData["Image w/o Title URL"]);
 
       //Archetype name
       $("#archetype").text(newData["Archetype"]);
@@ -923,6 +923,8 @@ function getArchtype(data) {
       $("#archetype-wrapper").css("display", "block");
 
       //Set Modal Image
+      console.log(newData["Image w/ Title URL"]);
+      $("#social-image").attr("src", newData["Image w/ Title URL"]);
     })
     .catch((error) => console.log("error", error));
 }
@@ -930,13 +932,15 @@ function getArchtype(data) {
 //Share Button
 $("#Share").on("click", function () {
   $("#modal").css("display", "block");
-  $("#social-image").css("display", "block");
-  $("#social-image").attr(
-    "src",
-    "https://uploads-ssl.webflow.com/630e86b41791dd290f256f13/63936bc803a952d5a9c4783c_Maverick_full.jpg"
-  );
-});
+  $("#overlay").css("display", "none");
 
+  $("#social-image").css("display", "block");
+  // $("#social-image").attr(
+  //   "src",
+  //   "https://uploads-ssl.webflow.com/630e86b41791dd290f256f13/63936bc803a952d5a9c4783c_Maverick_full.jpg"
+  // );
+});
+//Close Modal
 $(".icon-close").on("click", function () {
   $("#modal").css("display", "none");
 });
