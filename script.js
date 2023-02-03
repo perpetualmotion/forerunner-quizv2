@@ -921,9 +921,21 @@ function getArchtype(data) {
 
       //Set Archetype Wrapper to display
       $("#archetype-wrapper").css("display", "block");
+
+      //Set Modal Image
     })
     .catch((error) => console.log("error", error));
 }
+
+//Share Button
+$("#Share").on("click", function () {
+  $("#modal").css("display", "block");
+  $("#social-image").css("display", "block");
+  $("#social-image").attr(
+    "src",
+    "https://uploads-ssl.webflow.com/630e86b41791dd290f256f13/63936bc803a952d5a9c4783c_Maverick_full.jpg"
+  );
+});
 
 //Add new member to Mail Chimp
 function mailChimp(userEmail) {
@@ -946,8 +958,3 @@ function mailChimp(userEmail) {
     .then((result) => console.log(result))
     .catch((error) => console.log("error", error));
 }
-
-//Share Button
-$("#Share").on("click", function () {
-  $("#modal").css("display", "block");
-});
