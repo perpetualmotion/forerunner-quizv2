@@ -940,6 +940,9 @@ $("#Share").on("click", function () {
 $(".icon-close").on("click", function () {
   $("#modal").css("display", "none");
 });
+$("#overlay").on("click", function () {
+  $("#modal").css("display", "none");
+});
 
 //Social Icons
 $("#twitter").on("click", function () {});
