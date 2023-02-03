@@ -616,8 +616,8 @@ $(".w-slide").ready(function () {
   // isChecked();
   // disIfUnchecked();
   //Skip Page Functions
-  // zeroToTwo();
-  // oneToFour();
+  zeroToTwo();
+  oneToFour();
   //Input field Error Message +
   errorMess();
 });
@@ -676,6 +676,24 @@ $("#wf-form-Quiz").submit(function () {
       $(".quiz-error-message-email").show();
       return false;
     }
+  }
+});
+
+//Skip button Submit
+$(".link-skip-text").on("click", function () {
+  if (slide7.style.visibility == "") {
+    console.log("skip button clicked");
+
+    $("#loading").fadeIn(function () {
+      $("#loading").css("display", "block");
+    });
+    $(".image-section-title").css("display", "none");
+    $(".progress-bar-wrapper").css("display", "none");
+
+    submitResponse();
+    return false;
+  } else {
+    return false;
   }
 });
 
@@ -966,7 +984,7 @@ $("#overlay").on("click", function () {
 $("#twitter").on("click", function () {});
 $("#instagram").on("click", function () {});
 $("#facebook").on("click", function () {});
-
+//Homepage social icon
 $(document).ready(function () {
   let title = document.title;
   let url = window.location.href;
