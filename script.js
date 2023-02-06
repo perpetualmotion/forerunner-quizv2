@@ -117,6 +117,22 @@ $("[hide-question-89='1']").on("click", function () {
   $("#j9").hide();
   console.log("Hiding j8 + j9");
 });
+function branching() {
+  nextButton.on("click", function () {
+    if (slide0.style.visibility == "") {
+      if (
+        ($("#j3-2").is(":checked") ||
+          $("#j3-3").is(":checked") ||
+          $("#j3-5").is(":checked") ||
+          $("#j3-7").is(":checked") ||
+          $("#j3-8").is(":checked")) &&
+        $("#j5-8").is(":checked")
+      ) {
+        $(".w-slider-dot")[4].click();
+      }
+    }
+  });
+}
 function zeroToTwo() {
   nextButton.on("click", function () {
     if (slide0.style.visibility == "") {
@@ -127,17 +143,20 @@ function zeroToTwo() {
           $("#j5-4").is(":checked") ||
           $("#j5-5").is(":checked") ||
           $("#j5-6").is(":checked") ||
-          $("#j5-7").is(":checked"))
+          $("#j5-7").is(":checked") ||
+          $("#j5-8").is(":checked"))
       ) {
+        console.log("truth");
         return true;
-      } else if ($("#j5-1").is(":checked") || $("#j5-8").is(":checked")) {
-        console.log("Skip Test s0 -> s2");
-        $(".w-slider-dot")[1].click();
       }
+      // } else if ($("#j5-1").is(":checked") || $("#j5-8").is(":checked")) {
+      //   console.log("Skip Test s0 -> s2");
+      //   $(".w-slider-dot")[1].click();
+      // }
     }
   });
   backButton.on("click", function () {
-    if (slide3.style.visibility == "") {
+    if (slide2.style.visibility == "") {
       if ($("#j5-1").is(":checked") || $("#j5-8").is(":checked")) {
         console.log("Skip s2 => s0");
         $(".w-slider-dot")[1].click();
@@ -577,6 +596,10 @@ function checkSlide7() {
 }
 
 $(".w-slide").ready(function () {
+  //Skip Page Functions
+  branching();
+  zeroToTwo();
+  oneToFour();
   //Checking Lock Functions
   checkSlide6();
   checkSlide5();
@@ -585,9 +608,7 @@ $(".w-slide").ready(function () {
   checkSlide2();
   checkSlide1();
   checkSlide0();
-  //Skip Page Functions
-  zeroToTwo();
-  oneToFour();
+
   //Input field Error Message
   errorMess();
 });
