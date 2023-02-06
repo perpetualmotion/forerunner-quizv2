@@ -210,19 +210,31 @@ function oneToFour() {
     }
   });
   backButton.on("click", function () {
-    if (slide4.style.visibility == "") {
-      if (
-        $("#j3-1").is(":checked") ||
-        $("#j3-2").is(":checked") ||
-        $("#j3-3").is(":checked") ||
-        $("#j3-5").is(":checked") ||
-        $("#j3-6").is(":checked") ||
-        $("#j3-7").is(":checked") ||
-        $("#j3-8").is(":checked")
-      ) {
-        console.log("Skip s3 => s1");
-        $(".w-slider-dot")[3].click();
+    if (slide2.style.visibility == "") {
+      if ($("#j3-4").is(":checked") && $("#j5-8").is(":checked")) {
+        $(".w-slider-dot")[1].click();
       }
+      if ($("#j3-4").is(":checked") && $("#j5-1").is(":checked")) {
+        $(".w-slider-dot")[1].click();
+      }
+    }
+    if (slide4.style.visibility == "") {
+      if ($("#j3-1").is(":checked") && $("#j5-2").is(":checked")) {
+        console.log("S4 -> S3");
+        return true;
+      }
+      if (
+        ($("#j3-2").is(":checked") ||
+          $("#j3-3").is(":checked") ||
+          $("#j3-5").is(":checked") ||
+          $("#j3-7").is(":checked") ||
+          $("#j3-8").is(":checked")) &&
+        $("#j5-2").is(":checked")
+      ) {
+        console.log("S4 => S1");
+        $(".w-slider-dot")[2].click();
+      }
+
       if (
         ($("#j5-1").is(":checked") || $("#j5-8").is(":checked")) &&
         ($("#j3-1").is(":checked") ||
@@ -233,6 +245,18 @@ function oneToFour() {
           $("#j3-7").is(":checked") ||
           $("#j3-8").is(":checked"))
       ) {
+        // if (
+        //   $("#j3-1").is(":checked") ||
+        //   $("#j3-2").is(":checked") ||
+        //   $("#j3-3").is(":checked") ||
+        //   $("#j3-5").is(":checked") ||
+        //   $("#j3-6").is(":checked") ||
+        //   $("#j3-7").is(":checked") ||
+        //   $("#j3-8").is(":checked")
+        // ) {
+        //   console.log("Skip s3 => s1");
+        //   // $(".w-slider-dot")[3].click();
+        // }
         console.log("Returning to s1!");
         $(".w-slider-dot")[1].click();
       }
@@ -242,7 +266,7 @@ function oneToFour() {
         console.log("TRUE");
         $(".w-slider-dot")[2].click();
       }
-      if ($("#j3-4").is(":checked") && $("#j5-2").is(":checked")) {
+      if ($("#j3-4").is(":checked") && $("#j5-1").is(":checked")) {
       }
     }
   });
@@ -293,6 +317,7 @@ let j5 = [
   $("#j5-2"),
   $("#j5-3"),
   $("#j5-4"),
+  $("#j5-5"),
   $("#j5-6"),
   $("#j5-7"),
   $("#j5-8"),
@@ -553,13 +578,13 @@ function checkSlide7() {
 
 $(".w-slide").ready(function () {
   //Checking Lock Functions
-  // checkSlide6();
-  // checkSlide5();
-  // checkSlide4();
-  // checkSlide3();
-  // checkSlide2();
-  // checkSlide1();
-  // checkSlide0();
+  checkSlide6();
+  checkSlide5();
+  checkSlide4();
+  checkSlide3();
+  checkSlide2();
+  checkSlide1();
+  checkSlide0();
   //Skip Page Functions
   zeroToTwo();
   oneToFour();
