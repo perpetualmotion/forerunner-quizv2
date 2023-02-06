@@ -249,56 +249,6 @@ function oneToFour() {
 }
 
 //PAGE LOCKING
-
-function checkChecked() {
-  nextButton.on("click", function () {
-    //add in visible page and copy for function for each page
-    for (let i = 0; i < $(".form-question-wrapper").length; i++) {
-      console.log("looking through qs");
-      console.log($(".form-question-wrapper").length);
-      if ($(".checkbox-wrapper").find($(":input:checked")).length >= 1) {
-        console.log("TRUE");
-        return true;
-      } else {
-        console.log("FALSE");
-        return false;
-      }
-    }
-  });
-}
-
-function isChecked() {
-  //on page render
-  if (!$(":input").prop("checked")) {
-    console.log("No elements checked");
-
-    if (
-      $(":input").on("click", function () {
-        // console.log("An answer has been clicked");
-        if ($(this).is(":checked")) {
-          console.log("Answer checked!");
-          //Slider functions normally
-          nextButton.on("click", function () {
-            return true;
-          });
-        }
-      })
-    ) {
-    }
-  } else {
-    //nothing being handled in following function
-  }
-}
-function disIfUnchecked() {
-  //on page render
-  nextButton.on("click", function () {
-    if (!$(":input").is(":checked")) {
-      console.log("Next button locked, no answers clicked!");
-      return false;
-    }
-  });
-}
-
 let j1 = [
   $("#j11"),
   $("#j12"),
@@ -602,7 +552,6 @@ function checkSlide7() {
 }
 
 $(".w-slide").ready(function () {
-  // checkChecked();
   //Page Lock Functions
   checkSlide6();
   checkSlide5();
@@ -618,8 +567,31 @@ $(".w-slide").ready(function () {
   errorMess();
 });
 
+// function isChecked() {
+//   //on page render
+//   if (!$(":input").prop("checked")) {
+//     console.log("No elements checked");
+
+//     if (
+//       $(":input").on("click", function () {
+//         // console.log("An answer has been clicked");
+//         if ($(this).is(":checked")) {
+//           console.log("Answer checked!");
+//           //Slider functions normally
+//           nextButton.on("click", function () {
+//             return true;
+//           });
+//         }
+//       })
+//     ) {
+//     }
+//   } else {
+//     //nothing being handled in following function
+//   }
+// }
+
 let email = document.getElementById("j32");
-//VALUE CANNOT EXCEED 24//
+//VALUE CANNOT EXCEED 24
 function errorMess() {
   $("#j30").focusout(function () {
     if ($(this).val().match($(this).attr("pattern"))) {
@@ -842,15 +814,15 @@ function submitResponse() {
     .then((response) => response.text())
     .then((result) => {
       var data = JSON.parse(result);
-      console.log(data);
-      console.log(data["row_id"]);
+      // console.log(data);
+      // console.log(data["row_id"]);
       pushToTT(data["row_id"]);
     })
     .catch((error) => console.log("error", error));
 }
 //Push form data to Typing Tool
 function pushToTT(result) {
-  console.log(result);
+  // console.log(result);
   for (let i = 0; i < localStorageVariables.length; i++) {
     arr[localStorageVariables[i]] = localStorage.getItem(
       localStorageVariables[i]
@@ -858,7 +830,7 @@ function pushToTT(result) {
   }
 
   arr["row_id"] = result;
-  console.log(arr);
+  // console.log(arr);
 
   var myNewHeaders = new Headers();
   myNewHeaders.append("Content-Type", "application/json");
@@ -876,16 +848,16 @@ function pushToTT(result) {
     .then((response) => response.text())
     .then((result) => {
       var data = JSON.parse(result);
-      console.log(data);
-      console.log(result["row_id"]);
-      console.log(arr["row_id"]);
+      // console.log(data);
+      // console.log(result["row_id"]);
+      // console.log(arr["row_id"]);
       getArchtype(arr["row_id"]);
     })
     .catch((error) => console.log("error", error));
 }
 //Get request specific row in Archetype outputs
 function getArchtype(data) {
-  console.log(data);
+  // console.log(data);
 
   var getHeaders = new Headers();
   getHeaders.append("Content-Type", "application/json");
@@ -903,10 +875,10 @@ function getArchtype(data) {
     .then((response) => response.text())
     .then((result) => {
       var newData = JSON.parse(result);
-      console.log(newData["Archetype"]);
-      console.log(newData["Image w/o Title URL"]);
-      console.log(newData["Tagline"]);
-      console.log(newData["Long Description"]);
+      // console.log(newData["Archetype"]);
+      // console.log(newData["Image w/o Title URL"]);
+      // console.log(newData["Tagline"]);
+      // console.log(newData["Long Description"]);
 
       $("#loading").fadeOut(function () {
         $("#loading").css("display", "none");
@@ -920,7 +892,7 @@ function getArchtype(data) {
 
       //Archetype name
       $("#archetype").text(newData["Archetype"]);
-      console.log($(".archetype"));
+      // console.log($(".archetype"));
 
       //Tagline
       $("#tagline").text(newData["Tagline"]);
@@ -932,14 +904,14 @@ function getArchtype(data) {
       $("#archetype-wrapper").css("display", "block");
 
       //Set Modal Image
-      console.log(newData["Image w/ Title URL"]);
+      // console.log(newData["Image w/ Title URL"]);
       $("#social-image").attr("src", newData["Image w/ Title URL"]);
     })
     .catch((error) => console.log("error", error));
 }
 //Add new member to Mail Chimp
 function mailChimp(userEmail) {
-  console.log(userEmail);
+  // console.log(userEmail);
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   var requestOptions = {
