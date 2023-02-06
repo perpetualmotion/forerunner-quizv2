@@ -299,6 +299,74 @@ function disIfUnchecked() {
   });
 }
 
+let j1 = [
+  $("#j11"),
+  $("#j12"),
+  $("#j13"),
+  $("#j14"),
+  $("#j15"),
+  $("#j16"),
+  $("#j17"),
+  $("#j18"),
+];
+let j2 = [
+  $("#j2-1"),
+  $("#j2-2"),
+  $("#j2-3"),
+  $("#j2-4"),
+  $("#j2-5"),
+  $("#j2-6"),
+  $("#j2-7"),
+  $("#j2-8"),
+  $("#j2-9"),
+];
+let j3 = [
+  $("#j3-1"),
+  $("#j3-2"),
+  $("#j3-3"),
+  $("#j3-4"),
+  $("#j3-5"),
+  $("#j3-7"),
+  $("#j3-8"),
+];
+let j4 = [
+  $("#j4-1"),
+  $("#j4-2"),
+  $("#j4-3"),
+  $("#j4-4"),
+  $("#j4-5"),
+  $("#j4-6"),
+  $("#j4-7"),
+];
+let j5 = [
+  $("#j5-1"),
+  $("#j5-2"),
+  $("#j5-3"),
+  $("#j5-4"),
+  $("#j5-6"),
+  $("#j5-7"),
+  $("#j5-8"),
+];
+const checked = (el) => el.is(":checked");
+//Slide0 new lock
+function newSlide0() {
+  nextButton.on("click", function () {
+    if (slide0.style.visibility == "") {
+      if (
+        j1.some(checked) &&
+        j2.some(checked) &&
+        j3.some(checked) &&
+        j4.some(checked) &&
+        j5.some(checked)
+      ) {
+        console.log("trueeeee");
+        return true;
+      } else {
+        return false;
+      }
+    }
+  });
+}
 //Slide0 Lock
 function checkSlide0() {
   nextButton.on("click", function () {
@@ -614,7 +682,8 @@ $(".w-slide").ready(function () {
   checkSlide3();
   checkSlide2();
   checkSlide1();
-  checkSlide0();
+  // checkSlide0();
+  newSlide0();
   // isChecked();
   // disIfUnchecked();
   //Skip Page Functions
