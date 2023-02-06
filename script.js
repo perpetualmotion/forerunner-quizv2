@@ -962,14 +962,17 @@ function social(newData) {
       `${arche}!` +
       "Take The Dinner Party quiz to find out which modern consumer archetype you are, based on new research by @forerunnervc %23JoinTheParty &url=" +
       url +
-      "/" +
+      "/archetypes/" +
       arche
   );
   $("[data-share-twitter").attr("target", "_blank");
 
   $("[data-share-linkedin").attr(
     "href",
-    "https://www.linkedin.com/sharing/share-offsite/?url=" + url + "/" + arche
+    "https://www.linkedin.com/sharing/share-offsite/?url=" +
+      url +
+      "/archetypes/" +
+      arche
   );
   $("[data-share-linkedin").attr("target", "_blank");
 
@@ -977,7 +980,7 @@ function social(newData) {
     "href",
     "https://www.facebook.com/sharer/sharer.php?display=popup&u=" +
       url +
-      "/" +
+      "/archetypes/" +
       arche
   );
   $("[data-share-facebook").attr("target", "_blank");
