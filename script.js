@@ -648,7 +648,7 @@ $("#wf-form-Quiz").submit(function () {
 //Skip button Submit
 $(".link-skip-text").on("click", function () {
   if (slide7.style.visibility == "") {
-    console.log("skip button clicked");
+    // console.log("skip button clicked");
 
     $("#loading").fadeIn(function () {
       $("#loading").css("display", "block");
@@ -982,6 +982,7 @@ function social(newData) {
       url +
       "/archetypes/" +
       arche
+    // https://thedinnerparty.forerunnerventures.com/archetypes/pioneer
   );
   $("[data-share-facebook").attr("target", "_blank");
 }
