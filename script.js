@@ -552,18 +552,18 @@ function checkSlide7() {
 }
 
 $(".w-slide").ready(function () {
-  //Page Lock Functions
-  checkSlide6();
-  checkSlide5();
-  checkSlide4();
-  checkSlide3();
-  checkSlide2();
-  checkSlide1();
-  checkSlide0();
+  //Checking Lock Functions
+  // checkSlide6();
+  // checkSlide5();
+  // checkSlide4();
+  // checkSlide3();
+  // checkSlide2();
+  // checkSlide1();
+  // checkSlide0();
   //Skip Page Functions
   zeroToTwo();
   oneToFour();
-  //Input field Error Message +
+  //Input field Error Message
   errorMess();
 });
 
@@ -879,6 +879,9 @@ function getArchtype(data) {
       // console.log(newData["Image w/o Title URL"]);
       // console.log(newData["Tagline"]);
       // console.log(newData["Long Description"]);
+      let url = window.location.href;
+
+      social(newData);
 
       $("#loading").fadeOut(function () {
         $("#loading").css("display", "none");
@@ -946,31 +949,36 @@ $("#overlay").on("click", function () {
   $("#modal").css("display", "none");
 });
 
-//Social Icons
-$("#twitter").on("click", function () {});
-$("#instagram").on("click", function () {});
-$("#facebook").on("click", function () {});
-//Homepage social icon
-$(document).ready(function () {
-  let title = document.title;
+//SOCIAL ICON SHARING
+$(document).on("load", function () {});
+function social(newData) {
   let url = window.location.href;
-
-  $("[data-share-facebook").attr(
-    "href",
-    "https://www.facebook.com/sharer/sharer.php?display=popup&u=" + url
-  );
-  $("[data-share-facebook").attr("target", "_blank");
+  let arche = newData["Archetype"];
+  // console.log(arche);
 
   $("[data-share-twitter").attr(
     "href",
-    "https://twitter.com/share?text=I am the {{wf {&quot;path&quot;:&quot;name&quot;,&quot;type&quot;:&quot;PlainText&quot;} }}! Take The Dinner Party quiz to find out which modern consumer archetype you are, based on new research by @forerunnervc %23JoinTheParty &url=" +
-      url
+    "https://twitter.com/share?text=I am the " +
+      `${arche}!` +
+      "Take The Dinner Party quiz to find out which modern consumer archetype you are, based on new research by @forerunnervc %23JoinTheParty &url=" +
+      url +
+      "/" +
+      arche
   );
   $("[data-share-twitter").attr("target", "_blank");
 
   $("[data-share-linkedin").attr(
     "href",
-    "https://www.linkedin.com/sharing/share-offsite/?url=" + url
+    "https://www.linkedin.com/sharing/share-offsite/?url=" + url + "/" + arche
   );
   $("[data-share-linkedin").attr("target", "_blank");
-});
+
+  $("[data-share-facebook").attr(
+    "href",
+    "https://www.facebook.com/sharer/sharer.php?display=popup&u=" +
+      url +
+      "/" +
+      arche
+  );
+  $("[data-share-facebook").attr("target", "_blank");
+}
