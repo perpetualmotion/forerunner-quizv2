@@ -248,7 +248,7 @@ function oneToFour() {
   });
 }
 
-//DISABLE NEXT BUTTON//
+//PAGE LOCKING
 
 function checkChecked() {
   nextButton.on("click", function () {
@@ -347,9 +347,120 @@ let j5 = [
   $("#j5-7"),
   $("#j5-8"),
 ];
+let j6 = [
+  $("#j61"),
+  $("#j62"),
+  $("#j63"),
+  $("#j64"),
+  $("#j65"),
+  $("#j66"),
+  $("#j67"),
+  $("#j68"),
+  $("#j69"),
+];
+let j7 = [
+  $("#j7-1"),
+  $("#j7-2"),
+  $("#j7-3"),
+  $("#j7-4"),
+  $("#j7-5"),
+  $("#j7-6"),
+  $("#j7-7"),
+];
+let j8 = [
+  $("#j8-1"),
+  $("#j8-2"),
+  $("#j8-3"),
+  $("#j8-4"),
+  $("#j8-5"),
+  $("#j8-6"),
+  $("#j8-7"),
+];
+let j9 = [
+  $("#j9-1"),
+  $("#j9-2"),
+  $("#j9-3"),
+  $("#j9-4"),
+  $("#j9-5"),
+  $("#j9-6"),
+  $("#j9-7"),
+  $("#j9-8"),
+  $("#j9-9"),
+  $("#j9-10"),
+];
+let j10 = [
+  $("#j10-1"),
+  $("#j10-2"),
+  $("#j10-3"),
+  $("#j10-4"),
+  $("#j10-5"),
+  $("#j10-6"),
+  $("#j10-7"),
+];
+let j11 = [
+  $("#j111"),
+  $("#j112"),
+  $("#j113"),
+  $("#j114"),
+  $("#j115"),
+  $("#j116"),
+];
+let j12 = [
+  $("#j12-1"),
+  $("#j12-2"),
+  $("#j12-3"),
+  $("#j12-4"),
+  $("#j12-5"),
+  $("#j12-6"),
+  $("#j12-7"),
+];
+let j13 = [
+  $("#j13-1"),
+  $("#j13-2"),
+  $("#j13-3"),
+  $("#j13-4"),
+  $("#j13-5"),
+  $("#j13-6"),
+  $("#j13-7"),
+  $("#j13-8"),
+  $("#j13-9"),
+];
+let j14 = [
+  $("#j14-1"),
+  $("#j14-2"),
+  $("#j14-3"),
+  $("#j14-4"),
+  $("#j14-5"),
+  $("#j14-6"),
+  $("#j14-7"),
+  $("#j14-8"),
+];
+let j15 = [
+  $("#j15-1"),
+  $("#j15-2"),
+  $("#j15-3"),
+  $("#j15-4"),
+  $("#j15-5"),
+  $("#j15-6"),
+  $("#j15-7"),
+  $("#j15-8"),
+];
+let j17 = [$("#j171"), $("#j172"), $("#j173"), $("#j174"), $("#j175")];
+let j18 = [$("#j181"), $("#j182"), $("#j183"), $("#j184"), $("#j185")];
+let j19 = [$("#j191"), $("#j192"), $("#j193"), $("#j194"), $("#j195")];
+let j20 = [$("#j201"), $("#j202"), $("#j203"), $("#j204"), $("#j205")];
+let j21 = [$("#j211"), $("#j212"), $("#j213"), $("#j214"), $("#j215")];
+let j22 = [$("#j221"), $("#j222"), $("#j223"), $("#j224"), $("#j225")];
+let j23 = [$("#j231"), $("#j232"), $("#j233"), $("#j234"), $("#j235")];
+let j24 = [$("#j241"), $("#j242"), $("#j243"), $("#j244"), $("#j245")];
+let j25 = [$("#j251"), $("#j252"), $("#j253"), $("#j254"), $("#j255")];
+let j26 = [$("#j261"), $("#j262"), $("#j263"), $("#j264"), $("#j265")];
+let j27 = [$("#j271"), $("#j272"), $("#j273"), $("#j274"), $("#j275")];
+let j28 = [$("#j281"), $("#j282"), $("#j283"), $("#j284"), $("#j285")];
+let j29 = [$("#j291"), $("#j292"), $("#j293"), $("#j294"), $("#j295")];
 const checked = (el) => el.is(":checked");
-//Slide0 new lock
-function newSlide0() {
+//Slide0
+function checkSlide0() {
   nextButton.on("click", function () {
     if (slide0.style.visibility == "") {
       if (
@@ -359,107 +470,36 @@ function newSlide0() {
         j4.some(checked) &&
         j5.some(checked)
       ) {
-        console.log("trueeeee");
-        return true;
-      } else {
-        return false;
-      }
-    }
-  });
-}
-//Slide0 Lock
-function checkSlide0() {
-  nextButton.on("click", function () {
-    if (slide0.style.visibility == "") {
-      if (
-        ($("#j11").is(":checked") ||
-          $("#j12").is(":checked") ||
-          $("#j13").is(":checked") ||
-          $("#j14").is(":checked") ||
-          $("#j15").is(":checked") ||
-          $("#j16").is(":checked") ||
-          $("#j17").is(":checked") ||
-          $("#j18").is(":checked")) &&
-        ($("#j2-1").is(":checked") ||
-          $("#j2-2").is(":checked") ||
-          $("#j2-3").is(":checked") ||
-          $("#j2-4").is(":checked") ||
-          $("#j2-5").is(":checked") ||
-          $("#j2-6").is(":checked") ||
-          $("#j2-7").is(":checked") ||
-          $("#j2-8").is(":checked") ||
-          $("#j2-9").is(":checked")) &&
-        ($("#j3-1").is(":checked") ||
-          $("#j3-2").is(":checked") ||
-          $("#j3-3").is(":checked") ||
-          $("#j3-4").is(":checked") ||
-          $("#j3-5").is(":checked") ||
-          // $("#j3-6") ||
-          $("#j3-7").is(":checked") ||
-          $("#j3-8").is(":checked")) &&
-        ($("#j4-1").is(":checked") ||
-          $("#j4-2").is(":checked") ||
-          $("#j4-3").is(":checked") ||
-          $("#j4-4").is(":checked") ||
-          $("#j4-5").is(":checked") ||
-          $("#j4-6").is(":checked") ||
-          $("#j4-7").is(":checked")) &&
-        ($("#j5-1").is(":checked") ||
-          $("#j5-2").is(":checked") ||
-          $("#j5-3").is(":checked") ||
-          $("#j5-4").is(":checked") ||
-          $("#j5-6").is(":checked") ||
-          $("#j5-7").is(":checked") ||
-          $("#j5-8").is(":checked"))
-      ) {
+        console.log("true");
         return true;
       } else {
         console.log("S0 Next button locked, no answers clicked!");
-
         return false;
       }
     }
   });
 }
-//Slide1 Lock
+//Slide1
 function checkSlide1() {
   nextButton.on("click", function () {
     if (slide1.style.visibility == "") {
-      if (
-        $("#j61").is(":checked") ||
-        $("#j62").is(":checked") ||
-        $("#j63").is(":checked") ||
-        $("#j64").is(":checked") ||
-        $("#j65").is(":checked") ||
-        $("#j66").is(":checked") ||
-        $("#j67").is(":checked") ||
-        $("#j68").is(":checked") ||
-        $("#j69").is(":checked")
-      ) {
+      if (j6.some(checked)) {
         return true;
       } else {
-        console.log("S1 Next button locked, no answers clicked!");
+        console.log("j6 not answered");
         return false;
       }
     }
   });
 }
-//Slide2 Lock
+//Slide2
 function checkSlide2() {
   nextButton.on("click", function () {
     if (slide2.style.visibility == "") {
-      if (
-        $("#j7-1").is(":checked") ||
-        $("#j7-2").is(":checked") ||
-        $("#j7-3").is(":checked") ||
-        $("#j7-4").is(":checked") ||
-        $("#j7-5").is(":checked") ||
-        $("#j7-6").is(":checked") ||
-        $("#j7-7").is(":checked")
-      ) {
+      if (j7.some(checked)) {
         return true;
       } else {
-        console.log("S2 Next button locked, no answers clicked!");
+        console.log("j7 not answered");
         return false;
       }
     }
@@ -469,35 +509,10 @@ function checkSlide2() {
 function checkSlide3() {
   nextButton.on("click", function () {
     if (slide3.style.visibility == "") {
-      if (
-        $("#j8-1").is(":checked") ||
-        $("#j8-2").is(":checked") ||
-        $("#j8-3").is(":checked") ||
-        $("#j8-4").is(":checked") ||
-        $("#j8-5").is(":checked") ||
-        $("#j8-6").is(":checked") ||
-        $("#j8-7").is(":checked") ||
-        $("#j9-1").is(":checked") ||
-        $("#j9-2").is(":checked") ||
-        $("#j9-3").is(":checked") ||
-        $("#j9-4").is(":checked") ||
-        $("#j9-5").is(":checked") ||
-        $("#j9-6").is(":checked") ||
-        $("#j9-7").is(":checked") ||
-        $("#j9-8").is(":checked") ||
-        $("#j9-9").is(":checked") ||
-        $("#j9-10").is(":checked") ||
-        $("#j10-1").is(":checked") ||
-        $("#j10-2").is(":checked") ||
-        $("#j10-3").is(":checked") ||
-        $("#j10-4").is(":checked") ||
-        $("#j10-5").is(":checked") ||
-        $("#j10-6").is(":checked") ||
-        $("#j10-7").is(":checked")
-      ) {
+      if (j8.some(checked) || j9.some(checked) || j10.some(checked)) {
         return true;
       } else {
-        console.log("S3 Next button locked, no answers clicked!");
+        console.log("S3 locked, No questions have been answered");
         return false;
       }
     }
@@ -508,48 +523,15 @@ function checkSlide4() {
   nextButton.on("click", function () {
     if (slide4.style.visibility == "") {
       if (
-        ($("#j111").is(":checked") ||
-          $("#j112").is(":checked") ||
-          $("#j113").is(":checked") ||
-          $("#j114").is(":checked") ||
-          $("#j115").is(":checked") ||
-          $("#j116").is(":checked")) &&
-        ($("#j12-1").is(":checked") ||
-          $("#j12-2").is(":checked") ||
-          $("#j12-3").is(":checked") ||
-          $("#j12-4").is(":checked") ||
-          $("#j12-5").is(":checked") ||
-          $("#j12-6").is(":checked") ||
-          $("#j12-7").is(":checked")) &&
-        ($("#j13-1").is(":checked") ||
-          $("#j13-2").is(":checked") ||
-          $("#j13-3").is(":checked") ||
-          $("#j13-4").is(":checked") ||
-          $("#j13-5").is(":checked") ||
-          $("#j13-6").is(":checked") ||
-          $("#j13-7").is(":checked") ||
-          $("#j13-8").is(":checked") ||
-          $("#j13-9").is(":checked")) &&
-        ($("#j14-1").is(":checked") ||
-          $("#j14-2").is(":checked") ||
-          $("#j14-3").is(":checked") ||
-          $("#j14-4").is(":checked") ||
-          $("#j14-5").is(":checked") ||
-          $("#j14-6").is(":checked") ||
-          $("#j14-7").is(":checked") ||
-          $("#j14-8").is(":checked")) &&
-        ($("#j15-1").is(":checked") ||
-          $("#j15-2").is(":checked") ||
-          $("#j15-3").is(":checked") ||
-          $("#j15-4").is(":checked") ||
-          $("#j15-5").is(":checked") ||
-          $("#j15-6").is(":checked") ||
-          $("#j15-7").is(":checked") ||
-          $("#j15-8").is(":checked"))
+        j11.some(checked) &&
+        j12.some(checked) &&
+        j13.some(checked) &&
+        j14.some(checked) &&
+        j15.some(checked)
       ) {
         return true;
       } else {
-        console.log("S4 Next button locked, no answers clicked!");
+        console.log("S4 locked, no answers clicked!");
         return false;
       }
     }
@@ -560,75 +542,23 @@ function checkSlide5() {
   nextButton.on("click", function () {
     if (slide5.style.visibility == "") {
       if (
-        ($("#j171").is(":checked") ||
-          $("#j172").is(":checked") ||
-          $("#j173").is(":checked") ||
-          $("#j174").is(":checked") ||
-          $("#j175").is(":checked")) &&
-        ($("#j181").is(":checked") ||
-          $("#j182").is(":checked") ||
-          $("#j183").is(":checked") ||
-          $("#j184").is(":checked") ||
-          $("#j185").is(":checked")) &&
-        ($("#j191").is(":checked") ||
-          $("#j192").is(":checked") ||
-          $("#j193").is(":checked") ||
-          $("#j194").is(":checked") ||
-          $("#j195").is(":checked")) &&
-        ($("#j201").is(":checked") ||
-          $("#j202").is(":checked") ||
-          $("#j203").is(":checked") ||
-          $("#j204").is(":checked") ||
-          $("#j205").is(":checked")) &&
-        ($("#j211").is(":checked") ||
-          $("#j212").is(":checked") ||
-          $("#j213").is(":checked") ||
-          $("#j214").is(":checked") ||
-          $("#j215").is(":checked")) &&
-        ($("#j221").is(":checked") ||
-          $("#j222").is(":checked") ||
-          $("#j223").is(":checked") ||
-          $("#j224").is(":checked") ||
-          $("#j225").is(":checked")) &&
-        ($("#j231").is(":checked") ||
-          $("#j232").is(":checked") ||
-          $("#j233").is(":checked") ||
-          $("#j234").is(":checked") ||
-          $("#j235").is(":checked")) &&
-        ($("#j241").is(":checked") ||
-          $("#j242").is(":checked") ||
-          $("#j243").is(":checked") ||
-          $("#j244").is(":checked") ||
-          $("#j245").is(":checked")) &&
-        ($("#j251").is(":checked") ||
-          $("#j252").is(":checked") ||
-          $("#j253").is(":checked") ||
-          $("#j254").is(":checked") ||
-          $("#j255").is(":checked")) &&
-        ($("#j261").is(":checked") ||
-          $("#j262").is(":checked") ||
-          $("#j263").is(":checked") ||
-          $("#j264").is(":checked") ||
-          $("#j265").is(":checked")) &&
-        ($("#j271").is(":checked") ||
-          $("#j272").is(":checked") ||
-          $("#j273").is(":checked") ||
-          $("#j274").is(":checked") ||
-          $("#j275").is(":checked")) &&
-        ($("#j281").is(":checked") ||
-          $("#j282").is(":checked") ||
-          $("#j283").is(":checked") ||
-          $("#j284").is(":checked") ||
-          $("#j285").is(":checked")) &&
-        ($("#j291").is(":checked") ||
-          $("#j292").is(":checked") ||
-          $("#j293").is(":checked") ||
-          $("#j294").is(":checked") ||
-          $("#j295").is(":checked"))
+        j17.some(checked) &&
+        j18.some(checked) &&
+        j19.some(checked) &&
+        j20.some(checked) &&
+        j21.some(checked) &&
+        j22.some(checked) &&
+        j23.some(checked) &&
+        j24.some(checked) &&
+        j25.some(checked) &&
+        j26.some(checked) &&
+        j27.some(checked) &&
+        j28.some(checked) &&
+        j29.some(checked)
       ) {
         return true;
       } else {
-        console.log("S5 Next button locked, no answers clicked!");
+        console.log("S5 locked, all questions must be answered");
         return false;
       }
     }
@@ -639,7 +569,6 @@ const field1 = document.getElementById("j30");
 const field2 = document.getElementById("j31");
 const pattern = field1.getAttribute("pattern");
 var re = new RegExp(pattern);
-
 function checkSlide6() {
   nextButton.on("click", function () {
     if (slide6.style.visibility == "") {
@@ -647,7 +576,7 @@ function checkSlide6() {
         // Pattern matches!
         console.log("Pattern matches");
       } else {
-        console.log("S6 Next button locked, no answers clicked!");
+        console.log("S6 locked, please answer all questions");
         $(".quiz-error-message").show();
         return false;
       }
@@ -657,7 +586,6 @@ function checkSlide6() {
 //Slide 7
 const field3 = document.getElementById("j32");
 const submitButton = document.getElementsByClassName("submit-button-2");
-
 function checkSlide7() {
   $("#wf-form-Quiz").submit(function () {
     if (slide7.style.visibility == "") {
@@ -665,7 +593,7 @@ function checkSlide7() {
         console.log("Email is present");
         // return true;
       } else {
-        console.log("S7 Next button locked, no answers clicked!");
+        console.log("S7 locked, please enter email or click skip");
         $(".quiz-error-message-email").show();
         return false;
       }
@@ -682,10 +610,7 @@ $(".w-slide").ready(function () {
   checkSlide3();
   checkSlide2();
   checkSlide1();
-  // checkSlide0();
-  newSlide0();
-  // isChecked();
-  // disIfUnchecked();
+  checkSlide0();
   //Skip Page Functions
   zeroToTwo();
   oneToFour();
@@ -694,7 +619,6 @@ $(".w-slide").ready(function () {
 });
 
 let email = document.getElementById("j32");
-
 //VALUE CANNOT EXCEED 24//
 function errorMess() {
   $("#j30").focusout(function () {
@@ -726,7 +650,7 @@ function errorMess() {
 }
 
 console.log("LOCALHOST LIVE SERVER IS RUNNING!");
-//'Get my archetype' stop submit for testing
+//GET MY ARCHETYPE
 $("#wf-form-Quiz").submit(function () {
   if (slide7.style.visibility == "") {
     if (field3.value.length !== 0) {
