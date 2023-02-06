@@ -122,6 +122,10 @@ function branching() {
     if (slide0.style.visibility == "") {
       if ($("#j3-1").is(":checked") && $("#j5-8").is(":checked")) {
       }
+      if ($("#j3-1").is(":checked") && $("#j5-1").is(":checked")) {
+        console.log("newnew");
+        $(".w-slider-dot")[3].click();
+      }
       if (
         ($("#j3-2").is(":checked") ||
           $("#j3-3").is(":checked") ||
@@ -148,12 +152,12 @@ function zeroToTwo() {
           $("#j5-7").is(":checked") ||
           $("#j5-8").is(":checked"))
       ) {
-        console.log("truth");
         return true;
-      } else if ($("#j5-1").is(":checked") || $("#j5-8").is(":checked")) {
-        console.log("Skip Test s0 -> s2");
-        $(".w-slider-dot")[1].click();
       }
+      // else if ($("#j5-1").is(":checked") || $("#j5-8").is(":checked")) {
+      //   console.log("Skip Test s0 -> s2");
+      //   $(".w-slider-dot")[1].click();
+      // }
     }
   });
   backButton.on("click", function () {
@@ -667,8 +671,6 @@ function errorMess() {
     });
   }
 }
-
-console.log("LOCALHOST LIVE SERVER IS RUNNING!");
 //GET MY ARCHETYPE
 $("#wf-form-Quiz").submit(function () {
   if (slide7.style.visibility == "") {
