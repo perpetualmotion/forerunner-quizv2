@@ -124,7 +124,11 @@ function branching() {
     if (slide1.style.visibility == "") {
       if ($("#j3-1").is(":checked") && $("#j5-2").is(":checked")) {
         console.log("DEBUGGING");
-        $(".w-slider-dot")[2].click();
+        $(".w-slider-dot")[3].click();
+      }
+      if ($("#j3-2").is(":checked") && $("#j5-2").is(":checked")) {
+        console.log("32-33 NEXT DEBUG");
+        $(".w-slider-dot")[3].click();
       }
     }
     //Slide0
@@ -144,6 +148,7 @@ function branching() {
           $("#j3-8").is(":checked")) &&
         $("#j5-8").is(":checked")
       ) {
+        console.log("MULTI TEST");
         $(".w-slider-dot")[3].click();
       }
       if (
@@ -158,6 +163,13 @@ function branching() {
     if (slide3.style.visibility == "") {
       if ($("#j3-1").is(":checked") && $("#j5-8").is(":checked")) {
         $(".w-slider-dot")[1].click();
+      }
+      if (
+        ($("#j3-2").is(":checked") || $("#j3-3").is(":checked")) &&
+        $("#j5-2").is(":checked")
+      ) {
+        console.log("32-33 BACK DEBUG");
+        $(".w-slider-dot")[2].click();
       }
       if (
         ($("#j3-2").is(":checked") ||
@@ -202,6 +214,16 @@ function zeroToTwo() {
     }
   });
 }
+function oneToThree() {
+  nextButton.on("click", function () {
+    if (slide1.style.visibility == "") {
+      if ($("#j3-2").is(":checked") && $("#j5-2").is(":checked")) {
+        console.log("ONETOTHREE");
+        $(".w-slider-dot")[0].click();
+      }
+    }
+  });
+}
 function oneToFour() {
   nextButton.on("click", function () {
     if (slide1.style.visibility == "") {
@@ -218,9 +240,12 @@ function oneToFour() {
         $("#j9").show();
         $("#j10").show();
         return true;
-      } else if ($("#j3-1").is(":checked")) {
-        $(".w-slider-dot")[2].click();
       }
+      //CREATES ISSUE WITH SKIPPING TO SLIDE 3 BUG
+      // else if ($("#j3-1").is(":checked")) {
+      //   console.log("test1");
+      //   $(".w-slider-dot")[2].click();
+      // }
       if (
         $("#j3-4").is(":checked") &&
         ($("#j3-1").is(":checked") ||
@@ -229,6 +254,7 @@ function oneToFour() {
           $("#j3-5").is(":checked") ||
           $("#j3-6").is(":checked"))
       ) {
+        console.log("test2");
         $("#j8").show();
         $("#j9").show();
         $("#j10").show();
@@ -238,6 +264,7 @@ function oneToFour() {
         $("#j3-4").is(":checked") &&
         ($("#j3-7").is(":checked") || $("#j3-8").is(":checked"))
       ) {
+        console.log("test3");
         $("#j8").hide();
         $("#j9").hide();
         $("#j10").show();
@@ -250,18 +277,22 @@ function oneToFour() {
           $("#j3-5").is(":checked")) &&
         ($("#j3-7").is(":checked") || $("#j3-8").is(":checked"))
       ) {
+        console.log("test4");
         $("#j8").show();
         $("#j9").show();
         $(".w-slider-dot")[2].click();
-      } else if (
-        $("#j3-2").is(":checked") ||
-        $("#j3-3").is(":checked") ||
-        $("#j3-5").is(":checked") ||
-        $("#j3-6").is(":checked")
-      ) {
-        console.log("Skip s1 -> s3");
-        $(".w-slider-dot")[3].click();
-      } else if ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) {
+      }
+      // if (
+      //   $("#j3-2").is(":checked") ||
+      //   $("#j3-3").is(":checked") ||
+      //   $("#j3-5").is(":checked") ||
+      //   $("#j3-6").is(":checked")
+      // ) {
+      //   console.log("Skip s1 -> s3");
+      //   console.log("test5");
+      //   $(".w-slider-dot")[3].click();
+      // }
+      else if ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) {
         $(".w-slider-dot")[3].click();
       }
     }
@@ -320,7 +351,7 @@ function oneToFour() {
     }
     if (slide3.style.visibility == "") {
       if ($("#j3-1").is(":checked") && $("#j5-2").is(":checked")) {
-        console.log("TRUE");
+        // console.log("TRUE");
         $(".w-slider-dot")[2].click();
       }
       if ($("#j3-4").is(":checked") && $("#j5-1").is(":checked")) {
@@ -498,56 +529,37 @@ function j3152() {
     if (slide1.style.visibility == "") {
       if ($("#j3-1").is(":checked") && $("#j5-2").is(":checked")) {
         if (j6.some(checked)) {
-          console.log("DEBUGGING TRUE");
+          console.log("DEBUGGING j3152");
           $(".w-slider-dot")[2].click();
-        } else {
-          console.log("DEBUGGIN FALSE");
-          return false;
         }
+        // else {
+        //   console.log("DEBUGGIN FALSE");
+        //   // return false;
+        // }
       }
     }
   });
 }
-//Slide0 new
-// function checkSlide0() {
-//   if (slide0.style.visibility == "") {
-//     nextButton.on("click", function () {
-//       if (
-//         j1.some(checked) &&
-//         j2.some(checked) &&
-//         j3.some(checked) &&
-//         j4.some(checked) &&
-//         j5.some(checked)
-//       ) {
-//         console.log("true");
-//         return true;
-//       } else {
-//         console.log("S0 Next button locked, no answers clicked!");
-//         return false;
-//       }
-//     });
-//   }
-// }
 //Slide0
-// function checkSlide0() {
-//   nextButton.on("click", function () {
-//     if (slide0.style.visibility == "") {
-//       if (
-//         j1.some(checked) &&
-//         j2.some(checked) &&
-//         j3.some(checked) &&
-//         j4.some(checked) &&
-//         j5.some(checked)
-//       ) {
-//         console.log("true");
-//         return true;
-//       } else {
-//         console.log("S0 Next button locked, no answers clicked!");
-//         return false;
-//       }
-//     }
-//   });
-// }
+function checkSlide0() {
+  nextButton.on("click", function () {
+    if (slide0.style.visibility == "") {
+      if (
+        j1.some(checked) &&
+        j2.some(checked) &&
+        j3.some(checked) &&
+        j4.some(checked) &&
+        j5.some(checked)
+      ) {
+        console.log("true");
+        return true;
+      } else {
+        console.log("S0 Next button locked, no answers clicked!");
+        return false;
+      }
+    }
+  });
+}
 //Slide1
 function checkSlide1() {
   nextButton.on("click", function () {
@@ -671,22 +683,21 @@ function checkSlide7() {
   });
 }
 
-$(document).ready(function () {
+$(".w-slide").ready(function () {
   //Skip Page Functions
-  // branching();
+  branching();
   zeroToTwo();
   oneToFour();
-
+  //Specific use case skips
+  j3152();
   //Checking Lock Functions
-  // checkSlide0();
+  checkSlide0();
   checkSlide1();
   checkSlide2();
   checkSlide3();
   checkSlide4();
   checkSlide5();
   checkSlide6();
-  //Specific use case skips
-  j3152();
   //Input field Error Message
   errorMess();
 });
