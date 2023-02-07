@@ -126,7 +126,15 @@ function branching() {
         console.log("DEBUGGING");
         $(".w-slider-dot")[3].click();
       }
-      if ($("#j3-2").is(":checked") && $("#j5-2").is(":checked")) {
+      if (
+        ($("#j3-2").is(":checked") ||
+          $("#j3-3").is(":checked") ||
+          $("#j3-5").is(":checked") ||
+          $("#j3-7").is(":checked") ||
+          $("#j3-8").is(":checked")) &&
+        $("#j5-2").is(":checked") &&
+        j6.some(checked)
+      ) {
         console.log("32-33 NEXT DEBUG");
         $(".w-slider-dot")[3].click();
       }
@@ -165,7 +173,11 @@ function branching() {
         $(".w-slider-dot")[1].click();
       }
       if (
-        ($("#j3-2").is(":checked") || $("#j3-3").is(":checked")) &&
+        ($("#j3-2").is(":checked") ||
+          $("#j3-3").is(":checked") ||
+          $("#j3-5").is(":checked") ||
+          $("#j3-7").is(":checked") ||
+          $("#j3-8").is(":checked")) &&
         $("#j5-2").is(":checked")
       ) {
         console.log("32-33 BACK DEBUG");
@@ -311,6 +323,7 @@ function oneToFour() {
         console.log("S4 -> S3");
         return true;
       }
+      //BUG FOR ROUND THREE OF TESTING BUT ADDED THIS IN WHEN MATTEW AND I DID INITIAL TESTING
       if (
         ($("#j3-2").is(":checked") ||
           $("#j3-3").is(":checked") ||
@@ -532,10 +545,6 @@ function j3152() {
           console.log("DEBUGGING j3152");
           $(".w-slider-dot")[2].click();
         }
-        // else {
-        //   console.log("DEBUGGIN FALSE");
-        //   // return false;
-        // }
       }
     }
   });
@@ -551,7 +560,7 @@ function checkSlide0() {
         j4.some(checked) &&
         j5.some(checked)
       ) {
-        console.log("true");
+        console.log("S0 True");
         return true;
       } else {
         console.log("S0 Next button locked, no answers clicked!");
@@ -565,6 +574,7 @@ function checkSlide1() {
   nextButton.on("click", function () {
     if (slide1.style.visibility == "") {
       if (j6.some(checked)) {
+        console.log("S1 True");
         return true;
       } else {
         console.log("j6 not answered");
