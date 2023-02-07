@@ -104,6 +104,7 @@ const slide6 = $(".w-slide")[6];
 const slide7 = $(".w-slide")[7];
 const nextButton = $(".next-button-quiz");
 const backButton = $(".back-button-quiz");
+const checked = (el) => el.is(":checked");
 
 //Hide j10
 $("[hide-question-710='1']").on("click", function () {
@@ -122,8 +123,8 @@ function branching() {
     //Slide1
     if (slide1.style.visibility == "") {
       if ($("#j3-1").is(":checked") && $("#j5-2").is(":checked")) {
-        console.log("BUG");
-        $(".w-slider-dot")[3].click();
+        console.log("DEBUGGING");
+        $(".w-slider-dot")[2].click();
       }
     }
     //Slide0
@@ -489,27 +490,64 @@ let j26 = [$("#j261"), $("#j262"), $("#j263"), $("#j264"), $("#j265")];
 let j27 = [$("#j271"), $("#j272"), $("#j273"), $("#j274"), $("#j275")];
 let j28 = [$("#j281"), $("#j282"), $("#j283"), $("#j284"), $("#j285")];
 let j29 = [$("#j291"), $("#j292"), $("#j293"), $("#j294"), $("#j295")];
-const checked = (el) => el.is(":checked");
-//Slide0
-function checkSlide0() {
+
+//newbranch
+
+function j3152() {
   nextButton.on("click", function () {
-    if (slide0.style.visibility == "") {
-      if (
-        j1.some(checked) &&
-        j2.some(checked) &&
-        j3.some(checked) &&
-        j4.some(checked) &&
-        j5.some(checked)
-      ) {
-        console.log("true");
-        return true;
-      } else {
-        console.log("S0 Next button locked, no answers clicked!");
-        return false;
+    if (slide1.style.visibility == "") {
+      if ($("#j3-1").is(":checked") && $("#j5-2").is(":checked")) {
+        if (j6.some(checked)) {
+          console.log("DEBUGGING TRUE");
+          $(".w-slider-dot")[2].click();
+        } else {
+          console.log("DEBUGGIN FALSE");
+          return false;
+        }
       }
     }
   });
 }
+//Slide0 new
+// function checkSlide0() {
+//   if (slide0.style.visibility == "") {
+//     nextButton.on("click", function () {
+//       if (
+//         j1.some(checked) &&
+//         j2.some(checked) &&
+//         j3.some(checked) &&
+//         j4.some(checked) &&
+//         j5.some(checked)
+//       ) {
+//         console.log("true");
+//         return true;
+//       } else {
+//         console.log("S0 Next button locked, no answers clicked!");
+//         return false;
+//       }
+//     });
+//   }
+// }
+//Slide0
+// function checkSlide0() {
+//   nextButton.on("click", function () {
+//     if (slide0.style.visibility == "") {
+//       if (
+//         j1.some(checked) &&
+//         j2.some(checked) &&
+//         j3.some(checked) &&
+//         j4.some(checked) &&
+//         j5.some(checked)
+//       ) {
+//         console.log("true");
+//         return true;
+//       } else {
+//         console.log("S0 Next button locked, no answers clicked!");
+//         return false;
+//       }
+//     }
+//   });
+// }
 //Slide1
 function checkSlide1() {
   nextButton.on("click", function () {
@@ -523,10 +561,11 @@ function checkSlide1() {
     }
   });
 }
+
 //Slide2
 function checkSlide2() {
   nextButton.on("click", function () {
-    if (slide2.style.visibility == "") {
+    if (slide2.style.visibility == "" && slide1.style.visibility !== "") {
       if (j7.some(checked)) {
         return true;
       } else {
@@ -632,20 +671,22 @@ function checkSlide7() {
   });
 }
 
-$(".w-slide").ready(function () {
+$(document).ready(function () {
   //Skip Page Functions
-  branching();
+  // branching();
   zeroToTwo();
   oneToFour();
-  //Checking Lock Functions
-  checkSlide6();
-  checkSlide5();
-  checkSlide4();
-  checkSlide3();
-  checkSlide2();
-  checkSlide1();
-  checkSlide0();
 
+  //Checking Lock Functions
+  // checkSlide0();
+  checkSlide1();
+  checkSlide2();
+  checkSlide3();
+  checkSlide4();
+  checkSlide5();
+  checkSlide6();
+  //Specific use case skips
+  j3152();
   //Input field Error Message
   errorMess();
 });
