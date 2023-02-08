@@ -280,13 +280,13 @@ const checked = (el) => el.is(":checked");
 function scrollToTop() {
   $(window).scrollTop(0);
 }
+
 //REFACTORED BRANCH
 function reBranch() {
   nextButton.on("click", function () {
     //S0
     if (slide0.style.visibility == "") {
       if (threeA.some(checked) && threeB.some(checked) && fiveA.some(checked)) {
-        console.log("Skip S1");
         $(".w-slider-dot")[2].click();
         $("#j8").show();
         $("#j9").show();
@@ -351,6 +351,7 @@ function reBranch() {
         $(".w-slider-dot")[2].click();
       }
       if (threeA.some(checked) && fiveA.some(checked) && fiveB.some(checked)) {
+        console.log("3a 5a 5b next");
         $(".w-slider-dot")[3].click();
         $("#j7").hide();
         $("#j10").hide();
@@ -364,10 +365,20 @@ function reBranch() {
       }
     }
   });
+  //WHERE I LEFT OFF
+  backButton.on("click", function () {
+    if (slide3.style.visibility == "") {
+      if (threeA.some(checked) && fiveA.some(checked) && fiveB.some(checked)) {
+        console.log("3a 5a 5b Back");
+        $(".w-slider-dot")[2].click();
+        $("#j7").hide();
+        $("#j10").hide();
+      }
+    }
+  });
 }
 //Hide j10
 $("[hide-question-710='1']").on("click", function () {
-  //need to skip page-3 instead of hiding j7
   $("#j10").hide();
   console.log("Hiding j10");
 });
@@ -446,16 +457,17 @@ function branching() {
         $(".w-slider-dot")[4].click();
         return false;
       }
-      if (
-        ($("#j3-2").is(":checked") ||
-          $("#j3-3").is(":checked") ||
-          $("#j3-5").is(":checked")) &&
-        $("#j5-1").is(":checked")
-      ) {
-        console.log("3-2~5 5-1 Next");
-        $(".w-slider-dot")[3].click();
-        return false;
-      }
+      //CONFLICT WITH MULTI OPTION
+      // if (
+      //   ($("#j3-2").is(":checked") ||
+      //     $("#j3-3").is(":checked") ||
+      //     $("#j3-5").is(":checked")) &&
+      //   $("#j5-1").is(":checked")
+      // ) {
+      //   console.log("3-2~5 5-1 Next");
+      //   $(".w-slider-dot")[3].click();
+      //   return false;
+      // }
       if (
         ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) &&
         $("#j5-1").is(":checked")
