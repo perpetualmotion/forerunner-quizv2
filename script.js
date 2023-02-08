@@ -151,7 +151,13 @@ function branching() {
         $(".w-slider-dot")[3].click();
       }
       if ($("#j3-1").is(":checked") && $("#j5-1").is(":checked")) {
-        console.log("newnew");
+        $(".w-slider-dot")[3].click();
+      }
+      if (
+        ($("#j3-2").is(":checked") || $("#j3-3").is(":checked")) &&
+        $("#j5-1").is(":checked")
+      ) {
+        console.log("3-2 5-1 Next");
         $(".w-slider-dot")[3].click();
       }
       if (
@@ -178,6 +184,10 @@ function branching() {
       if ($("#j3-1").is(":checked") && $("#j5-8").is(":checked")) {
         $(".w-slider-dot")[1].click();
       }
+      if ($("#j3-1").is(":checked") && $("#j5-1").is(":checked")) {
+        console.log("31 51 next");
+        $(".w-slider-dot")[1].click();
+      }
       if (
         ($("#j3-2").is(":checked") ||
           $("#j3-3").is(":checked") ||
@@ -199,6 +209,10 @@ function branching() {
       }
     }
     if (slide4.style.visibility == "") {
+      if ($("#j3-1").is(":checked") && $("#j5-1").is(":checked")) {
+        console.log("31 51 back");
+        return true;
+      }
       if (
         ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) &&
         $("#j5-2").is(":checked") &&
@@ -373,8 +387,8 @@ function oneToFour() {
         //   console.log("Skip s3 => s1");
         //   // $(".w-slider-dot")[3].click();
         // }
-        console.log("Returning to s1!");
-        $(".w-slider-dot")[1].click();
+        // console.log("Returning to s1!");
+        // $(".w-slider-dot")[1].click();
       }
     }
     if (slide3.style.visibility == "") {
