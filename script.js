@@ -740,7 +740,6 @@ $(".w-slide").ready(function () {
   //Input field Error Message
   errorMess();
 });
-
 // function isChecked() {
 //   //on page render
 //   if (!$(":input").prop("checked")) {
@@ -763,7 +762,6 @@ $(".w-slide").ready(function () {
 //     //nothing being handled in following function
 //   }
 // }
-
 let email = document.getElementById("j32");
 //VALUE CANNOT EXCEED 24
 function errorMess() {
@@ -808,7 +806,7 @@ $("#wf-form-Quiz").submit(function () {
 
       console.log(email.value);
       mailChimp(email.value);
-      submitResponse();
+      submitResponse(email.value);
       return false;
     } else {
       console.log("S7 Next button locked, no answers clicked!");
@@ -836,7 +834,8 @@ $(".link-skip-text").on("click", function () {
 });
 
 //Trigger Submit of Quiz
-function submitResponse() {
+function submitResponse(userEmail) {
+  console.log(userEmail);
   let date = new Date().toJSON();
 
   let data = $("form")
@@ -968,6 +967,7 @@ function submitResponse() {
 
   values.push(localStorage.getItem("q63.0.0"));
   values.push(localStorage.getItem("q63.0.1"));
+  values.push(userEmail);
 
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -986,7 +986,7 @@ function submitResponse() {
     .then((response) => response.text())
     .then((result) => {
       var data = JSON.parse(result);
-      // console.log(data);
+      console.log(data);
       // console.log(data["row_id"]);
       pushToTT(data["row_id"]);
     })
