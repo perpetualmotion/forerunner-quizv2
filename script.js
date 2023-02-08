@@ -313,6 +313,7 @@ function branching() {
       ) {
         console.log("32-35 NEXT DEBUG");
         $(".w-slider-dot")[3].click();
+        return false;
       }
       if (
         ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) &&
@@ -326,6 +327,7 @@ function branching() {
       ) {
         console.log("DEBUG NEXT 37-38");
         $(".w-slider-dot")[4].click();
+        return false;
       }
     }
     //Slide0
