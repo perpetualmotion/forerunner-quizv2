@@ -159,8 +159,15 @@ function branching() {
           $("#j3-5").is(":checked")) &&
         $("#j5-1").is(":checked")
       ) {
-        console.log("3-2 5-1 Next");
+        console.log("3-2~5 5-1 Next");
         $(".w-slider-dot")[3].click();
+      }
+      if (
+        ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) &&
+        $("#j5-1").is(":checked")
+      ) {
+        console.log("3-78 5-1 Next");
+        $(".w-slider-dot")[4].click();
       }
       if (
         ($("#j3-2").is(":checked") ||
@@ -214,6 +221,13 @@ function branching() {
       if ($("#j3-1").is(":checked") && $("#j5-1").is(":checked")) {
         console.log("31 51 back");
         return true;
+      }
+      if (
+        ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) &&
+        $("#j5-1").is(":checked")
+      ) {
+        console.log("3-78 5-1 Back");
+        $(".w-slider-dot")[1].click();
       }
       if (
         ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) &&
