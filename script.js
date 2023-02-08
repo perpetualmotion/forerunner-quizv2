@@ -282,11 +282,79 @@ function scrollToTop() {
 }
 //REFACTORED BRANCH
 function reBranch() {
-  if (slide0.style.visibility == "") {
-    if (threeA.some(checked) && fiveA.some(checked)) {
-      console.log("Refactor Working");
+  nextButton.on("click", function () {
+    //S0
+    if (slide0.style.visibility == "") {
+      if (threeA.some(checked) && threeB.some(checked) && fiveA.some(checked)) {
+        console.log("Skip S1");
+        $(".w-slider-dot")[2].click();
+        $("#j8").show();
+        $("#j9").show();
+        $("#j10").show();
+      }
+      if (threeA.some(checked) && threeC.some(checked) && fiveA.some(checked)) {
+        $(".w-slider-dot")[3].click();
+        $("#j8").show();
+        $("#j9").show();
+      }
+      if (threeB.some(checked) && threeC.some(checked) && fiveA.some(checked)) {
+        $(".w-slider-dot")[2].click();
+        $("#j7").show();
+        $("#j10").show();
+      }
+      if (threeA.some(checked) && threeB.some(checked) && fiveB.some(checked)) {
+        return true;
+      }
+      if (threeB.some(checked) && fiveA.some(checked) && fiveB.some(checked)) {
+        $("#j8").hide();
+        $("#j9").hide();
+      }
     }
-  }
+    //S1
+    if (slide1.style.visibility == "") {
+      if (threeA.some(checked) && threeC.some(checked) && fiveB.some(checked)) {
+        $(".w-slider-dot")[3].click();
+        $("#j6").show();
+        $("#j7").hide();
+        $("#j10").hide();
+      }
+      if (threeB.some(checked) && threeC.some(checked) && fiveB.some(checked)) {
+        $("#j8").hide();
+        $("#j9").hide();
+        $(".w-slider-dot")[2].click();
+      }
+      if (threeA.some(checked) && fiveA.some(checked) && fiveB.some(checked)) {
+        $(".w-slider-dot")[3].click();
+        $("#j7").hide();
+        $("#j10").hide();
+      }
+      if (threeC.some(checked) && fiveA.some(checked) && fiveB.some(checked)) {
+        $("#j7").hide();
+        $("#j8").hide();
+        $("#j9").hide();
+        $("#j10").hide();
+        $(".w-slider-dot")[4].click();
+      }
+      if (
+        threeA.some(checked) &&
+        threeC.some(checked) &&
+        fiveA.some(checked) &&
+        fiveB.some(checked)
+      ) {
+        // $(".w-slider-dot")[3].click();
+        $("#j10").hide();
+      }
+      if (
+        threeB.some(checked) &&
+        threeC.some(checked) &&
+        fiveA.some(checked) &&
+        fiveB.some(checked)
+      ) {
+        $("#j8").hide();
+        $("#j9").hide();
+      }
+    }
+  });
 }
 //Hide j10
 $("[hide-question-710='1']").on("click", function () {
@@ -845,10 +913,10 @@ function checkSlide7() {
 
 $(".w-slide").ready(function () {
   //Skip Page Functions
-  reBranch();
   branching();
   zeroToTwo();
   oneToFour();
+  reBranch();
   //Checking Lock Functions
   checkSlide0();
   checkSlide1();
