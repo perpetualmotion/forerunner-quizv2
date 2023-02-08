@@ -309,6 +309,33 @@ function reBranch() {
         $("#j8").hide();
         $("#j9").hide();
       }
+      if (
+        threeA.some(checked) &&
+        threeC.some(checked) &&
+        fiveA.some(checked) &&
+        fiveB.some(checked)
+      ) {
+        // $(".w-slider-dot")[3].click();
+        $("#j10").hide();
+      }
+      if (
+        threeB.some(checked) &&
+        threeC.some(checked) &&
+        fiveA.some(checked) &&
+        fiveB.some(checked)
+      ) {
+        $("#j8").hide();
+        $("#j9").hide();
+      }
+      if (
+        threeA.some(checked) &&
+        threeB.some(checked) &&
+        threeC.some(checked) &&
+        fiveA.some(checked)
+      ) {
+        $("#j6").hide();
+        // $(".w-slider-dot")[2].click();
+      }
     }
     //S1
     if (slide1.style.visibility == "") {
@@ -334,24 +361,6 @@ function reBranch() {
         $("#j9").hide();
         $("#j10").hide();
         $(".w-slider-dot")[4].click();
-      }
-      if (
-        threeA.some(checked) &&
-        threeC.some(checked) &&
-        fiveA.some(checked) &&
-        fiveB.some(checked)
-      ) {
-        // $(".w-slider-dot")[3].click();
-        $("#j10").hide();
-      }
-      if (
-        threeB.some(checked) &&
-        threeC.some(checked) &&
-        fiveA.some(checked) &&
-        fiveB.some(checked)
-      ) {
-        $("#j8").hide();
-        $("#j9").hide();
       }
     }
   });
