@@ -288,7 +288,12 @@ function branching() {
     if (slide1.style.visibility == "") {
       if (
         $("#j3-1").is(":checked") &&
-        $("#j5-2").is(":checked") &&
+        ($("#j5-2").is(":checked") ||
+          $("#j5-3").is(":checked") ||
+          $("#j5-4").is(":checked") ||
+          $("#j5-5").is(":checked") ||
+          $("#j5-6").is(":checked") ||
+          $("#j5-7").is(":checked")) &&
         j6.some(checked)
       ) {
         console.log("DEBUG NEXT 3-1");
@@ -298,7 +303,12 @@ function branching() {
         ($("#j3-2").is(":checked") ||
           $("#j3-3").is(":checked") ||
           $("#j3-5").is(":checked")) &&
-        $("#j5-2").is(":checked") &&
+        ($("#j5-2").is(":checked") ||
+          $("#j5-3").is(":checked") ||
+          $("#j5-4").is(":checked") ||
+          $("#j5-5").is(":checked") ||
+          $("#j5-6").is(":checked") ||
+          $("#j5-7").is(":checked")) &&
         j6.some(checked)
       ) {
         console.log("32-35 NEXT DEBUG");
@@ -306,7 +316,12 @@ function branching() {
       }
       if (
         ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) &&
-        $("#j5-2").is(":checked") &&
+        ($("#j5-2").is(":checked") ||
+          $("#j5-3").is(":checked") ||
+          $("#j5-4").is(":checked") ||
+          $("#j5-5").is(":checked") ||
+          $("#j5-6").is(":checked") ||
+          $("#j5-7").is(":checked")) &&
         j6.some(checked)
       ) {
         console.log("DEBUG NEXT 37-38");
