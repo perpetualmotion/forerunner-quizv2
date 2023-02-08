@@ -105,6 +105,9 @@ const slide7 = $(".w-slide")[7];
 const nextButton = $(".next-button-quiz");
 const backButton = $(".back-button-quiz");
 const checked = (el) => el.is(":checked");
+function scrollToTop() {
+  $(window).scrollTop(0);
+}
 
 //Hide j10
 $("[hide-question-710='1']").on("click", function () {
@@ -120,6 +123,8 @@ $("[hide-question-89='1']").on("click", function () {
 });
 function branching() {
   nextButton.on("click", function () {
+    scrollToTop();
+
     //Slide1
     if (slide1.style.visibility == "") {
       if (
@@ -183,7 +188,6 @@ function branching() {
           $("#j3-5").is(":checked")) &&
         $("#j5-8").is(":checked")
       ) {
-        //bug with 3.7 3.7 and 5.8 was previously going to slide 3
         console.log("MULTI TEST");
         $(".w-slider-dot")[3].click();
       }
@@ -203,6 +207,8 @@ function branching() {
     }
   });
   backButton.on("click", function () {
+    scrollToTop();
+
     if (slide3.style.visibility == "") {
       if ($("#j3-1").is(":checked") && $("#j5-8").is(":checked")) {
         $(".w-slider-dot")[1].click();
