@@ -324,17 +324,17 @@ function oneToFour() {
         return true;
       }
       //BUG FOR ROUND THREE OF TESTING BUT ADDED THIS IN WHEN MATTEW AND I DID INITIAL TESTING
-      if (
-        ($("#j3-2").is(":checked") ||
-          $("#j3-3").is(":checked") ||
-          $("#j3-5").is(":checked") ||
-          $("#j3-7").is(":checked") ||
-          $("#j3-8").is(":checked")) &&
-        $("#j5-2").is(":checked")
-      ) {
-        console.log("S4 => S1");
-        $(".w-slider-dot")[2].click();
-      }
+      // if (
+      //   ($("#j3-2").is(":checked") ||
+      //     $("#j3-3").is(":checked") ||
+      //     $("#j3-5").is(":checked") ||
+      //     $("#j3-7").is(":checked") ||
+      //     $("#j3-8").is(":checked")) &&
+      //   $("#j5-2").is(":checked")
+      // ) {
+      //   console.log("S4 => S1");
+      //   $(".w-slider-dot")[2].click();
+      // }
 
       if (
         ($("#j5-1").is(":checked") || $("#j5-8").is(":checked")) &&
