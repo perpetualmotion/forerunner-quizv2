@@ -123,7 +123,7 @@ function branching() {
     //Slide1
     if (slide1.style.visibility == "") {
       if ($("#j3-1").is(":checked") && $("#j5-2").is(":checked")) {
-        console.log("DEBUGGING");
+        console.log("DEBUG NEXT 3-1");
         $(".w-slider-dot")[3].click();
       }
       if (
@@ -142,7 +142,7 @@ function branching() {
         j6.some(checked)
       ) {
         console.log("DEBUG NEXT 37-38");
-        $(".w-slider-dot")[0].click();
+        $(".w-slider-dot")[4].click();
       }
     }
     //Slide0
@@ -318,9 +318,10 @@ function oneToFour() {
       //   console.log("test5");
       //   $(".w-slider-dot")[3].click();
       // }
-      else if ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) {
-        $(".w-slider-dot")[3].click();
-      }
+      // else if ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) {
+      //   console.log("WHAT");
+      //   $(".w-slider-dot")[3].click();
+      // }
     }
   });
   backButton.on("click", function () {
@@ -727,7 +728,7 @@ $(".w-slide").ready(function () {
   oneToFour();
   //Specific use case skips
   j3152();
-  j36752();
+  // j36752();
   //Checking Lock Functions
   checkSlide0();
   checkSlide1();
