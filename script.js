@@ -332,6 +332,7 @@ function branching() {
     if (slide0.style.visibility == "") {
       if ($("#j3-1").is(":checked") && $("#j5-8").is(":checked")) {
         $(".w-slider-dot")[3].click();
+        return false;
       }
       if ($("#j3-1").is(":checked") && $("#j5-1").is(":checked")) {
         $(".w-slider-dot")[3].click();
@@ -360,6 +361,7 @@ function branching() {
       ) {
         console.log("MULTI TEST");
         $(".w-slider-dot")[3].click();
+        return false;
       }
       if (
         ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) &&
@@ -372,7 +374,10 @@ function branching() {
         $("#j3-4").is(":checked") &&
         ($("#j5-1").is(":checked") || $("#j5-8").is(":checked"))
       ) {
+        console.log("3-4 5-1 5-8 Next");
         $(".w-slider-dot")[2].click();
+        //return false cancels out skipping extra page from slide0 Lock
+        return false;
       }
     }
   });
@@ -439,9 +444,16 @@ function branching() {
 }
 function zeroToTwo() {
   nextButton.on("click", function () {
-    scrollToTop();
-
     if (slide0.style.visibility == "") {
+      // if (
+      //   $("#j3-4").is(":checked") &&
+      //   $("#j5-8").is(":checked") &&
+      //   j7.some(checked)
+      // ) {
+      //   console.log("3-4 5-8 next");
+      //   scrollToTop();
+      //   $(".w-slider-dot")[2].click();
+      // }
       if (
         $("#j5-1").is(":checked") &&
         ($("#j5-2").is(":checked") ||
@@ -652,7 +664,8 @@ function checkSlide0() {
         j5.some(checked)
       ) {
         console.log("S0 True");
-        // return true;
+        scrollToTop();
+        return true;
       } else {
         console.log("S0 Next button locked, no answers clicked!");
         return false;
