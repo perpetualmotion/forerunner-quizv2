@@ -129,14 +129,20 @@ function branching() {
       if (
         ($("#j3-2").is(":checked") ||
           $("#j3-3").is(":checked") ||
-          $("#j3-5").is(":checked") ||
-          $("#j3-7").is(":checked") ||
-          $("#j3-8").is(":checked")) &&
+          $("#j3-5").is(":checked")) &&
         $("#j5-2").is(":checked") &&
         j6.some(checked)
       ) {
-        console.log("32-33 NEXT DEBUG");
+        console.log("32-35 NEXT DEBUG");
         $(".w-slider-dot")[3].click();
+      }
+      if (
+        ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) &&
+        $("#j5-2").is(":checked") &&
+        j6.some(checked)
+      ) {
+        console.log("DEBUG NEXT 37-38");
+        $(".w-slider-dot")[0].click();
       }
     }
     //Slide0
@@ -175,9 +181,7 @@ function branching() {
       if (
         ($("#j3-2").is(":checked") ||
           $("#j3-3").is(":checked") ||
-          $("#j3-5").is(":checked") ||
-          $("#j3-7").is(":checked") ||
-          $("#j3-8").is(":checked")) &&
+          $("#j3-5").is(":checked")) &&
         $("#j5-2").is(":checked")
       ) {
         console.log("32-33 BACK DEBUG");
@@ -192,6 +196,16 @@ function branching() {
         ($("#j5-1").is(":checked") || $("#j5-8").is(":checked"))
       ) {
         $(".w-slider-dot")[1].click();
+      }
+    }
+    if (slide4.style.visibility == "") {
+      if (
+        ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) &&
+        $("#j5-2").is(":checked") &&
+        j6.some(checked)
+      ) {
+        console.log("DEBUG BACK 37-38");
+        $(".w-slider-dot")[2].click();
       }
     }
   });
@@ -226,16 +240,16 @@ function zeroToTwo() {
     }
   });
 }
-function oneToThree() {
-  nextButton.on("click", function () {
-    if (slide1.style.visibility == "") {
-      if ($("#j3-2").is(":checked") && $("#j5-2").is(":checked")) {
-        console.log("ONETOTHREE");
-        $(".w-slider-dot")[0].click();
-      }
-    }
-  });
-}
+// function oneToThree() {
+//   nextButton.on("click", function () {
+//     if (slide1.style.visibility == "") {
+//       if ($("#j3-2").is(":checked") && $("#j5-2").is(":checked")) {
+//         console.log("ONETOTHREE");
+//         $(".w-slider-dot")[0].click();
+//       }
+//     }
+//   });
+// }
 function oneToFour() {
   nextButton.on("click", function () {
     if (slide1.style.visibility == "") {
@@ -536,7 +550,6 @@ let j28 = [$("#j281"), $("#j282"), $("#j283"), $("#j284"), $("#j285")];
 let j29 = [$("#j291"), $("#j292"), $("#j293"), $("#j294"), $("#j295")];
 
 //newbranch
-
 function j3152() {
   nextButton.on("click", function () {
     if (slide1.style.visibility == "") {
@@ -545,6 +558,21 @@ function j3152() {
           console.log("DEBUGGING j3152");
           $(".w-slider-dot")[2].click();
         }
+      }
+    }
+  });
+}
+
+function j36752() {
+  nextButton.on("click", function () {
+    if (slide1.style.visibility == "") {
+      if (
+        j6.some(checked) &&
+        $("#j5-2").is(":checked") &&
+        ($("#j3-7").is(":checked") || $("#j3-7").is(":checked"))
+      ) {
+        console.log("DEBUG TRUE");
+        $(".w-slider-dot")[2].click();
       }
     }
   });
@@ -583,7 +611,6 @@ function checkSlide1() {
     }
   });
 }
-
 //Slide2
 function checkSlide2() {
   nextButton.on("click", function () {
@@ -700,6 +727,7 @@ $(".w-slide").ready(function () {
   oneToFour();
   //Specific use case skips
   j3152();
+  j36752();
   //Checking Lock Functions
   checkSlide0();
   checkSlide1();
