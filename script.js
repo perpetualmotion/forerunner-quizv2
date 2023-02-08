@@ -122,7 +122,11 @@ function branching() {
   nextButton.on("click", function () {
     //Slide1
     if (slide1.style.visibility == "") {
-      if ($("#j3-1").is(":checked") && $("#j5-2").is(":checked")) {
+      if (
+        $("#j3-1").is(":checked") &&
+        $("#j5-2").is(":checked") &&
+        j6.some(checked)
+      ) {
         console.log("DEBUG NEXT 3-1");
         $(".w-slider-dot")[3].click();
       }
@@ -149,6 +153,10 @@ function branching() {
     if (slide0.style.visibility == "") {
       if ($("#j3-1").is(":checked") && $("#j5-8").is(":checked")) {
         $(".w-slider-dot")[3].click();
+        if (j8.some(checked) || j9.some(checked) || j10.some(checked)) {
+          console.log("S3 answers are checked");
+          $(".w-slider-dot")[3].click();
+        }
       }
       if ($("#j3-1").is(":checked") && $("#j5-1").is(":checked")) {
         $(".w-slider-dot")[3].click();
@@ -172,13 +180,19 @@ function branching() {
       if (
         ($("#j3-2").is(":checked") ||
           $("#j3-3").is(":checked") ||
-          $("#j3-5").is(":checked") ||
-          $("#j3-7").is(":checked") ||
-          $("#j3-8").is(":checked")) &&
+          $("#j3-5").is(":checked")) &&
         $("#j5-8").is(":checked")
       ) {
+        //bug with 3.7 3.7 and 5.8 was previously going to slide 3
         console.log("MULTI TEST");
         $(".w-slider-dot")[3].click();
+      }
+      if (
+        ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) &&
+        $("#j5-8").is(":checked")
+      ) {
+        console.log("3-7 3-8 5-8 Next");
+        $(".w-slider-dot")[4].click();
       }
       if (
         $("#j3-4").is(":checked") &&
@@ -236,6 +250,13 @@ function branching() {
       ) {
         console.log("DEBUG BACK 37-38");
         $(".w-slider-dot")[2].click();
+      }
+      if (
+        ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) &&
+        $("#j5-8").is(":checked")
+      ) {
+        console.log("3-7 3-8 5-8 Next");
+        $(".w-slider-dot")[1].click();
       }
     }
   });
@@ -757,7 +778,7 @@ $(".w-slide").ready(function () {
   zeroToTwo();
   oneToFour();
   //Specific use case skips
-  j3152();
+  // j3152();
   // j36752();
   //Checking Lock Functions
   checkSlide0();
