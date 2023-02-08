@@ -332,10 +332,6 @@ function branching() {
     if (slide0.style.visibility == "") {
       if ($("#j3-1").is(":checked") && $("#j5-8").is(":checked")) {
         $(".w-slider-dot")[3].click();
-        if (j8.some(checked) || j9.some(checked) || j10.some(checked)) {
-          console.log("S3 answers are checked");
-          $(".w-slider-dot")[3].click();
-        }
       }
       if ($("#j3-1").is(":checked") && $("#j5-1").is(":checked")) {
         $(".w-slider-dot")[3].click();
@@ -443,6 +439,8 @@ function branching() {
 }
 function zeroToTwo() {
   nextButton.on("click", function () {
+    scrollToTop();
+
     if (slide0.style.visibility == "") {
       if (
         $("#j5-1").is(":checked") &&
@@ -473,6 +471,8 @@ function zeroToTwo() {
 }
 function oneToFour() {
   nextButton.on("click", function () {
+    scrollToTop();
+
     if (slide1.style.visibility == "") {
       if (
         $("#j3-1").is(":checked") &&
@@ -546,6 +546,8 @@ function oneToFour() {
     }
   });
   backButton.on("click", function () {
+    scrollToTop();
+
     if (slide2.style.visibility == "") {
       if ($("#j3-4").is(":checked") && $("#j5-8").is(":checked")) {
         $(".w-slider-dot")[1].click();
@@ -650,7 +652,7 @@ function checkSlide0() {
         j5.some(checked)
       ) {
         console.log("S0 True");
-        return true;
+        // return true;
       } else {
         console.log("S0 Next button locked, no answers clicked!");
         return false;
