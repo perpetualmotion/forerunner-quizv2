@@ -154,7 +154,9 @@ function branching() {
         $(".w-slider-dot")[3].click();
       }
       if (
-        ($("#j3-2").is(":checked") || $("#j3-3").is(":checked")) &&
+        ($("#j3-2").is(":checked") ||
+          $("#j3-3").is(":checked") ||
+          $("#j3-5").is(":checked")) &&
         $("#j5-1").is(":checked")
       ) {
         console.log("3-2 5-1 Next");
