@@ -283,7 +283,6 @@ $("[hide-question-89='1']").on("click", function () {
 });
 function branching() {
   nextButton.on("click", function () {
-    scrollToTop();
     //Slide1
     if (slide1.style.visibility == "") {
       if (
@@ -485,8 +484,6 @@ function zeroToTwo() {
 }
 function oneToFour() {
   nextButton.on("click", function () {
-    scrollToTop();
-
     if (slide1.style.visibility == "") {
       if (
         $("#j3-1").is(":checked") &&
@@ -681,6 +678,7 @@ function checkSlide1() {
     if (slide1.style.visibility == "") {
       if (j6.some(checked)) {
         console.log("S1 True");
+        scrollToTop();
         return true;
       } else {
         console.log("j6 not answered");
@@ -694,6 +692,7 @@ function checkSlide2() {
   nextButton.on("click", function () {
     if (slide2.style.visibility == "" && slide1.style.visibility !== "") {
       if (j7.some(checked)) {
+        scrollToTop();
         return true;
       } else {
         console.log("j7 not answered");
@@ -707,6 +706,7 @@ function checkSlide3() {
   nextButton.on("click", function () {
     if (slide3.style.visibility == "") {
       if (j8.some(checked) || j9.some(checked) || j10.some(checked)) {
+        scrollToTop();
         return true;
       } else {
         console.log("S3 locked, No questions have been answered");
@@ -726,6 +726,7 @@ function checkSlide4() {
         j14.some(checked) &&
         j15.some(checked)
       ) {
+        scrollToTop();
         return true;
       } else {
         console.log("S4 locked, no answers clicked!");
@@ -753,6 +754,7 @@ function checkSlide5() {
         j28.some(checked) &&
         j29.some(checked)
       ) {
+        scrollToTop();
         return true;
       } else {
         console.log("S5 locked, all questions must be answered");
