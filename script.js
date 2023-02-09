@@ -352,11 +352,13 @@ function reBranch() {
         threeA.some(checked) &&
         threeC.some(checked) &&
         fiveA.some(checked) &&
-        fiveB.some(checked)
+        fiveB.some(checked) &&
+        !threeB.some(checked)
       ) {
         console.log("From S0, 3A 3C 5A 5B");
         $("#j10").hide();
         $(".w-slider-dot")[1].click();
+        return false;
       }
       if (
         threeB.some(checked) &&
@@ -374,10 +376,11 @@ function reBranch() {
         threeA.some(checked) &&
         threeB.some(checked) &&
         threeC.some(checked) &&
-        fiveA.some(checked)
+        fiveA.some(checked) &&
+        !fiveB.some(checked)
       ) {
         $("#j6").hide();
-        // $(".w-slider-dot")[2].click();
+        $(".w-slider-dot")[2].click();
       }
       if (
         threeA.some(checked) &&
@@ -482,6 +485,16 @@ function reBranch() {
         return false;
       }
       if (
+        threeA.some(checked) &&
+        threeC.some(checked) &&
+        fiveA.some(checked) &&
+        fiveB.some(checked) &&
+        !threeB.some(checked)
+      ) {
+        $(".w-slider-dot")[3].click();
+        return false;
+      }
+      if (
         threeB.some(checked) &&
         threeC.some(checked) &&
         fiveA.some(checked) &&
@@ -502,6 +515,19 @@ function reBranch() {
         fiveA.some(checked) &&
         fiveB.some(checked)
       ) {
+        $("#j8").show();
+        $("#j9").show();
+        $("#j10").show();
+      }
+      if (
+        threeA.some(checked) &&
+        threeB.some(checked) &&
+        threeC.some(checked) &&
+        !fiveB.some(checked) &&
+        fiveA.some(checked)
+      ) {
+        console.log("From S2, 3A 3B 3C 5B");
+        $("#j7").show();
         $("#j8").show();
         $("#j9").show();
         $("#j10").show();
