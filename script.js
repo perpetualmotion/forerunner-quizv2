@@ -1263,13 +1263,12 @@ function checkSlide4() {
         j12.some(checked) &&
         //Add in at most 5 can be checked for 13 14
         j13.some(checked) &&
+        // document.querySelectorAll('input[type="checkbox"]:checked').length >=
+        5 &&
         j14.some(checked) &&
         j15.some(checked)
       ) {
         scrollToTop();
-        console.log(
-          document.querySelectorAll('input[type="checkbox"]:checked').length
-        );
         console.log(
           document.querySelectorAll("input[j13select5]:checked").length
         );
