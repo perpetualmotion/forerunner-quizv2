@@ -284,122 +284,9 @@ nextButton.show();
 backButton.show();
 
 //REFACTORED BRANCH
-function singleCombi() {
+function pairedCombi() {
   nextButton.on("click", function () {
     if (slide0.style.visibility == "") {
-      if (
-        threeA.some(checked) &&
-        fiveA.some(checked) &&
-        !threeB.some(checked) &&
-        !threeC.some(checked) &&
-        !fiveB.some(checked)
-      ) {
-        console.log("TEST");
-        $(".w-slider-dot")[3].click();
-        $("#j8").show();
-        $("#j9").show();
-        $("#j10").hide();
-      }
-      if (
-        threeC.some(checked) &&
-        fiveA.some(checked) &&
-        !threeA.some(checked) &&
-        !threeB.some(checked) &&
-        !fiveB.some(checked)
-      ) {
-        $(".w-slider-dot")[4].click();
-      }
-    }
-    if (slide1.style.visibility == "") {
-      if (
-        threeA.some(checked) &&
-        fiveB.some(checked) &&
-        !threeB.some(checked) &&
-        !threeC.some(checked) &&
-        !fiveA.some(checked)
-      ) {
-        $(".w-slider-dot")[3].click();
-      }
-    }
-  });
-  backButton.on("click", function () {
-    if (slide2.style.visibility == "") {
-      if (
-        threeB.some(checked) &&
-        fiveA.some(checked) &&
-        !threeA.some(checked) &&
-        !threeC.some(checked) &&
-        !fiveB.some(checked)
-      ) {
-        $(".w-slider-dot")[1].click();
-      }
-    }
-  });
-}
-function reBranch() {
-  nextButton.on("click", function () {
-    //S0
-    if (slide0.style.visibility == "") {
-      if (
-        threeA.some(checked) &&
-        threeB.some(checked) &&
-        fiveA.some(checked) &&
-        !threeC.some(checked) &&
-        !fiveB.some(checked)
-      ) {
-        $(".w-slider-dot")[2].click();
-        $("#j8").show();
-        $("#j9").show();
-        $("#j10").show();
-      }
-      if (
-        threeA.some(checked) &&
-        threeC.some(checked) &&
-        fiveA.some(checked) &&
-        !threeB.some(checked) &&
-        !fiveB.some(checked)
-      ) {
-        $(".w-slider-dot")[3].click();
-        $("#j8").show();
-        $("#j9").show();
-        $("#j10").hide();
-      }
-      if (
-        threeB.some(checked) &&
-        threeC.some(checked) &&
-        fiveA.some(checked) &&
-        !threeA.some(checked) &&
-        !fiveB.some(checked)
-      ) {
-        $(".w-slider-dot")[2].click();
-        // $("#j7").show();
-        $("#j8").hide();
-        $("#j9").hide();
-        $("#j10").show();
-      }
-      if (
-        threeB.some(checked) &&
-        fiveA.some(checked) &&
-        fiveB.some(checked) &&
-        !threeC.some(checked)
-      ) {
-        console.log("3B5A5B");
-        $("#j8").hide();
-        $("#j9").hide();
-        $(".w-slider-dot")[1].click();
-      }
-      if (threeA.some(checked) && threeB.some(checked) && fiveB.some(checked)) {
-        return true;
-      }
-      //For some reason this actually messes with desired path
-      // if (threeC.some(checked) && fiveA.some(checked) && fiveB.some(checked)) {
-      //   console.log("From S0, 3C 5A 5B");
-      //   $("#j7").hide();
-      //   $("#j8").hide();
-      //   $("#j9").hide();
-      //   $("#j10").hide();
-      //   $(".w-slider-dot")[1].click();
-      // }
       if (
         threeA.some(checked) &&
         threeC.some(checked) &&
@@ -447,17 +334,130 @@ function reBranch() {
         $("#j9").show();
         $("#j10").show();
       }
+    }
+    if (slide1.style.visibility == "") {
       if (
         threeA.some(checked) &&
+        threeB.some(checked) &&
+        threeC.some(checked) &&
+        fiveB.some(checked) &&
+        !fiveA.some(checked)
+      ) {
+        console.log("From S1, 3A 3B 3C 5B");
+        $(".w-slider-dot")[2].click();
+        $("#j7").show();
+        $("#j8").show();
+        $("#j9").show();
+        $("#j10").show();
+        return false;
+      }
+      if (
+        threeA.some(checked) &&
+        threeC.some(checked) &&
+        fiveA.some(checked) &&
+        fiveB.some(checked) &&
+        !threeB.some(checked)
+      ) {
+        $(".w-slider-dot")[3].click();
+        return false;
+      }
+      if (
         threeB.some(checked) &&
         threeC.some(checked) &&
         fiveA.some(checked) &&
         fiveB.some(checked)
       ) {
+        console.log("From S1, 3C 3B 5A 5B");
+        $(".w-slider-dot")[2].click();
+        $("#j8").hide();
+        $("#j9").hide();
+        return false;
+      }
+    }
+    if (slide2.style.visibility == "") {
+      if (
+        threeA.some(checked) &&
+        threeB.some(checked) &&
+        threeC.some(checked) &&
+        !fiveB.some(checked) &&
+        fiveA.some(checked)
+      ) {
+        console.log("From S2, 3A 3B 3C 5B");
+        $("#j7").show();
         $("#j8").show();
         $("#j9").show();
         $("#j10").show();
-        return false;
+      }
+    }
+  });
+  backButton.on("click", function () {
+    if (slide2.style.visibility == "") {
+      if (
+        threeA.some(checked) &&
+        threeB.some(checked) &&
+        threeC.some(checked) &&
+        fiveA.some(checked) &&
+        !fiveB.some(checked)
+      ) {
+        console.log("From S2, 3A 3B 3C 5A");
+        $(".w-slider-dot")[1].click();
+      }
+    }
+  });
+}
+function doubleCombi() {
+  nextButton.on("click", function () {
+    //S0
+    if (slide0.style.visibility == "") {
+      if (
+        threeA.some(checked) &&
+        threeB.some(checked) &&
+        fiveA.some(checked) &&
+        !threeC.some(checked) &&
+        !fiveB.some(checked)
+      ) {
+        $(".w-slider-dot")[2].click();
+        $("#j8").show();
+        $("#j9").show();
+        $("#j10").show();
+      }
+      if (
+        threeA.some(checked) &&
+        threeC.some(checked) &&
+        fiveA.some(checked) &&
+        !threeB.some(checked) &&
+        !fiveB.some(checked)
+      ) {
+        $(".w-slider-dot")[3].click();
+        $("#j8").show();
+        $("#j9").show();
+        $("#j10").hide();
+      }
+      if (
+        threeB.some(checked) &&
+        threeC.some(checked) &&
+        fiveA.some(checked) &&
+        !threeA.some(checked) &&
+        !fiveB.some(checked)
+      ) {
+        $(".w-slider-dot")[2].click();
+        $("#j8").hide();
+        $("#j9").hide();
+        $("#j10").show();
+      }
+      if (
+        threeB.some(checked) &&
+        fiveA.some(checked) &&
+        fiveB.some(checked) &&
+        !threeC.some(checked)
+      ) {
+        console.log("3B5A5B");
+        $("#j8").hide();
+        $("#j9").hide();
+        $(".w-slider-dot")[1].click();
+      }
+      if (threeA.some(checked) && threeB.some(checked) && fiveB.some(checked)) {
+        return true;
       }
     }
     //S1
@@ -521,69 +521,6 @@ function reBranch() {
         // $("#j10").hide();
         $(".w-slider-dot")[4].click();
       }
-      if (
-        threeA.some(checked) &&
-        threeB.some(checked) &&
-        threeC.some(checked) &&
-        fiveB.some(checked) &&
-        !fiveA.some(checked)
-      ) {
-        console.log("From S1, 3A 3B 3C 5B");
-        $(".w-slider-dot")[2].click();
-        $("#j7").show();
-        $("#j8").show();
-        $("#j9").show();
-        $("#j10").show();
-        return false;
-      }
-      if (
-        threeA.some(checked) &&
-        threeC.some(checked) &&
-        fiveA.some(checked) &&
-        fiveB.some(checked) &&
-        !threeB.some(checked)
-      ) {
-        $(".w-slider-dot")[3].click();
-        return false;
-      }
-      if (
-        threeB.some(checked) &&
-        threeC.some(checked) &&
-        fiveA.some(checked) &&
-        fiveB.some(checked)
-      ) {
-        console.log("From S1, 3C 3B 5A 5B");
-        $(".w-slider-dot")[2].click();
-        $("#j8").hide();
-        $("#j9").hide();
-        return false;
-      }
-    }
-    if (slide2.style.visibility == "") {
-      if (
-        threeA.some(checked) &&
-        threeB.some(checked) &&
-        threeC.some(checked) &&
-        fiveA.some(checked) &&
-        fiveB.some(checked)
-      ) {
-        $("#j8").show();
-        $("#j9").show();
-        $("#j10").show();
-      }
-      if (
-        threeA.some(checked) &&
-        threeB.some(checked) &&
-        threeC.some(checked) &&
-        !fiveB.some(checked) &&
-        fiveA.some(checked)
-      ) {
-        console.log("From S2, 3A 3B 3C 5B");
-        $("#j7").show();
-        $("#j8").show();
-        $("#j9").show();
-        $("#j10").show();
-      }
     }
   });
   backButton.on("click", function () {
@@ -597,16 +534,104 @@ function reBranch() {
       ) {
         console.log("3B 5a 5b Back");
       }
+    }
+  });
+}
+function singleCombi() {
+  nextButton.on("click", function () {
+    if (slide0.style.visibility == "") {
+      if (
+        threeA.some(checked) &&
+        fiveA.some(checked) &&
+        !threeB.some(checked) &&
+        !threeC.some(checked) &&
+        !fiveB.some(checked)
+      ) {
+        console.log("TEST");
+        $(".w-slider-dot")[3].click();
+        $("#j8").show();
+        $("#j9").show();
+        $("#j10").hide();
+      }
+      if (
+        threeC.some(checked) &&
+        fiveA.some(checked) &&
+        !threeA.some(checked) &&
+        !threeB.some(checked) &&
+        !fiveB.some(checked)
+      ) {
+        $(".w-slider-dot")[4].click();
+      }
+    }
+    if (slide1.style.visibility == "") {
+      if (
+        threeA.some(checked) &&
+        fiveB.some(checked) &&
+        !threeB.some(checked) &&
+        !threeC.some(checked) &&
+        !fiveA.some(checked)
+      ) {
+        $(".w-slider-dot")[3].click();
+      }
+    }
+  });
+  backButton.on("click", function () {
+    if (slide2.style.visibility == "") {
+      if (
+        threeB.some(checked) &&
+        fiveA.some(checked) &&
+        !threeA.some(checked) &&
+        !threeC.some(checked) &&
+        !fiveB.some(checked)
+      ) {
+        $(".w-slider-dot")[1].click();
+      }
+    }
+  });
+}
+function allCombi() {
+  nextButton.on("click", function () {
+    //S0
+    if (slide0.style.visibility == "") {
       if (
         threeA.some(checked) &&
         threeB.some(checked) &&
         threeC.some(checked) &&
         fiveA.some(checked) &&
-        !fiveB.some(checked)
+        fiveB.some(checked)
       ) {
-        console.log("From S2, 3A 3B 3C 5A");
-        $(".w-slider-dot")[1].click();
+        $("#j8").show();
+        $("#j9").show();
+        $("#j10").show();
+        return false;
       }
+      //For some reason this actually messes with desired path
+      // if (threeC.some(checked) && fiveA.some(checked) && fiveB.some(checked)) {
+      //   console.log("From S0, 3C 5A 5B");
+      //   $("#j7").hide();
+      //   $("#j8").hide();
+      //   $("#j9").hide();
+      //   $("#j10").hide();
+      //   $(".w-slider-dot")[1].click();
+      // }
+    }
+
+    if (slide2.style.visibility == "") {
+      if (
+        threeA.some(checked) &&
+        threeB.some(checked) &&
+        threeC.some(checked) &&
+        fiveA.some(checked) &&
+        fiveB.some(checked)
+      ) {
+        $("#j8").show();
+        $("#j9").show();
+        $("#j10").show();
+      }
+    }
+  });
+  backButton.on("click", function () {
+    if (slide2.style.visibility == "") {
       if (
         threeA.some(checked) &&
         threeB.some(checked) &&
@@ -1227,7 +1252,9 @@ $(".w-slide").ready(function () {
   branching();
   zeroToTwo();
   oneToFour();
-  reBranch();
+  allCombi();
+  pairedCombi();
+  doubleCombi();
   singleCombi();
   //Checking Lock Functions
   checkSlide0();
