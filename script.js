@@ -282,6 +282,7 @@ function scrollToTop() {
 }
 nextButton.show();
 backButton.show();
+
 //REFACTORED BRANCH
 function allCombi() {
   nextButton.on("click", function () {
@@ -1160,34 +1161,6 @@ function oneToFour() {
     }
   });
 }
-//newbranch
-function j3152() {
-  nextButton.on("click", function () {
-    if (slide1.style.visibility == "") {
-      if ($("#j3-1").is(":checked") && $("#j5-2").is(":checked")) {
-        if (j6.some(checked)) {
-          console.log("DEBUGGING j3152");
-          $(".w-slider-dot")[2].click();
-        }
-      }
-    }
-  });
-}
-
-function j36752() {
-  nextButton.on("click", function () {
-    if (slide1.style.visibility == "") {
-      if (
-        j6.some(checked) &&
-        $("#j5-2").is(":checked") &&
-        ($("#j3-7").is(":checked") || $("#j3-7").is(":checked"))
-      ) {
-        console.log("DEBUG TRUE");
-        $(".w-slider-dot")[2].click();
-      }
-    }
-  });
-}
 
 //PAGE LOCKING
 //Slide0
@@ -1257,10 +1230,14 @@ function checkSlide3() {
 //Slide4 j13 j14
 function select5() {
   if (slide4.style.visibility == "") {
-    console.log(document.querySelectorAll("input[j13select5]:checked").length);
-    if (document.querySelectorAll("input[j13select5]:checked").length < 5) {
-      document.getElementsByClassName("checkbox-circle").disabled == true;
-    }
+    document.getElementsByClassName("w-checkbox").on("click", function () {
+      console.log(
+        document.querySelectorAll("input[j13select5]:checked").length
+      );
+      if (document.querySelectorAll("input[j13select5]:checked").length < 5) {
+        document.getElementsByClassName("w-checkbox").disabled == true;
+      }
+    });
   }
 }
 //Slide 4
