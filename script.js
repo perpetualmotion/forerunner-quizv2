@@ -1254,6 +1254,15 @@ function checkSlide3() {
     }
   });
 }
+//Slide4 j13 j14
+function select5() {
+  if (slide4.style.visibility == "") {
+    console.log(document.querySelectorAll("input[j13select5]:checked").length);
+    if (document.querySelectorAll("input[j13select5]:checked").length < 5) {
+      document.getElementsByClassName("checkbox-circle").disabled == true;
+    }
+  }
+}
 //Slide 4
 function checkSlide4() {
   nextButton.on("click", function () {
@@ -1261,18 +1270,11 @@ function checkSlide4() {
       if (
         j11.some(checked) &&
         j12.some(checked) &&
-        //Add in at most 5 can be checked for 13 14
         j13.some(checked) &&
-        // document.querySelectorAll('input[type="checkbox"]:checked').length >=
-        5 &&
-        
         j14.some(checked) &&
         j15.some(checked)
       ) {
         scrollToTop();
-        console.log(
-          document.querySelectorAll("input[j13select5]:checked").length
-        );
         return true;
       } else {
         console.log("S4 locked, no answers clicked!");
@@ -1356,6 +1358,7 @@ $(".w-slide").ready(function () {
   doubleCombi();
   singleCombi();
   //Checking Lock Functions
+  select5();
   checkSlide0();
   checkSlide1();
   checkSlide2();
