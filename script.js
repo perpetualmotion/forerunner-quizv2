@@ -296,8 +296,8 @@ function reBranch() {
         !fiveB.some(checked)
       ) {
         $(".w-slider-dot")[2].click();
-        $("#j8").show();
-        $("#j9").show();
+        $("#j8").hide();
+        $("#j9").hide();
         $("#j10").show();
       }
       if (
@@ -307,9 +307,10 @@ function reBranch() {
         !threeB.some(checked) &&
         !fiveB.some(checked)
       ) {
-        $(".w-slider-dot")[3].click();
+        $(".w-slider-dot")[2].click();
         $("#j8").show();
         $("#j9").show();
+        $("#j10").show();
       }
       if (
         threeB.some(checked) &&
@@ -318,9 +319,11 @@ function reBranch() {
         !threeA.some(checked) &&
         !fiveB.some(checked)
       ) {
-        $(".w-slider-dot")[2].click();
+        $(".w-slider-dot")[3].click();
         $("#j7").show();
-        $("#j10").show();
+        $("#j8").show();
+        $("#j9").show();
+        $("#j10").hide();
       }
       if (
         threeB.some(checked) &&
@@ -422,7 +425,8 @@ function reBranch() {
       ) {
         $("#j8").hide();
         $("#j9").hide();
-        $(".w-slider-dot")[2].click();
+        return true;
+        // $(".w-slider-dot")[2].click();
       }
       if (
         threeB.some(checked) &&
@@ -664,7 +668,8 @@ function branching() {
       if (
         ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) &&
         $("#j5-1").is(":checked") &&
-        !fiveB.some(checked)
+        !fiveB.some(checked) &&
+        !fiveA.some(checked)
       ) {
         console.log("3-78 5-1 Next");
         $(".w-slider-dot")[4].click();
@@ -869,7 +874,9 @@ function oneToFour() {
           $("#j3-3").is(":checked") ||
           $("#j3-5").is(":checked")) &&
         ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) &&
-        !threeB.some(checked)
+        !threeB.some(checked) &&
+        !fiveA.some(checked) &&
+        !fiveB.some(checked)
       ) {
         console.log("test4");
         $("#j8").show();
