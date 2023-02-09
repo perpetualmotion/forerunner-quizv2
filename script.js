@@ -280,8 +280,11 @@ const checked = (el) => el.is(":checked");
 function scrollToTop() {
   $(window).scrollTop(0);
 }
+nextButton.show();
+backButton.show();
 
 //REFACTORED BRANCH
+function bleh() {}
 function reBranch() {
   nextButton.on("click", function () {
     //S0
@@ -302,13 +305,24 @@ function reBranch() {
         $("#j7").show();
         $("#j10").show();
       }
+      if (threeB.some(checked) && fiveA.some(checked) && fiveB.some(checked)) {
+        console.log("3B5A5B");
+        $("#j8").hide();
+        $("#j9").hide();
+        $(".w-slider-dot")[1].click();
+      }
       if (threeA.some(checked) && threeB.some(checked) && fiveB.some(checked)) {
         return true;
       }
-      if (threeB.some(checked) && fiveA.some(checked) && fiveB.some(checked)) {
-        $("#j8").hide();
-        $("#j9").hide();
-      }
+      //For some reason this actually messes with desired path
+      // if (threeC.some(checked) && fiveA.some(checked) && fiveB.some(checked)) {
+      //   console.log("From S0, 3C 5A 5B");
+      //   $("#j7").hide();
+      //   $("#j8").hide();
+      //   $("#j9").hide();
+      //   $("#j10").hide();
+      //   $(".w-slider-dot")[1].click();
+      // }
       if (
         threeA.some(checked) &&
         threeC.some(checked) &&
@@ -350,13 +364,25 @@ function reBranch() {
         $("#j9").hide();
         $(".w-slider-dot")[2].click();
       }
+      if (threeB.some(checked) && fiveA.some(checked) && fiveB.some(checked)) {
+        console.log("3B5A5B");
+        $("#j8").hide();
+        $("#j9").hide();
+        return true;
+      }
       if (threeA.some(checked) && fiveA.some(checked) && fiveB.some(checked)) {
         console.log("3a 5a 5b next");
         $(".w-slider-dot")[3].click();
         $("#j7").hide();
         $("#j10").hide();
       }
-      if (threeC.some(checked) && fiveA.some(checked) && fiveB.some(checked)) {
+      if (
+        slide1.style.visibility == "" &&
+        threeC.some(checked) &&
+        fiveA.some(checked) &&
+        fiveB.some(checked)
+      ) {
+        console.log("From S1, 3C 5A 5B next");
         $("#j7").hide();
         $("#j8").hide();
         $("#j9").hide();
@@ -365,8 +391,12 @@ function reBranch() {
       }
     }
   });
-  //WHERE I LEFT OFF
   backButton.on("click", function () {
+    if (slide2.style.visibility == "") {
+      if (threeB.some(checked) && fiveA.some(checked) && fiveB.some(checked)) {
+        console.log("3B 5a 5b Back");
+      }
+    }
     if (slide3.style.visibility == "") {
       if (threeA.some(checked) && fiveA.some(checked) && fiveB.some(checked)) {
         console.log("3a 5a 5b Back");
@@ -470,7 +500,8 @@ function branching() {
       // }
       if (
         ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) &&
-        $("#j5-1").is(":checked")
+        $("#j5-1").is(":checked") &&
+        !fiveB.some(checked)
       ) {
         console.log("3-78 5-1 Next");
         $(".w-slider-dot")[4].click();
@@ -609,7 +640,7 @@ function zeroToTwo() {
     if (slide2.style.visibility == "") {
       if ($("#j5-1").is(":checked") || $("#j5-8").is(":checked")) {
         console.log("Skip s2 => s0");
-        $(".w-slider-dot")[1].click();
+        // $(".w-slider-dot")[1].click();
       }
     }
   });
@@ -696,7 +727,7 @@ function oneToFour() {
         $(".w-slider-dot")[1].click();
       }
       if ($("#j3-4").is(":checked") && $("#j5-1").is(":checked")) {
-        $(".w-slider-dot")[1].click();
+        // $(".w-slider-dot")[1].click();
       }
     }
     if (slide4.style.visibility == "") {
