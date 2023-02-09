@@ -305,7 +305,12 @@ function reBranch() {
         $("#j7").show();
         $("#j10").show();
       }
-      if (threeB.some(checked) && fiveA.some(checked) && fiveB.some(checked)) {
+      if (
+        threeB.some(checked) &&
+        fiveA.some(checked) &&
+        fiveB.some(checked) &&
+        !threeC.some(checked)
+      ) {
         console.log("3B5A5B");
         $("#j8").hide();
         $("#j9").hide();
@@ -329,8 +334,9 @@ function reBranch() {
         fiveA.some(checked) &&
         fiveB.some(checked)
       ) {
-        // $(".w-slider-dot")[3].click();
+        console.log("From S0, 3A 3C 5A 5B");
         $("#j10").hide();
+        $(".w-slider-dot")[1].click();
       }
       if (
         threeB.some(checked) &&
@@ -338,8 +344,11 @@ function reBranch() {
         fiveA.some(checked) &&
         fiveB.some(checked)
       ) {
+        console.log("From S0, 3C 3B 5A 5B");
+        $(".w-slider-dot")[1].click();
         $("#j8").hide();
         $("#j9").hide();
+        return false;
       }
       if (
         threeA.some(checked) &&
@@ -350,44 +359,119 @@ function reBranch() {
         $("#j6").hide();
         // $(".w-slider-dot")[2].click();
       }
+      if (
+        threeA.some(checked) &&
+        threeB.some(checked) &&
+        threeC.some(checked) &&
+        fiveB.some(checked) &&
+        !fiveA.some(checked)
+      ) {
+        console.log("From S0, 3A 3B 3C 5B");
+        $("#j7").show();
+        $("#j8").show();
+        $("#j9").show();
+        $("#j10").show();
+      }
     }
     //S1
     if (slide1.style.visibility == "") {
-      if (threeA.some(checked) && threeC.some(checked) && fiveB.some(checked)) {
+      if (
+        threeA.some(checked) &&
+        threeC.some(checked) &&
+        fiveB.some(checked) &&
+        !fiveA.some(checked)
+      ) {
         $(".w-slider-dot")[3].click();
         $("#j6").show();
-        $("#j7").hide();
         $("#j10").hide();
       }
-      if (threeB.some(checked) && threeC.some(checked) && fiveB.some(checked)) {
+      if (
+        threeB.some(checked) &&
+        threeC.some(checked) &&
+        fiveB.some(checked) &&
+        !threeA.some(checked)
+      ) {
         $("#j8").hide();
         $("#j9").hide();
         $(".w-slider-dot")[2].click();
       }
-      if (threeB.some(checked) && fiveA.some(checked) && fiveB.some(checked)) {
+      if (
+        threeB.some(checked) &&
+        fiveA.some(checked) &&
+        fiveB.some(checked) &&
+        !threeA.some(checked) &&
+        !threeC.some(checked)
+      ) {
         console.log("3B5A5B");
         $("#j8").hide();
         $("#j9").hide();
         return true;
       }
-      if (threeA.some(checked) && fiveA.some(checked) && fiveB.some(checked)) {
+      if (
+        threeA.some(checked) &&
+        fiveA.some(checked) &&
+        fiveB.some(checked) &&
+        !threeC.some(checked)
+      ) {
         console.log("3a 5a 5b next");
         $(".w-slider-dot")[3].click();
-        $("#j7").hide();
+        // $("#j7").hide();
         $("#j10").hide();
       }
       if (
         slide1.style.visibility == "" &&
         threeC.some(checked) &&
         fiveA.some(checked) &&
-        fiveB.some(checked)
+        fiveB.some(checked) &&
+        !threeA.some(checked) &&
+        !threeB.some(checked)
       ) {
         console.log("From S1, 3C 5A 5B next");
-        $("#j7").hide();
+        // $("#j7").hide();
+        // $("#j8").hide();
+        // $("#j9").hide();
+        // $("#j10").hide();
+        $(".w-slider-dot")[4].click();
+      }
+      if (
+        threeA.some(checked) &&
+        threeB.some(checked) &&
+        threeC.some(checked) &&
+        fiveB.some(checked) &&
+        !fiveA.some(checked)
+      ) {
+        console.log("From S1, 3A 3B 3C 5B");
+        $(".w-slider-dot")[2].click();
+        $("#j7").show();
+        $("#j8").show();
+        $("#j9").show();
+        $("#j10").show();
+        return false;
+      }
+      if (
+        threeB.some(checked) &&
+        threeC.some(checked) &&
+        fiveA.some(checked) &&
+        fiveB.some(checked)
+      ) {
+        console.log("From S1, 3C 3B 5A 5B");
+        $(".w-slider-dot")[2].click();
         $("#j8").hide();
         $("#j9").hide();
-        $("#j10").hide();
-        $(".w-slider-dot")[4].click();
+        return false;
+      }
+    }
+    if (slide2.style.visibility == "") {
+      if (
+        threeA.some(checked) &&
+        threeB.some(checked) &&
+        threeC.some(checked) &&
+        fiveA.some(checked) &&
+        fiveB.some(checked)
+      ) {
+        $("#j8").show();
+        $("#j9").show();
+        $("#j10").show();
       }
     }
   });
@@ -396,12 +480,21 @@ function reBranch() {
       if (threeB.some(checked) && fiveA.some(checked) && fiveB.some(checked)) {
         console.log("3B 5a 5b Back");
       }
+      if (
+        threeA.some(checked) &&
+        threeB.some(checked) &&
+        threeC.some(checked) &&
+        fiveA.some(checked)
+      ) {
+        console.log("From S2, 3A 3B 3C 5A");
+        $(".w-slider-dot")[1].click();
+      }
     }
     if (slide3.style.visibility == "") {
       if (threeA.some(checked) && fiveA.some(checked) && fiveB.some(checked)) {
         console.log("3a 5a 5b Back");
         $(".w-slider-dot")[2].click();
-        $("#j7").hide();
+        // $("#j7").hide();
         $("#j10").hide();
       }
     }
@@ -430,7 +523,8 @@ function branching() {
           $("#j5-5").is(":checked") ||
           $("#j5-6").is(":checked") ||
           $("#j5-7").is(":checked")) &&
-        j6.some(checked)
+        j6.some(checked) &&
+        !fiveB.some(checked)
       ) {
         console.log("DEBUG NEXT 3-1");
         $(".w-slider-dot")[3].click();
@@ -459,7 +553,8 @@ function branching() {
           $("#j5-5").is(":checked") ||
           $("#j5-6").is(":checked") ||
           $("#j5-7").is(":checked")) &&
-        j6.some(checked)
+        j6.some(checked) &&
+        !threeB.some(checked)
       ) {
         console.log("DEBUG NEXT 37-38");
         $(".w-slider-dot")[4].click();
@@ -473,8 +568,9 @@ function branching() {
         return false;
       }
       if ($("#j3-1").is(":checked") && $("#j5-1").is(":checked")) {
-        $(".w-slider-dot")[3].click();
-        return false;
+        console.log("HELLO");
+        // $(".w-slider-dot")[3].click();
+        // return false;
       }
       if (
         $("#j3-4").is(":checked") &&
@@ -526,7 +622,8 @@ function branching() {
       }
       if (
         $("#j3-4").is(":checked") &&
-        ($("#j5-1").is(":checked") || $("#j5-8").is(":checked"))
+        ($("#j5-1").is(":checked") || $("#j5-8").is(":checked")) &&
+        !threeC.some(checked)
       ) {
         console.log("3-4 5-1 5-8 Next");
         $(".w-slider-dot")[2].click();
@@ -542,7 +639,12 @@ function branching() {
       if ($("#j3-1").is(":checked") && $("#j5-8").is(":checked")) {
         $(".w-slider-dot")[1].click();
       }
-      if ($("#j3-1").is(":checked") && $("#j5-1").is(":checked")) {
+      if (
+        $("#j3-1").is(":checked") &&
+        $("#j5-1").is(":checked") &&
+        !threeC.some(checked) &&
+        !fiveB.some(checked)
+      ) {
         console.log("31 51 next");
         $(".w-slider-dot")[1].click();
       }
@@ -673,9 +775,11 @@ function oneToFour() {
           $("#j3-2").is(":checked") ||
           $("#j3-3").is(":checked") ||
           $("#j3-5").is(":checked") ||
-          $("#j3-6").is(":checked"))
+          $("#j3-6").is(":checked")) &&
+        !threeC.some(checked)
       ) {
         console.log("test2");
+        $("#j7").show();
         $("#j8").show();
         $("#j9").show();
         $("#j10").show();
@@ -683,7 +787,8 @@ function oneToFour() {
       }
       if (
         $("#j3-4").is(":checked") &&
-        ($("#j3-7").is(":checked") || $("#j3-8").is(":checked"))
+        ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) &&
+        !threeA.some(checked)
       ) {
         console.log("test3");
         $("#j8").hide();
@@ -696,12 +801,13 @@ function oneToFour() {
           $("#j3-2").is(":checked") ||
           $("#j3-3").is(":checked") ||
           $("#j3-5").is(":checked")) &&
-        ($("#j3-7").is(":checked") || $("#j3-8").is(":checked"))
+        ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) &&
+        !threeB.some(checked)
       ) {
         console.log("test4");
         $("#j8").show();
         $("#j9").show();
-        $(".w-slider-dot")[2].click();
+        $(".w-slider-dot")[3].click();
       }
       // if (
       //   $("#j3-2").is(":checked") ||
