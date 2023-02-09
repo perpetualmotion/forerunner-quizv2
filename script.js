@@ -1265,6 +1265,7 @@ function checkSlide4() {
         j13.some(checked) &&
         // document.querySelectorAll('input[type="checkbox"]:checked').length >=
         5 &&
+        
         j14.some(checked) &&
         j15.some(checked)
       ) {
