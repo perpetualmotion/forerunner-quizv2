@@ -280,6 +280,8 @@ const checked = (el) => el.is(":checked");
 function scrollToTop() {
   $(window).scrollTop(0);
 }
+nextButton.show();
+backButton.show();
 //REFACTORED BRANCH
 function allCombi() {
   nextButton.on("click", function () {
@@ -1259,11 +1261,18 @@ function checkSlide4() {
       if (
         j11.some(checked) &&
         j12.some(checked) &&
+        //Add in at most 5 can be checked for 13 14
         j13.some(checked) &&
         j14.some(checked) &&
         j15.some(checked)
       ) {
         scrollToTop();
+        console.log(
+          document.querySelectorAll('input[type="checkbox"]:checked').length
+        );
+        console.log(
+          document.querySelectorAll("input[j13select5]:checked").length
+        );
         return true;
       } else {
         console.log("S4 locked, no answers clicked!");
