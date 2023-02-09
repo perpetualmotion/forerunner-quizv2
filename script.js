@@ -280,9 +280,6 @@ const checked = (el) => el.is(":checked");
 function scrollToTop() {
   $(window).scrollTop(0);
 }
-nextButton.show();
-backButton.show();
-
 //REFACTORED BRANCH
 function allCombi() {
   nextButton.on("click", function () {
@@ -1600,7 +1597,7 @@ function submitResponse(userEmail) {
 
   //on submit of form trigger fetch
   fetch(
-    "https://v1.nocodeapi.com/perpetualdev/google_sheets/febhqDGsnbjuhzsT?tabId=Form Responses",
+    "https://v1.nocodeapi.com/fvdinnerparty/google_sheets/fwNICEvGHQNbFHGA?tabId=Form Responses",
     requestOptions
   )
     .then((response) => response.text())
@@ -1634,7 +1631,7 @@ function pushToTT(result) {
   };
   //Post to Typing Tool
   fetch(
-    "https://v1.nocodeapi.com/perpetualdev/google_sheets/febhqDGsnbjuhzsT?tabId=Typing Tool",
+    "https://v1.nocodeapi.com/fvdinnerparty/google_sheets/fwNICEvGHQNbFHGA?tabId=Typing Tool",
     newRequestOptions
   )
     .then((response) => response.text())
@@ -1660,7 +1657,7 @@ function getArchtype(data) {
   };
 
   fetch(
-    "https://v1.nocodeapi.com/perpetualdev/google_sheets/febhqDGsnbjuhzsT?tabId=Archetype outputs&row_id=" +
+    "https://v1.nocodeapi.com/fvdinnerparty/google_sheets/fwNICEvGHQNbFHGA?tabId=Archetype outputs&row_id=" +
       `${data}`,
     requestOptions
   )
@@ -1714,9 +1711,8 @@ function mailChimp(userEmail) {
     headers: myHeaders,
     redirect: "follow",
   };
-
   fetch(
-    "https://v1.nocodeapi.com/perpetualdev/mailchimp/wKKBmPzxtAoAAduI/members?list_id=1159bd27b0&email_address=" +
+    "https://v1.nocodeapi.com/fvdinnerparty/mailchimp/HXLhTaDotOTIJieP/members?list_id=8660bae57b&email_address=" +
       `${userEmail}` +
       "&status=subscribed",
     requestOptions
