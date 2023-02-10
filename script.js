@@ -1332,7 +1332,7 @@ $(".w-slide").ready(function () {
   doubleCombi();
   singleCombi();
   //Checking Lock Functions
-  select5();
+  // select5();
   checkSlide0();
   checkSlide1();
   checkSlide2();
