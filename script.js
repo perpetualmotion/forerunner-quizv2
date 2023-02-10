@@ -1474,3 +1474,4 @@ function social(newData) {
   );
   $("[data-share-facebook").attr("target", "_blank");
 }
+
