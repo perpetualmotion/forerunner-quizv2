@@ -64,7 +64,6 @@ $("[data-question]").on("click", function () {
     ); // Set local storage variable to the value of data-answer
   }
 });
-
 // When input fields with data-type=input changes value
 $("[data-type='input']").on("input", function () {
   if ($(this).val()) {
@@ -73,7 +72,6 @@ $("[data-type='input']").on("input", function () {
     localStorage.setItem($(this).attr("data-question"), "0"); // Set local storage variable to zero when empty
   }
 });
-
 //If option with data-clear (none option) attribute is clicked clear all opther options in the question group
 $("[data-clear]").on("click", function () {
   $("[data-clear-target=" + $(this).attr("data-clear") + "]").each(function () {
@@ -82,7 +80,6 @@ $("[data-clear]").on("click", function () {
     }
   });
 });
-
 //If option with data-target (question with none option) attribute is clicked clear the none option in the question group
 $("[data-clear-target]").on("click", function () {
   $("[data-clear=" + $(this).attr("data-clear-target") + "]").each(function () {
@@ -1593,14 +1590,12 @@ function submitResponse(userEmail) {
     .then((result) => {
       var data = JSON.parse(result);
       console.log(data);
-      // console.log(data["row_id"]);
       pushToTT(data["row_id"]);
     })
     .catch((error) => console.log("error", error));
 }
 //Push form data to Typing Tool
 function pushToTT(result) {
-  // console.log(result);
   for (let i = 0; i < localStorageVariables.length; i++) {
     arr[localStorageVariables[i]] = localStorage.getItem(
       localStorageVariables[i]
@@ -1626,17 +1621,12 @@ function pushToTT(result) {
     .then((response) => response.text())
     .then((result) => {
       var data = JSON.parse(result);
-      // console.log(data);
-      // console.log(result["row_id"]);
-      // console.log(arr["row_id"]);
       getArchtype(arr["row_id"]);
     })
     .catch((error) => console.log("error", error));
 }
 //Get request specific row in Archetype outputs
 function getArchtype(data) {
-  // console.log(data);
-
   var getHeaders = new Headers();
   getHeaders.append("Content-Type", "application/json");
   var requestOptions = {
@@ -1653,10 +1643,6 @@ function getArchtype(data) {
     .then((response) => response.text())
     .then((result) => {
       var newData = JSON.parse(result);
-      // console.log(newData["Archetype"]);
-      // console.log(newData["Image w/o Title URL"]);
-      // console.log(newData["Tagline"]);
-      // console.log(newData["Long Description"]);
       let url = window.location.href;
 
       social(newData);
