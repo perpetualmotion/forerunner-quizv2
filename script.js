@@ -64,7 +64,6 @@ $("[data-question]").on("click", function () {
     ); // Set local storage variable to the value of data-answer
   }
 });
-
 // When input fields with data-type=input changes value
 $("[data-type='input']").on("input", function () {
   if ($(this).val()) {
@@ -73,7 +72,6 @@ $("[data-type='input']").on("input", function () {
     localStorage.setItem($(this).attr("data-question"), "0"); // Set local storage variable to zero when empty
   }
 });
-
 //If option with data-clear (none option) attribute is clicked clear all opther options in the question group
 $("[data-clear]").on("click", function () {
   $("[data-clear-target=" + $(this).attr("data-clear") + "]").each(function () {
@@ -82,7 +80,6 @@ $("[data-clear]").on("click", function () {
     }
   });
 });
-
 //If option with data-target (question with none option) attribute is clicked clear the none option in the question group
 $("[data-clear-target]").on("click", function () {
   $("[data-clear=" + $(this).attr("data-clear-target") + "]").each(function () {
@@ -282,6 +279,7 @@ function scrollToTop() {
 }
 nextButton.show();
 backButton.show();
+
 //REFACTORED BRANCH
 function allCombi() {
   nextButton.on("click", function () {
@@ -1160,34 +1158,6 @@ function oneToFour() {
     }
   });
 }
-//newbranch
-function j3152() {
-  nextButton.on("click", function () {
-    if (slide1.style.visibility == "") {
-      if ($("#j3-1").is(":checked") && $("#j5-2").is(":checked")) {
-        if (j6.some(checked)) {
-          console.log("DEBUGGING j3152");
-          $(".w-slider-dot")[2].click();
-        }
-      }
-    }
-  });
-}
-
-function j36752() {
-  nextButton.on("click", function () {
-    if (slide1.style.visibility == "") {
-      if (
-        j6.some(checked) &&
-        $("#j5-2").is(":checked") &&
-        ($("#j3-7").is(":checked") || $("#j3-7").is(":checked"))
-      ) {
-        console.log("DEBUG TRUE");
-        $(".w-slider-dot")[2].click();
-      }
-    }
-  });
-}
 
 //PAGE LOCKING
 //Slide0
@@ -1254,6 +1224,19 @@ function checkSlide3() {
     }
   });
 }
+//Slide4 j13 j14
+function select5() {
+  if (slide4.style.visibility == "") {
+    document.getElementsByClassName("w-checkbox").on("click", function () {
+      console.log(
+        document.querySelectorAll("input[j13select5]:checked").length
+      );
+      if (document.querySelectorAll("input[j13select5]:checked").length < 5) {
+        document.getElementsByClassName("w-checkbox").disabled == true;
+      }
+    });
+  }
+}
 //Slide 4
 function checkSlide4() {
   nextButton.on("click", function () {
@@ -1261,17 +1244,11 @@ function checkSlide4() {
       if (
         j11.some(checked) &&
         j12.some(checked) &&
-        //Add in at most 5 can be checked for 13 14
         j13.some(checked) &&
-        // document.querySelectorAll('input[type="checkbox"]:checked').length >=
-        5 &&
         j14.some(checked) &&
         j15.some(checked)
       ) {
         scrollToTop();
-        console.log(
-          document.querySelectorAll("input[j13select5]:checked").length
-        );
         return true;
       } else {
         console.log("S4 locked, no answers clicked!");
@@ -1355,6 +1332,7 @@ $(".w-slide").ready(function () {
   doubleCombi();
   singleCombi();
   //Checking Lock Functions
+  select5();
   checkSlide0();
   checkSlide1();
   checkSlide2();
@@ -1612,14 +1590,12 @@ function submitResponse(userEmail) {
     .then((result) => {
       var data = JSON.parse(result);
       console.log(data);
-      // console.log(data["row_id"]);
       pushToTT(data["row_id"]);
     })
     .catch((error) => console.log("error", error));
 }
 //Push form data to Typing Tool
 function pushToTT(result) {
-  // console.log(result);
   for (let i = 0; i < localStorageVariables.length; i++) {
     arr[localStorageVariables[i]] = localStorage.getItem(
       localStorageVariables[i]
@@ -1645,17 +1621,12 @@ function pushToTT(result) {
     .then((response) => response.text())
     .then((result) => {
       var data = JSON.parse(result);
-      // console.log(data);
-      // console.log(result["row_id"]);
-      // console.log(arr["row_id"]);
       getArchtype(arr["row_id"]);
     })
     .catch((error) => console.log("error", error));
 }
 //Get request specific row in Archetype outputs
 function getArchtype(data) {
-  // console.log(data);
-
   var getHeaders = new Headers();
   getHeaders.append("Content-Type", "application/json");
   var requestOptions = {
@@ -1672,10 +1643,6 @@ function getArchtype(data) {
     .then((response) => response.text())
     .then((result) => {
       var newData = JSON.parse(result);
-      // console.log(newData["Archetype"]);
-      // console.log(newData["Image w/o Title URL"]);
-      // console.log(newData["Tagline"]);
-      // console.log(newData["Long Description"]);
       let url = window.location.href;
 
       social(newData);
@@ -1692,10 +1659,10 @@ function getArchtype(data) {
 
       //Archetype name
       $("#archetype").text(newData["Archetype"]);
-      // console.log($(".archetype"));
-
+      $("#name-responsive").text(newData["Archetype"]);
       //Tagline
       $("#tagline").text(newData["Tagline"]);
+      $("#tagline-responsive").text(newData["Tagline"]);
 
       //Desc
       $("#desc-right p:first-child").text(newData["Long Description"]);
