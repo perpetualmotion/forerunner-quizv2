@@ -297,15 +297,6 @@ function allCombi() {
         $("#j10").show();
         return false;
       }
-      //For some reason this actually messes with desired path
-      // if (threeC.some(checked) && fiveA.some(checked) && fiveB.some(checked)) {
-      //   console.log("From S0, 3C 5A 5B");
-      //   $("#j7").hide();
-      //   $("#j8").hide();
-      //   $("#j9").hide();
-      //   $("#j10").hide();
-      //   $(".w-slider-dot")[1].click();
-      // }
     }
 
     if (slide2.style.visibility == "") {
@@ -331,16 +322,14 @@ function allCombi() {
         fiveA.some(checked) &&
         fiveB.some(checked)
       ) {
-        console.log("AHHHH");
         // return false;
       }
     }
 
     if (slide3.style.visibility == "") {
       if (threeA.some(checked) && fiveA.some(checked) && fiveB.some(checked)) {
-        console.log("3a 5a 5b Back");
+        // console.log("3a 5a 5b Back");
         $(".w-slider-dot")[2].click();
-        // $("#j7").hide();
         $("#j10").hide();
       }
       if (
@@ -349,7 +338,7 @@ function allCombi() {
         threeC.some(checked) &&
         fiveB.some(checked)
       ) {
-        console.log("From S3, 3A 3B 3C 5B");
+        // console.log("From S3, 3A 3B 3C 5B");
         $(".w-slider-dot")[2].click();
         return false;
       }
@@ -360,7 +349,7 @@ function allCombi() {
         fiveA.some(checked) &&
         !fiveB.some(checked)
       ) {
-        console.log("From S3, 3A 3B 3C 5A BACK");
+        // console.log("From S3, 3A 3B 3C 5A BACK");
         $(".w-slider-dot")[2].click();
         return false;
       }
@@ -426,7 +415,7 @@ function pairedCombi() {
         fiveB.some(checked) &&
         !fiveA.some(checked)
       ) {
-        console.log("From S1, 3A 3B 3C 5B");
+        // console.log("From S1, 3A 3B 3C 5B");
         $("#j7").show();
         $("#j8").show();
         $("#j9").show();
@@ -450,7 +439,7 @@ function pairedCombi() {
         fiveA.some(checked) &&
         fiveB.some(checked)
       ) {
-        console.log("From S1, 3C 3B 5A 5B");
+        // console.log("From S1, 3C 3B 5A 5B");
         $(".w-slider-dot")[2].click();
         $("#j8").hide();
         $("#j9").hide();
@@ -482,7 +471,7 @@ function pairedCombi() {
         fiveA.some(checked) &&
         !fiveB.some(checked)
       ) {
-        console.log("From S2, 3A 3B 3C 5A");
+        // console.log("From S2, 3A 3B 3C 5A");
         $(".w-slider-dot")[1].click();
       }
     }
@@ -514,7 +503,7 @@ function pairedCombi() {
         fiveA.some(checked) &&
         !fiveB.some(checked)
       ) {
-        console.log("From S3, 3A 3B 3C 5A");
+        // console.log("From S3, 3A 3B 3C 5A");
         $(".w-slider-dot")[2].click();
         return false;
       }
@@ -607,7 +596,7 @@ function doubleCombi() {
         !threeA.some(checked) &&
         !threeC.some(checked)
       ) {
-        console.log("3B5A5B");
+        // console.log("3B5A5B");
         $("#j8").hide();
         $("#j9").hide();
         return true;
@@ -619,7 +608,7 @@ function doubleCombi() {
         !threeC.some(checked) &&
         !threeB.some(checked)
       ) {
-        console.log("3a 5a 5b next");
+        // console.log("3a 5a 5b next");
         $(".w-slider-dot")[3].click();
         // $("#j7").hide();
         $("#j10").hide();
@@ -632,7 +621,7 @@ function doubleCombi() {
         !threeA.some(checked) &&
         !threeB.some(checked)
       ) {
-        console.log("From S1, 3C 5A 5B next");
+        // console.log("From S1, 3C 5A 5B next");
         // $("#j7").hide();
         // $("#j8").hide();
         // $("#j9").hide();
@@ -722,7 +711,7 @@ function singleCombi() {
         !threeC.some(checked) &&
         !fiveB.some(checked)
       ) {
-        console.log("TEST");
+        // console.log("TEST");
         $(".w-slider-dot")[3].click();
         $("#j8").show();
         $("#j9").show();
@@ -791,7 +780,7 @@ function branching() {
         j6.some(checked) &&
         !fiveB.some(checked)
       ) {
-        console.log("DEBUG NEXT 3-1");
+        // console.log("DEBUG NEXT 3-1");
         $(".w-slider-dot")[3].click();
       }
       if (
@@ -806,7 +795,7 @@ function branching() {
           $("#j5-7").is(":checked")) &&
         j6.some(checked)
       ) {
-        console.log("32-35 NEXT DEBUG");
+        // console.log("32-35 NEXT DEBUG");
         $(".w-slider-dot")[3].click();
         return false;
       }
@@ -821,7 +810,7 @@ function branching() {
         j6.some(checked) &&
         !threeB.some(checked)
       ) {
-        console.log("DEBUG NEXT 37-38");
+        // console.log("DEBUG NEXT 37-38");
         $(".w-slider-dot")[4].click();
         return false;
       }
@@ -833,9 +822,6 @@ function branching() {
         return false;
       }
       if ($("#j3-1").is(":checked") && $("#j5-1").is(":checked")) {
-        console.log("HELLO");
-        // $(".w-slider-dot")[3].click();
-        // return false;
       }
       if (
         $("#j3-4").is(":checked") &&
@@ -844,28 +830,18 @@ function branching() {
           $("#j3-3").is(":checked") ||
           $("#j3-5").is(":checked"))
       ) {
-        console.log("ALL SLIDE 3 HIDDEN");
+        // console.log("ALL SLIDE 3 HIDDEN");
         $(".w-slider-dot")[4].click();
         return false;
       }
-      //CONFLICT WITH MULTI OPTION
-      // if (
-      //   ($("#j3-2").is(":checked") ||
-      //     $("#j3-3").is(":checked") ||
-      //     $("#j3-5").is(":checked")) &&
-      //   $("#j5-1").is(":checked")
-      // ) {
-      //   console.log("3-2~5 5-1 Next");
-      //   $(".w-slider-dot")[3].click();
-      //   return false;
-      // }
+
       if (
         ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) &&
         $("#j5-1").is(":checked") &&
         !fiveB.some(checked) &&
         !fiveA.some(checked)
       ) {
-        console.log("3-78 5-1 Next");
+        // console.log("3-78 5-1 Next");
         $(".w-slider-dot")[4].click();
         return false;
       }
@@ -875,7 +851,7 @@ function branching() {
           $("#j3-5").is(":checked")) &&
         $("#j5-8").is(":checked")
       ) {
-        console.log("MULTI TEST");
+        // console.log("MULTI TEST");
         $(".w-slider-dot")[3].click();
         return false;
       }
@@ -883,7 +859,7 @@ function branching() {
         ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) &&
         $("#j5-8").is(":checked")
       ) {
-        console.log("3-7 3-8 5-8 Next");
+        // console.log("3-7 3-8 5-8 Next");
         $(".w-slider-dot")[4].click();
       }
       if (
@@ -891,9 +867,8 @@ function branching() {
         ($("#j5-1").is(":checked") || $("#j5-8").is(":checked")) &&
         !threeC.some(checked)
       ) {
-        console.log("3-4 5-1 5-8 Next");
+        // console.log("3-4 5-1 5-8 Next");
         $(".w-slider-dot")[2].click();
-        //return false cancels out skipping extra page from slide0 Lock
         return false;
       }
     }
@@ -911,7 +886,7 @@ function branching() {
         !threeC.some(checked) &&
         !fiveB.some(checked)
       ) {
-        console.log("31 51 next");
+        // console.log("31 51 next");
         $(".w-slider-dot")[1].click();
       }
       if (
@@ -920,7 +895,7 @@ function branching() {
           $("#j3-5").is(":checked")) &&
         $("#j5-2").is(":checked")
       ) {
-        console.log("32-33 BACK DEBUG");
+        // console.log("32-33 BACK DEBUG");
         $(".w-slider-dot")[2].click();
       }
       if (
@@ -936,14 +911,14 @@ function branching() {
     }
     if (slide4.style.visibility == "") {
       if ($("#j3-1").is(":checked") && $("#j5-1").is(":checked")) {
-        console.log("31 51 back");
+        // console.log("31 51 back");
         return true;
       }
       if (
         ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) &&
         $("#j5-1").is(":checked")
       ) {
-        console.log("3-78 5-1 Back");
+        // console.log("3-78 5-1 Back");
         $(".w-slider-dot")[1].click();
       }
       if (
@@ -951,14 +926,14 @@ function branching() {
         $("#j5-2").is(":checked") &&
         j6.some(checked)
       ) {
-        console.log("DEBUG BACK 37-38");
+        // console.log("DEBUG BACK 37-38");
         $(".w-slider-dot")[2].click();
       }
       if (
         ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) &&
         $("#j5-8").is(":checked")
       ) {
-        console.log("3-7 3-8 5-8 Next");
+        // console.log("3-7 3-8 5-8 Next");
         $(".w-slider-dot")[1].click();
       }
       if (
@@ -968,7 +943,7 @@ function branching() {
           $("#j3-3").is(":checked") ||
           $("#j3-5").is(":checked"))
       ) {
-        console.log("ALL SLIDE 3 HIDDEN");
+        // console.log("ALL SLIDE 3 HIDDEN");
         $(".w-slider-dot")[1].click();
       }
     }
@@ -977,15 +952,6 @@ function branching() {
 function zeroToTwo() {
   nextButton.on("click", function () {
     if (slide0.style.visibility == "") {
-      // if (
-      //   $("#j3-4").is(":checked") &&
-      //   $("#j5-8").is(":checked") &&
-      //   j7.some(checked)
-      // ) {
-      //   console.log("3-4 5-8 next");
-      //   scrollToTop();
-      //   $(".w-slider-dot")[2].click();
-      // }
       if (
         $("#j5-1").is(":checked") &&
         ($("#j5-2").is(":checked") ||
@@ -998,16 +964,12 @@ function zeroToTwo() {
       ) {
         return true;
       }
-      // else if ($("#j5-1").is(":checked") || $("#j5-8").is(":checked")) {
-      //   console.log("Skip Test s0 -> s2");
-      //   $(".w-slider-dot")[1].click();
-      // }
     }
   });
   backButton.on("click", function () {
     if (slide2.style.visibility == "") {
       if ($("#j5-1").is(":checked") || $("#j5-8").is(":checked")) {
-        console.log("Skip s2 => s0");
+        // console.log("Skip s2 => s0");
         // $(".w-slider-dot")[1].click();
       }
     }
@@ -1030,11 +992,6 @@ function oneToFour() {
         $("#j10").show();
         return true;
       }
-      //CREATES ISSUE WITH SKIPPING TO SLIDE 3 BUG
-      // else if ($("#j3-1").is(":checked")) {
-      //   console.log("test1");
-      //   $(".w-slider-dot")[2].click();
-      // }
       if (
         $("#j3-4").is(":checked") &&
         ($("#j3-1").is(":checked") ||
@@ -1044,7 +1001,7 @@ function oneToFour() {
           $("#j3-6").is(":checked")) &&
         !threeC.some(checked)
       ) {
-        console.log("test2");
+        // console.log("test2");
         $("#j7").show();
         $("#j8").show();
         $("#j9").show();
@@ -1056,7 +1013,7 @@ function oneToFour() {
         ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) &&
         !threeA.some(checked)
       ) {
-        console.log("test3");
+        // console.log("test3");
         $("#j8").hide();
         $("#j9").hide();
         $("#j10").show();
@@ -1072,25 +1029,11 @@ function oneToFour() {
         !fiveA.some(checked) &&
         !fiveB.some(checked)
       ) {
-        console.log("test4");
+        // console.log("test4");
         $("#j8").show();
         $("#j9").show();
         $(".w-slider-dot")[3].click();
       }
-      // if (
-      //   $("#j3-2").is(":checked") ||
-      //   $("#j3-3").is(":checked") ||
-      //   $("#j3-5").is(":checked") ||
-      //   $("#j3-6").is(":checked")
-      // ) {
-      //   console.log("Skip s1 -> s3");
-      //   console.log("test5");
-      //   $(".w-slider-dot")[3].click();
-      // }
-      // else if ($("#j3-7").is(":checked") || $("#j3-8").is(":checked")) {
-      //   console.log("WHAT");
-      //   $(".w-slider-dot")[3].click();
-      // }
     }
   });
   backButton.on("click", function () {
@@ -1106,22 +1049,9 @@ function oneToFour() {
     }
     if (slide4.style.visibility == "") {
       if ($("#j3-1").is(":checked") && $("#j5-2").is(":checked")) {
-        console.log("S4 -> S3");
+        // console.log("S4 -> S3");
         return true;
       }
-      //BUG FOR ROUND THREE OF TESTING BUT ADDED THIS IN WHEN MATTEW AND I DID INITIAL TESTING
-      // if (
-      //   ($("#j3-2").is(":checked") ||
-      //     $("#j3-3").is(":checked") ||
-      //     $("#j3-5").is(":checked") ||
-      //     $("#j3-7").is(":checked") ||
-      //     $("#j3-8").is(":checked")) &&
-      //   $("#j5-2").is(":checked")
-      // ) {
-      //   console.log("S4 => S1");
-      //   $(".w-slider-dot")[2].click();
-      // }
-
       if (
         ($("#j5-1").is(":checked") || $("#j5-8").is(":checked")) &&
         ($("#j3-1").is(":checked") ||
@@ -1171,11 +1101,11 @@ function checkSlide0() {
         j4.some(checked) &&
         j5.some(checked)
       ) {
-        console.log("S0 True");
+        // console.log("S0 True");
         scrollToTop();
         return true;
       } else {
-        console.log("S0 Next button locked, no answers clicked!");
+        // console.log("S0 Next button locked, no answers clicked!");
         return false;
       }
     }
@@ -1186,11 +1116,11 @@ function checkSlide1() {
   nextButton.on("click", function () {
     if (slide1.style.visibility == "") {
       if (j6.some(checked)) {
-        console.log("S1 True");
+        // console.log("S1 True");
         scrollToTop();
         return true;
       } else {
-        console.log("j6 not answered");
+        // console.log("j6 not answered");
         return false;
       }
     }
@@ -1204,7 +1134,7 @@ function checkSlide2() {
         scrollToTop();
         return true;
       } else {
-        console.log("j7 not answered");
+        // console.log("j7 not answered");
         return false;
       }
     }
@@ -1218,7 +1148,7 @@ function checkSlide3() {
         scrollToTop();
         return true;
       } else {
-        console.log("S3 locked, No questions have been answered");
+        // console.log("S3 locked, No questions have been answered");
         return false;
       }
     }
@@ -1226,16 +1156,17 @@ function checkSlide3() {
 }
 //Slide4 j13 j14
 function select5() {
-  if (slide4.style.visibility == "") {
-    document.getElementsByClassName("w-checkbox").on("click", function () {
-      console.log(
-        document.querySelectorAll("input[j13select5]:checked").length
-      );
-      if (document.querySelectorAll("input[j13select5]:checked").length < 5) {
-        document.getElementsByClassName("w-checkbox").disabled == true;
+  nextButton.on("click", function () {
+    if (slide4.style.visibility == "") {
+      // console.log(
+      //   document.querySelectorAll("input[j13select5]:checked").length
+      // );
+      if (document.querySelectorAll("input[j13select5]:checked").length > 5) {
+        // console.log("greater than 5");
+        // $(".w-checkbox").attr("disabled", true);
       }
-    });
-  }
+    }
+  });
 }
 //Slide 4
 function checkSlide4() {
@@ -1251,7 +1182,7 @@ function checkSlide4() {
         scrollToTop();
         return true;
       } else {
-        console.log("S4 locked, no answers clicked!");
+        // console.log("S4 locked, no answers clicked!");
         return false;
       }
     }
@@ -1279,7 +1210,7 @@ function checkSlide5() {
         scrollToTop();
         return true;
       } else {
-        console.log("S5 locked, all questions must be answered");
+        // console.log("S5 locked, all questions must be answered");
         return false;
       }
     }
@@ -1294,10 +1225,9 @@ function checkSlide6() {
   nextButton.on("click", function () {
     if (slide6.style.visibility == "") {
       if (re.test(field1.value) && re.test(field2.value)) {
-        // Pattern matches!
-        console.log("Pattern matches");
+        // console.log("Pattern matches");
       } else {
-        console.log("S6 locked, please answer all questions");
+        // console.log("S6 locked, please answer all questions");
         $(".quiz-error-message").show();
         return false;
       }
@@ -1311,10 +1241,10 @@ function checkSlide7() {
   $("#wf-form-Quiz").submit(function () {
     if (slide7.style.visibility == "") {
       if (field3.value) {
-        console.log("Email is present");
+        // console.log("Email is present");
         // return true;
       } else {
-        console.log("S7 locked, please enter email or click skip");
+        // console.log("S7 locked, please enter email or click skip");
         $(".quiz-error-message-email").show();
         return false;
       }
@@ -1332,7 +1262,7 @@ $(".w-slide").ready(function () {
   doubleCombi();
   singleCombi();
   //Checking Lock Functions
-  // select5();
+  select5();
   checkSlide0();
   checkSlide1();
   checkSlide2();
@@ -1399,7 +1329,7 @@ function errorMess() {
 $("#wf-form-Quiz").submit(function () {
   if (slide7.style.visibility == "") {
     if (field3.value.length !== 0) {
-      console.log("Email is present");
+      // console.log("Email is present");
 
       $("#loading").fadeIn(function () {
         $("#loading").css("display", "block");
@@ -1407,12 +1337,12 @@ $("#wf-form-Quiz").submit(function () {
       $(".image-section-title").css("display", "none");
       $(".progress-bar-wrapper").css("display", "none");
 
-      console.log(email.value);
+      // console.log(email.value);
       mailChimp(email.value);
       submitResponse(email.value);
       return false;
     } else {
-      console.log("S7 Next button locked, no answers clicked!");
+      // console.log("S7 Next button locked, no answers clicked!");
       $(".quiz-error-message-email").show();
       return false;
     }
@@ -1438,7 +1368,7 @@ $(".link-skip-text").on("click", function () {
 
 //Trigger Submit of Quiz
 function submitResponse(userEmail) {
-  console.log(userEmail);
+  // console.log(userEmail);
   let date = new Date().toJSON();
 
   let data = $("form")
@@ -1589,7 +1519,7 @@ function submitResponse(userEmail) {
     .then((response) => response.text())
     .then((result) => {
       var data = JSON.parse(result);
-      console.log(data);
+      // console.log(data);
       pushToTT(data["row_id"]);
     })
     .catch((error) => console.log("error", error));
