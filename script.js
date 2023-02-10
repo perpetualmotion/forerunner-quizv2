@@ -1673,10 +1673,10 @@ function getArchtype(data) {
 
       //Archetype name
       $("#archetype").text(newData["Archetype"]);
-      // console.log($(".archetype"));
-
+      $("#name-responsive").text(newData["Archetype"]);
       //Tagline
       $("#tagline").text(newData["Tagline"]);
+      $("#tagline-responsive").text(newData["Tagline"]);
 
       //Desc
       $("#desc-right p:first-child").text(newData["Long Description"]);
