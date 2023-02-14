@@ -1406,7 +1406,6 @@ function getArchtype(data) {
     .then((response) => response.text())
     .then((result) => {
       var newData = JSON.parse(result);
-      let url = window.location.href;
       social(newData);
       $("#loading").fadeOut(function () {
         $("#loading").css("display", "none");
@@ -1419,6 +1418,11 @@ function getArchtype(data) {
       $("#tagline-responsive").text(newData.Tagline);
       $("#desc-right p:first-child").text(newData["Long Description"]);
       $("#archetype-wrapper").css("display", "block");
+
+      $("#first-desc").text(newData["First Description"]);
+      $("#second-desc").text(newData["Second Description"]);
+      $("#third-desc").text(newData["Third Description"]);
+
       $("#social-image").attr("src", newData["Image w/ Title URL"]);
     })
     .catch((error) => console.log("error", error));
@@ -1457,7 +1461,6 @@ $(document).on("load", function () {});
 function social(newData) {
   let url = "https://www.forerunnerventures.com/thedinnerparty";
   let arche = newData.Archetype.toLowerCase();
-  console.log(arche);
   $("[data-share-twitter").attr(
     "href",
     "https://twitter.com/share?text=I am the " +
