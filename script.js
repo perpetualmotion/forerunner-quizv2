@@ -1052,7 +1052,6 @@ function checkSlide3() {
 function j13select5() {
   $("[j13select5]").on("click", function () {
     if (document.querySelectorAll("[j13select5]:checked").length >= 5) {
-      console.log($("[j13select5]:not(:checked)").length);
       $("[j13select5]:not(:checked)").prop("disabled", true);
     } else if (document.querySelectorAll("[j13select5]:checked").length < 5) {
       $("[j13select5]:not(:checked)").prop("disabled", false);
@@ -1062,7 +1061,6 @@ function j13select5() {
 function j14select5() {
   $("[j14select5]").on("click", function () {
     if (document.querySelectorAll("[j14select5]:checked").length >= 5) {
-      console.log($("[j14select5]:not(:checked)").length);
       $("[j14select5]:not(:checked)").prop("disabled", true);
     } else if (document.querySelectorAll("[j14select5]:checked").length < 5) {
       $("[j14select5]:not(:checked)").prop("disabled", false);
