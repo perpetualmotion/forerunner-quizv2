@@ -1463,8 +1463,8 @@ function social(newData) {
   $("[data-share-twitter").attr(
     "href",
     "https://twitter.com/share?text=I am the " +
-      " " +
       `${arche}!` +
+      " " +
       "Take The Dinner Party quiz to find out which modern consumer archetype you are, based on new research by @forerunnervc %23JoinTheParty &url=" +
       url +
       "/archetypes/" +
