@@ -1217,6 +1217,7 @@ $(".link-skip-text").on("click", function () {
     return !1;
   }
 });
+//Submit 
 function submitResponse(userEmail) {
   let date = new Date().toJSON();
   let data = $("form")
@@ -1425,6 +1426,7 @@ function getArchtype(data) {
     })
     .catch((error) => console.log("error", error));
 }
+//Submit to Mailchimp
 function mailChimp(userEmail) {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
