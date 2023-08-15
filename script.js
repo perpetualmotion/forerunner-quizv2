@@ -1436,7 +1436,7 @@ function mailChimp(userEmail) {
     redirect: "follow",
   };
   fetch(
-    "https://v1.nocodeapi.com/fvdinnerparty/mailchimp/nTKroieeGuSVDtCH/members?list_id=8660bae57b&email_address=" +
+    "https://v1.nocodeapi.com/fvdinnerparty/mailchimp/IVOhKhbUqwYqNtOo/members?list_id=8660bae57b&email_address=" +
       `${userEmail}` +
       "&status=subscribed",
     requestOptions
